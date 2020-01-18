@@ -177,10 +177,10 @@ Finalmente, XGBoost es una implementación de Gradient Boosting en árboles de d
 % el primero debe dejar abierta la idea que se explicará a continuación. Todo debe tener secuencia.
 % \end{itemize}
 
-\subsection{Método de ensamble para datasets imbalanceados}
+\subsection{Método de ensamble para datos desbalanceados}
 
 
-Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en problemas imbalanceados \cite{batista2004study, mani2003knn, seiffert2010rusboost}.
+Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en problemas con clases desbalanceadas \cite{batista2004study, mani2003knn, seiffert2010rusboost}.
 
 El bagging es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \cite{breiman1996bagging}. Sin embargo, cada clasificador base dentro del bagging aún sufre del mismo problema, puesto que la data se muestrea proporcionalmente del dataset original. Incluso si se balancea el dataset antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original de la data y se hace overfitting.
 
@@ -304,7 +304,7 @@ En \cite{xia2017boosted} y \cite{bhatia2017credit} se experimenta con \ac{XGBoos
 
 En \cite{zhang2016research} se usa un dataset P2P para construir un modelo basado en decision tree fusionando data de los medios de comunicación sociales. En \cite{zang2014credit} también se usa un dataset P2P, el dataset de Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con P2P, en \cite{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
 
-En \cite{nanni2009experimental} se prueban varios clasificadores de ensamble en los datasets de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \cite{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco datasets distintos. Se hace un énfasis especial en el imbalanceo de la data, pues se hace un undersampling de la clase minoritaria para pronunciar el imbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en datasets altamente imbalanceados. Finalmente en \cite{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
+En \cite{nanni2009experimental} se prueban varios clasificadores de ensamble en los datasets de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \cite{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco datasets distintos. Se hace un énfasis especial en el desbalanceo de la data, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \cite{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
 
 En conclusión, hasta la fecha se ha venido realizando un trabajo muy diverso, el área de credit scoring es un área muy fértil, pero aún quedan muchas potenciales mejoras por realizarse.
 

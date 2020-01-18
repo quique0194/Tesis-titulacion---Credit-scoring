@@ -8,9 +8,9 @@ Se ve que en el AUC, la precision y la accuracy mejoran en todos los clasificado
 
 El recall baja en la mayoría de modelos, ya que existe un trade-off entre la precisión y el recall. Y ya que se trató de optimizar el accuracy, indirectamente se optimizó la precisión, de forma que el recall cayó un poco.
 
-Se desprende también que la potencial mejora que podemos obtener con un ensamble imbalanceado depende del clasificador base y del dataset sobre el cuál se aplica. 
+Se desprende también que la potencial mejora que podemos obtener con un ensamble desbalanceado depende del clasificador base y del dataset sobre el cuál se aplica. 
 
-Si analizamos cuál fue el algoritmo base más afectado por la técnica de ensamble imbalanceado, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
+Si analizamos cuál fue el algoritmo base más afectado por la técnica de ensamble desbalanceado, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
 
 \subsection{Sobre el aprendizaje profundo}
 
@@ -105,7 +105,7 @@ Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}
 
 Se observa que el desempeño de los clasificadores IB es ligeramente superior al desempeño de \ac{RF} y \ac{XGBoost}. Si comparamos la mejora obtenida por el mejor clasificador IB respecto al mejor entre RF y XGBoost; vemos que el AUC en Apurata incrementa 3.33, en Lending Club mejora 0.50 y en Crédito Alemán aumenta en 0.06.
 
-Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan datasets imbalanceados, ya que los datasets crediticios además del imbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de la data, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos clasficadores IB son universalmente mejores que Random Forest y XGBoost.
+Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de la data, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos clasficadores IB son universalmente mejores que Random Forest y XGBoost.
 
 Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el dataset de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
 
@@ -179,7 +179,7 @@ Es importante notar que al haber seguido procesos diferentes, los resultados de 
 
 Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
-Si vemos los resultados a grandes rasgos, se observa que los clasificadores IB son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets imbalanceados al dominio de credit scoring puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
+Si vemos los resultados a grandes rasgos, se observa que los clasificadores IB son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets desbalanceados al dominio de credit scoring puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
 
 
 \begin{table}[]

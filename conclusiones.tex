@@ -2,9 +2,9 @@
 
 %En primer lugar debes escribir las conclusiones generales de tu trabajo. evita escribirlas en forma de viñetas. Simplemente utiliza texto continuo.
 
-Hemos visto que en el área de credit scoring hay abundante investigación, pero que no se ha explotado lo suficiente características del dataset crediticio típico, como el imbalanceo, el cuál se trato de explotar en este trabajo para obtener los mejores resultados posibles.
+Hemos visto que en el área de credit scoring hay abundante investigación, pero que no se ha explotado lo suficiente características del dataset crediticio típico, como el desbalanceo de los datos, el cuál se trato de explotar en este trabajo para obtener los mejores resultados posibles.
 
-Se vio que al aplicar un algoritmo recientemente propuesto de ensamble para datasets imbalanceados con varias familias de clasificadores base, se mejora el poder predictivo en prácticamente la totalidad de los casos. Sin embargo esta mejora depende del dataset en cuestión y el modelo base que se esté utilizando.
+Se vio que al aplicar un algoritmo recientemente propuesto de ensamble para conjuntos de datos desbalanceados con varias familias de clasificadores base, se mejora el poder predictivo en prácticamente la totalidad de los casos. Sin embargo esta mejora depende del dataset en cuestión y el modelo base que se esté utilizando.
 
 El caso del aprendizaje profundo, y específicamente de la \ac{DBN} es particular, porque la complejidad de ajustar los parámetros del modelo es elevada y el beneficio obtenido no lo justifica. Y debido a que este clasificador ya es bastante complejo de por sí no se le creó una versión ensamblada.
 
@@ -12,9 +12,9 @@ Por otro lado, al comparar los resultados de los clasificadores IB con otros mé
 
 Lamentablemente estos resultados no se pueden extrapolar a otros dominios debido a las particularidades de los datasets crediticios.
 
-Al igual que con otros algoritmos de ensamble en estado del arte, el Decision Tree fue el clasificador base que mejor se adaptó al método de ensamble para datasets imbalanceados.
+Al igual que con otros algoritmos de ensamble en estado del arte, el Decision Tree fue el clasificador base que mejor se adaptó al método de ensamble para datasets desbalanceados.
 
-Finalmente cuando comparamos nuestros resultados con el estado del arte actual, observamos que este método de ensamble para datasets imbalanceados puede producir modelos competitivos, lo cuál refuerza la idea de profundizar la investigación en explotar las características inherentes a la data crediticia.
+Finalmente cuando comparamos nuestros resultados con el estado del arte actual, observamos que este método de ensamble para datasets desbalanceados puede producir modelos competitivos, lo cuál refuerza la idea de profundizar la investigación en explotar las características inherentes a la data crediticia.
 
 \section{Problemas encontrados}
 
@@ -24,7 +24,7 @@ Hay demasiadas combinaciones de modelos y parámetros, y esto se puede complicar
 
 Los resultados de una sóla ejecución pueden no ser confiables, esto es fácilmente detectable si al ejectuar varias veces las pruebas los resultados no son estables. Esto es especialmente susceptible en datasets pequeños, como los que se trabajan en esta investigación.
 
-A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no depende de la selección de un punto de corte y es insensible al imbalanceo de la información; otros estudios del estado del arte insisten en utilizar otras métricas sub-óptimas como el accuracy. De modo que uno se ve forzado a usar estas mismas métricas para poder comparar sus resultados con el estado del arte de forma mas o menos efectiva.
+A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no depende de la selección de un punto de corte y es insensible al desbalanceo de las clases; otros estudios del estado del arte insisten en utilizar otras métricas sub-óptimas como el accuracy. De modo que uno se ve forzado a usar estas mismas métricas para poder comparar sus resultados con el estado del arte de forma mas o menos efectiva.
 
 % La segunda  parte de ests capítulo corresponde a los problemas encontrados. esta seccion es muy importante para que los siguientes estudiantes que hagan algo en esta línea no cometan los mismos errores y tu tesis sea un buen peldaño para avanzar más rápido.
 

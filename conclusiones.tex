@@ -1,0 +1,47 @@
+\chapter{Conclusiones y Trabajos Futuros}\label{chap:conclusiones}
+
+%En primer lugar debes escribir las conclusiones generales de tu trabajo. evita escribirlas en forma de viñetas. Simplemente utiliza texto continuo.
+
+Hemos visto que en el área de credit scoring hay abundante investigación, pero que no se ha explotado lo suficiente características del dataset crediticio típico, como el imbalanceo, el cuál se trato de explotar en este trabajo para obtener los mejores resultados posibles.
+
+Se vio que al aplicar un algoritmo recientemente propuesto de ensamble para datasets imbalanceados con varias familias de clasificadores base, se mejora el poder predictivo en prácticamente la totalidad de los casos. Sin embargo esta mejora depende del dataset en cuestión y el modelo base que se esté utilizando.
+
+El caso del aprendizaje profundo, y específicamente de la \ac{DBN} es particular, porque la complejidad de ajustar los parámetros del modelo es elevada y el beneficio obtenido no lo justifica. Y debido a que este clasificador ya es bastante complejo de por sí no se le creó una versión ensamblada.
+
+Por otro lado, al comparar los resultados de los clasificadores IB con otros métodos de ensamble del estado del arte, específicamente \ac{RF} y \ac{XGBoost}, vemos que se consigue una pequeña mejora, lo cuál es muy alentador.
+
+Lamentablemente estos resultados no se pueden extrapolar a otros dominios debido a las particularidades de los datasets crediticios.
+
+Al igual que con otros algoritmos de ensamble en estado del arte, el Decision Tree fue el clasificador base que mejor se adaptó al método de ensamble para datasets imbalanceados.
+
+Finalmente cuando comparamos nuestros resultados con el estado del arte actual, observamos que este método de ensamble para datasets imbalanceados puede producir modelos competitivos, lo cuál refuerza la idea de profundizar la investigación en explotar las características inherentes a la data crediticia.
+
+\section{Problemas encontrados}
+
+El procesamiento de la información es costoso en términos de tiempo del investigador. Hay que entender las variables para poder transformarlas o eliminarlas de forma efectiva.
+
+Hay demasiadas combinaciones de modelos y parámetros, y esto se puede complicar aún más si agregamos métodos de bagging, por lo que se requiere muchas ejecuciones de los modelos para encontrar los parámetros mas adecuados. Esto, al igual que el punto anterior es costoso en términos de tiempo del investigador.
+
+Los resultados de una sóla ejecución pueden no ser confiables, esto es fácilmente detectable si al ejectuar varias veces las pruebas los resultados no son estables. Esto es especialmente susceptible en datasets pequeños, como los que se trabajan en esta investigación.
+
+A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no depende de la selección de un punto de corte y es insensible al imbalanceo de la información; otros estudios del estado del arte insisten en utilizar otras métricas sub-óptimas como el accuracy. De modo que uno se ve forzado a usar estas mismas métricas para poder comparar sus resultados con el estado del arte de forma mas o menos efectiva.
+
+% La segunda  parte de ests capítulo corresponde a los problemas encontrados. esta seccion es muy importante para que los siguientes estudiantes que hagan algo en esta línea no cometan los mismos errores y tu tesis sea un buen peldaño para avanzar más rápido.
+
+\section{Recomendaciones}
+
+Si la limpieza de la data no es parte de la investigación, hay que procurar tomar datasets ya pre-procesados.
+
+Si el dataset es pequeño y los resultados cambian con cada ejecución de las pruebas, hay que utilizar cross validation con repetición. El número de repeticiones se puede escoger a mano hasta que los resultados sean estables. Basta probar que los resultados sean estables con un modelo simple como \ac{LR} y podemos asumir que van a seguir siendo estables con modelos más complejos.
+
+Usar datasets heterogéneos permite obtener conclusiones más generalizables, y hacer una mejor comparación que no esté tan sesgada por características particulares de ciertos datasets.
+
+%En esta sección el tesista debe reflejar que la tesis ha permitido adquirir nuevos conocimientos que podrían servir para guiar otros trabajos en el futuro.
+
+\section{Trabajo futuro}
+
+En este trabajo vimos que atender algunas de las características de los datasets de credit scoring ayudan a mejorar el desempeño de los modelos. Por lo tanto los trabajos futuros se pueden enfocar en explotar las características que no fueron cubiertas en esta investigación, como lo son la sensibilidad al costo, y la estacionalidad de la data.
+
+% En base a los puntos anteriores es recomendable que tu tesis también sugiera trabajos futuros. Esta sección es esecialmente útil para otras ideas de tesis.
+
+%Todo este capítulo no debe ser más de unas 4 páginas.

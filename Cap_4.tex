@@ -1,0 +1,246 @@
+\chapter{Pruebas y Resultados}
+
+\section{Proceso 1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Los resultados del proceso 1 se pueden ver en las Tablas \ref{tab:apurata-proc1}, \ref{tab:lc-proc1} y \ref{tab:german-proc1}.
+
+Se ve que en el AUC, la precision y la accuracy mejoran en todos los clasificadores. Particularmente el AUC se incrementa un promedio de 4.30 en Apurata, 2.80 en Lending Club y 1.62 en el Crédito Alemán.
+
+El recall baja en la mayoría de modelos, ya que existe un trade-off entre la precisión y el recall. Y ya que se trató de optimizar el accuracy, indirectamente se optimizó la precisión, de forma que el recall cayó un poco.
+
+Se desprende también que la potencial mejora que podemos obtener con un ensamble imbalanceado depende del clasificador base y del dataset sobre el cuál se aplica. 
+
+Si analizamos cuál fue el algoritmo base más afectado por la técnica de ensamble imbalanceado, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
+
+\subsection{Sobre el aprendizaje profundo}
+
+El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque son varios parámetros y porque al ser poca información el modelo presenta una tendencia a caer en overfitting. Esto se observa al tener un desempeño impecable con la data de entrenamiento, pero un desempeño muy inferior con la data de prueba.
+
+Luego de ajustar cuidadosamente los parámetros de la mejor forma posible, el poder predictivo no es mejor que otros clasificadores base, específicamente es muy similar al de una \ac{MLP} simple. Esto se puede explicar con la baja dimensionalidad de los datasets y la poca cantidad de muestras; ya que no se explota la capacidad de reducción de dimensionalidad del modelo y tampoco se hace un entrenamiento adecuado por la escasez de datos.
+
+En conclusión, este clasificador no es adecuado para este problema, y al ser bastante complejo ya de por sí, no se le creó una versión ensamblada.
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 1 con dataset Apurata}
+\label{tab:apurata-proc1}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+LR              & 70.02     & 89.25     & 96.35     & 82.78     \\
+IB-LR           & 72.56     & 89.76     & 95.96     & 82.86     \\
+                \hline
+MLP             & 68.13     & 88.96     & 91.86     & 80.30     \\
+IB-MLP          & 70.61     & 89.64     & 92.30     & 80.61     \\
+                \hline
+DT              & 61.75     & 86.84     & 98.06     & 83.71     \\
+IB-DT           & 68.81     & 89.42     & 92.93     & 80.73     \\
+                \hline
+SVM             & 66.56     & 89.33     & 87.65     & 78.39     \\
+IB-SVM          & 71.70     & 89.81     & 94.44     & 82.04     \\
+                \hline
+DBN             & 67.80     & 88.04     & 91.76     & 79.84     \\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 1 con dataset LendingClub}
+\label{tab:lc-proc1}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+LR              & 73.36     & 77.83     & 95.40     & 75.05		\\
+IB-LR           & 73.34     & 77.55     & 96.23     & 74.85		\\
+                \hline
+MLP             & 74.87     & 78.29     & 95.74     & 75.71		\\
+IB-MLP          & 75.67     & 79.09     & 94.07     & 75.82		\\
+                \hline
+DT              & 75.52     & 77.94     & 92.86     & 75.34		\\
+IB-DT           & 80.34     & 81.88     & 89.50     & 78.05		\\
+                \hline
+SVM             & 73.53     & 77.42     & 97.29     & 75.03		\\
+IB-SVM          & 74.41     & 78.29     & 95.91     & 75.00		\\
+                \hline
+DBN             & 75.01     & 78.56     & 94.92     & 75.72		\\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 1 con dataset Alemán}
+\label{tab:german-proc1}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+LR              & 71.45     & 81.77     & 99.32     & 78.92     \\
+IB-LR           & 71.50     & 81.84     & 98.83     & 78.68     \\
+                \hline
+MLP             & 69.36     & 81.26     & 98.76     & 78.78     \\
+IB-MLP          & 71.61     & 82.44     & 97.08     & 79.00     \\
+                \hline
+DT              & 66.86     & 79.48     & 99.85     & 78.35     \\
+IB-DT           & 71.82     & 82.71     & 96.02     & 79.20     \\
+                \hline
+SVM             & 67.54     & 80.79     & 97.28     & 79.12     \\
+IB-SVM          & 71.49     & 82.27     & 97.88     & 79.35     \\
+                \hline
+DBN             & 66.84     & 80.07     & 97.98     & 78.24     \\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\section{Proceso 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}.
+
+Se observa que el desempeño de los clasificadores IB es ligeramente superior al desempeño de \ac{RF} y \ac{XGBoost}. Si comparamos la mejora obtenida por el mejor clasificador IB respecto al mejor entre RF y XGBoost; vemos que el AUC en Apurata incrementa 3.33, en Lending Club mejora 0.50 y en Crédito Alemán aumenta en 0.06.
+
+Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan datasets imbalanceados, ya que los datasets crediticios además del imbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de la data, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos clasficadores IB son universalmente mejores que Random Forest y XGBoost.
+
+Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el dataset de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
+
+Finalmente, el IB Decision Tree obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si la data no es linealmente separable, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar el Decision Tree como base para algoritmos de ensamble tiene muy buenos resultados.
+
+\begin{table}[]
+\centering
+\caption{Proceso 2 con dataset Apurata}
+\label{tab:apurata-proc2}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+IB-LR    		& 72.56     & 89.76     & 95.96     & 82.86		\\
+IB-MLP   		& 70.61     & 89.64     & 92.30     & 80.61		\\
+IB-SVM   		& 71.70     & 89.81     & 94.44     & 82.04		\\
+IB-DT    		& 68.81     & 89.42     & 92.93     & 80.73		\\
+				\hline
+RF       		& 69.23     & 89.37     & 94.57     & 81.66		\\
+XGB      		& 67.91     & 89.31     & 89.92     & 78.75		\\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 2 con dataset LendingClub}
+\label{tab:lc-proc2}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+IB-LR           & 71.50     & 81.84     & 98.83     & 78.68     \\
+IB-MLP          & 71.61     & 82.44     & 97.08     & 79.00     \\
+IB-SVM          & 71.49     & 82.27     & 97.88     & 79.35     \\
+IB-DT           & 71.82     & 82.71     & 96.02     & 79.20     \\
+                \hline
+RF              & 71.32     & 82.18     & 97.23     & 78.79     \\
+XGB             & 70.68     & 81.89     & 98.56     & 78.81     \\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 2 con dataset Alemán}
+\label{tab:german-proc2}
+\begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
+                \hline
+                & AUC       & Precision & Recall    & Accuracy  \\
+                \hline
+IB-LR           & 73.34     & 77.55     & 96.23     & 74.85     \\
+IB-MLP          & 75.67     & 79.09     & 94.07     & 75.82     \\
+IB-SVM          & 74.41     & 78.29     & 95.91     & 75.00     \\
+IB-DT           & 80.34     & 81.88     & 89.50     & 78.05     \\
+                \hline
+RF              & 79.82     & 80.84     & 92.01     & 76.22     \\
+XGB             & 80.28     & 81.43     & 91.66     & 78.93     \\
+                \hline
+\end{tabularx}
+\end{table}
+
+
+\section{Proceso 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Los resultados del proceso 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un dataset privado que es usado de forma inédita en este trabajo.
+
+Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios tienen una variación más alta que si se hubieran hecho las comparaciones usando los mismo procesos. Es por esto que las conclusiones del proceso 2 son tan importantes.
+
+Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
+
+Si vemos los resultados a grandes rasgos, se observa que los clasificadores IB son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets imbalanceados al dominio de credit scoring puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 3 con dataset LendingClub}
+\label{tab:lc-proc3}
+\begin{tabularx}{\textwidth}{|l|Y Y l|}
+                \hline
+                & AUC           & Accuracy      & Ref.                                  \\
+                \hline
+IB-LR           & 71.50         & 78.68         &                                       \\
+IB-MLP          & 71.61         & 79.00         &                                       \\
+IB-SVM          & 71.49         & 79.35         &                                       \\
+IB-DT           & 71.82         & 79.20         &                                       \\
+                \hline
+RF              & 71.00         & 78.00         & Malekipirbazari, M.et al (2015)       \\
+SVM             & 62.00         & 63.30         & Malekipirbazari, M.et al (2015)       \\
+DT              & -             & 81.22         & Zhang, Y. Et al (2016)                \\
+NN              & -             & 77.40         & Zhang, Y. Et al (2016)                \\
+MLP             & -             & 78.60         & Zang, D. et al (2015)                 \\
+crDNN           & 72.55         & -             & Tan, F. et al (2018)                  \\
+LR              & 71.52         & -             & Tan, F. et al (2018)                  \\
+mcDNN           & 70.88         & -             & Tan, F. et al (2018)                  \\
+CRSA            & 69.30         & -             & Tan, F. et al (2018)                  \\
+                \hline
+\end{tabularx}
+\par
+\small
+Las investigaciones utilizadas para la comparación son en orden: \cite{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Proceso 3 con dataset Alemán}
+\label{tab:german-proc3}
+\begin{tabularx}{\textwidth}{|l|Y Y l|}
+                        \hline
+                        & AUC       & Accuracy  & Ref.                                  \\
+                        \hline
+IB-LR                   & 73.34     & 74.85     &                                       \\
+IB-MLP                  & 75.67     & 75.82     &                                       \\
+IB-SVM                  & 74.41     & 75.00     &                                       \\
+IB-DT                   & 80.34     & 78.05     &                                       \\
+                        \hline
+SVM-linear              & 69.13     & 78.70     & Harris, T. (2015)                     \\
+SVM-RBF                 & 69.53     & 78.00     & Harris, T. (2015)                     \\
+CSVM-RBF                & 69.23     & 77.10     & Harris, T. (2015)                     \\
+MLP                     & 78.09     & 75.20     & Nanni, L. \& Lumini, A. (2009)        \\
+Rand Subsp LMNC         & 78.47     & 73.93     & Nanni, L. \& Lumini, A. (2009)        \\
+Bagging MLP             & 79.32     & 75.33     & Nanni, L. \& Lumini, A. (2009)        \\
+Class Switch MLP        & 78.62     & 73.93     & Nanni, L. \& Lumini, A. (2009)        \\
+Rotat Forest MLP        & 79.39     & 75.00     & Nanni, L. \& Lumini, A. (2009)        \\
+Lin LS-SVM              & 81.90     & -         & Brown, I. \& Mues, C. (2012)          \\
+Random Forests          & 80.00     & -         & Brown, I. \& Mues, C. (2012)          \\
+RS-Bagging DT           & -         & 78.36     & Wang, G. et al. (2012)                \\
+Bagging-RS DT           & -         & 78.52     & Wang, G. et al. (2012)                \\
+                        \hline
+\end{tabularx}
+\par
+\small
+Las investigaciones utilizadas para la comparación son en orden: \cite{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}
+\end{table}
+

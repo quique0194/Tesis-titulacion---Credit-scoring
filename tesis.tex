@@ -1,0 +1,82 @@
+\documentclass[a4paper,openany,12pt]{book}
+\usepackage{graphicx}
+\usepackage[spanish,mexico]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{ae}
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=2cm]{geometry}
+\usepackage[printonlyused]{acronym}
+\usepackage{xspace}
+\usepackage{flafter}
+\usepackage{hlundef}
+\usepackage{tesis}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\usepackage{natbib}
+\setcitestyle{numbers,notesep={: }}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\title{Ensamble de múltiples subdatasets balanceados aplicado a calificación crediticia}
+
+\author{José Enrique Carrillo Pino}
+
+\advisor{Prof Dr. Dennis Barrios Aranibar}
+
+\examinerone{Prof. Dr. Hidalgo Buena Gente}{Presidente}%
+\examinertwo{Prof. Dr. Manuel Armando Líos}{Secretario}%
+\examinerthree{Prof. Dr. Antero A. Gal Oppe}{Integrante}%
+\examinerfour{Prof. Dr. Casso E. Staria}{Externo}{Universidad del ABC} % of being the case
+%\date{15 de Octubre del 2018}
+\date{\today}
+
+\dedicado{Dedico este trabajo a mis padres que me encaminaron hasta aquí, a mis profesores que me aportaron los conocimientos necesarios y a mis amigos y pareja que influyeron de forma positiva en mi vida para hacerme la persona que soy ahora.}
+
+\begin{document}
+\pagestyle{fancy}
+
+\maketitle %Compone la carátula y la dedicatoria
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DESCOMENTAR ESTO PARA LA TESIS FINAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\approved{\cuatro}%  {\tres} or {\cuatro}
+
+\include{abreviaturas}
+
+\input{Agradecimientos} %Inserta los agradecimientos
+\input{Resumen} %Inserta el resumen
+\input{Abstract} %Inserta el abstract
+
+\clearpage
+\pagenumbering{roman}
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\tableofcontents %Inserta el índice general
+\listoftables %Inserta el índice de cuadros
+\listoffigures %Inserta el índice de figuras
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   En esta parte deberas incluir los archivos de tu tesis   %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\pagestyle{plain}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{Cap_1} %Inserta el capítulo 1
+\input{Cap_2} %Inserta el capítulo 2
+\input{Cap_3} %Inserta el capítulo 3
+\input{Cap_4} %Inserta el capítulo 4
+\input{conclusiones} %Inserta el capítulo 5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliographystyle{apalike}
+\bibliography{tesis}{}
+
+\addcontentsline{toc}{chapter}{Bibliografía}
+\end{document}

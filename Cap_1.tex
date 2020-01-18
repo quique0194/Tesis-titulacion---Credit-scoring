@@ -1,0 +1,47 @@
+\chapter{Introducción}
+
+Machine Learning es un área de investigación muy fructífera con abundante investigación. Uno de los objetivos de esta área es resolver problemas de clasificación, es decir, dadas un conjunto de características observadas, asignar una categoría basado en ejemplos vistos anteriormente. Estos algoritmos clasificadores son entrenados mediante algoritmos de aprendizaje supervisados.
+
+Un problema de clasficación que tiene solamente dos categorías es llamado binario. Una de las aplicaciones en el mundo real de estos clasificadores binarios se halla en el área de credit scoring, donde la tarea es clasificar a las personas en buenos y malos pagadores, basandose en el historial de crédito y otras variables de comportamiento que cada entidad financiera pueda recolectar.
+
+Al utilizar los algoritmos de machine learning en problemas de credit scoring, habilitamos una poderosa herramienta que podría mejorar las tasas de interés a las que son ofrecidas los préstamos e incrementar la inclusión financiera a nivel global.
+
+\section{Motivación y Contexto}
+
+El momento en que se publica este trabajo es muy emocionante, puesto que en el entorno emprendedor peruano han surgido varias fintech que aprovechan el potencial de machine learning para expandir el porcentaje de la población que tiene acceso al crédito, que actualmente está rondando el 30\%.
+
+Las instituciones financieras tradicionales se han dado cuenta de esto y también están empezando a apalancarse con herramientas de machine learning para mantenerse a la altura.
+
+Desde el lado de la ciencia, este florecimiento del campo de aplicación ha impulsado la investigación en esta área, de modo que ahora tenemos nuevos algoritmos poderosos y eficientes como \ac{XGBoost} y nuevas técnicas de bagging, además de muchos estudios comparativos.
+
+Sin embargo, cuando se aplican estas técnicas, muchas veces se olvidan características intrínsecas de la data en credit scoring, lo que lleva a crear modelos subóptimos. De ahí surge la necesidad de enfocarnos en estas características particulares para mejorar el estado del arte existente.
+
+\section{Planteamiento del Problema}
+
+La investigación actual en credit scoring no explota la característica de los datasets de ser de naturaleza desbalanceada.
+
+\section{Objetivos}
+
+Importar un reciente método de ensamble para clasificar data desbalanceada al dominio de credit scoring.
+
+\subsection{Objetivos Específicos}
+
+Comparar el desempeño de cuatro clasificadores base de distintas familias (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{DT}) contra su versión ensamblada.
+
+Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}.
+
+Comparar el desempeño de los cuatro clasificadores ensamblados con los resultados de otros trabajos de investigación del estado del arte usando datasets benchmark.
+
+\section{Organización de la tesis}
+
+En el capítulo 2 se dará un marco teórico al mismo tiempo que una revisión del Estado del Arte. Se abordarán temas como la historia de la minería de datos y credit scoring, estudios de benchmarking y problemas identificados con la investigación actual. También explicaremos los algoritmos de clasificación usados en esta investigación, los algoritmos de ensamble referenciales, el algoritmo de ensamble para datasets imbalanceados y los algoritmos de evaluación. Finalmente se hará un estudio del trabajo relacionado.
+
+En el capítulo 3 se explicarán los experimentos llevados a cabo en esta investigación. Se hablará de los datasets utilizados, la metodología seguida y los procesos mediante los cuales se lograron los objetivos y se obtuvieron los resultados.
+
+Luego en el capítulo 4 se presentarán los resultados de este trabajo en forma de tablas, al mismo tiempo que se harán algunos comentarios sobre observaciones interesantes y conclusiones relevantes.
+
+Finalmente en el capítulo 5 se bosquejan las conclusiones, problemas encontrados, recomendaciones y trabajo futuro.
+
+%\section{Cronograma}
+
+%Esta sección sólo es para aquellos alumnos que estén presentando su plan de tesis. Esta sección no va en la tesis final.

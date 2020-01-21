@@ -8,9 +8,9 @@ Se ve que en el AUC, la precision y la accuracy mejoran en todos los clasificado
 
 El recall baja en la mayoría de modelos, ya que existe un trade-off entre la precisión y el recall. Y ya que se trató de optimizar el accuracy, indirectamente se optimizó la precisión, de forma que el recall cayó un poco.
 
-Se desprende también que la potencial mejora que podemos obtener con un ensamble desbalanceado depende del clasificador base y del dataset sobre el cuál se aplica. 
+Se desprende también que la potencial mejora que podemos obtener con el método de ensamble para datos desbalanceados depende del clasificador base y del dataset sobre el cuál se aplica. 
 
-Si analizamos cuál fue el algoritmo base más afectado por la técnica de ensamble desbalanceado, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
+Si analizamos cuál fue el algoritmo base más afectado por el \ac{ECDD}, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
 
 \subsection{Sobre el aprendizaje profundo}
 
@@ -179,7 +179,7 @@ Es importante notar que al haber seguido procesos diferentes, los resultados de 
 
 Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
-Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets desbalanceados al dominio de credit scoring puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
+Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets desbalanceados al dominio de los puntajes de crédito puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
 
 
 \begin{table}[]

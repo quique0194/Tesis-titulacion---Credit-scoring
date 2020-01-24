@@ -1,8 +1,8 @@
 \chapter{Marco Teórico y Estado del Arte}
 
-El puntaje de crédito se obtiene mediante un conjunto de modelos de decisión que ayudan a los prestamistas a otorgar créditos. Estas técnicas son usadas para decidir quién obtiene crédito, cuánto crédito deben obtener, a qué precio lo tendrán, y qué estrategias operacionales mejorarán la rentabilidad de los clientes. Un puntaje de crédito puede ser transformado en la probabilidad del cliente de no pagar el préstamo. Así, desde el año 2000, se ha convertido en un pilar de los modelos desarrollados por instituciones financieras cumplir los requerimientos del Acuerdo de Basilea que dictamina que se deben estimar las probabilidades de default de cada portafolio de préstamos \cite[1]{thomas2017credit}.
+El puntaje de crédito se obtiene mediante un conjunto de modelos de decisión que ayudan a los prestamistas a otorgar créditos. Estas técnicas son usadas para decidir quién obtiene crédito, cuánto crédito deben obtener, a qué precio lo tendrán, y qué estrategias operacionales mejorarán la rentabilidad de los clientes. Un puntaje de crédito puede ser transformado en la probabilidad del cliente de no pagar el préstamo. Así, desde el año 2000, se ha convertido en un pilar de los modelos desarrollados por instituciones financieras cumplir los requerimientos del Acuerdo de Basilea que dictamina que se deben estimar las probabilidades de morosidad de cada portafolio de préstamos \cite[1]{thomas2017credit}.
 
-Con los avances en el concepto de minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \cite[18]{thomas2017credit}.
+Con los avances en minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \cite[18]{thomas2017credit}.
 
 Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de los datos, su exactitud y su confiabilidad \cite[18--19]{thomas2017credit}. Sin embargo no trataremos estos temas porque están fuera del ámbito de esta investigación.
 
@@ -20,7 +20,7 @@ A pesar de tener mucha investigación, la literatura sobre puntuación creditici
     \item Pruebas de hipótesis estadísticas para \textit{comparar} modelos 
 \end{itemize}
 
-Un análisis de le literatura de modelamiento de default confirma que los estudios en esta área tienen varias limitaciones \cite{lessmann2015benchmarking}:
+Un análisis de le literatura de modelamiento de morosidad confirma que los estudios en esta área tienen varias limitaciones \cite{lessmann2015benchmarking}:
 
 \begin{itemize}
     \item Utilizan pocos o pequeños conjuntos de datos
@@ -239,18 +239,18 @@ De forma más intuitiva podemos definirlos de la siguiente manera:
     \item [Recall] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
 \end{description}
 
-Aunque en el ámbito de la puntuación de crédito lo normal sea que la clase positiva sean los defaults, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precision y el recall se vuelven métricas muy útiles, con significados muy prácticos:
+Aunque en el ámbito de la puntuación de crédito lo normal sea que la clase positiva sean las personas morosas, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precision y el recall se vuelven métricas muy útiles, con significados muy prácticos:
 
 \begin{description}
-    \item [Precision] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de default}$. Y representa muy bien el riesgo crediticio del modelo.
+    \item [Precision] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
     \item [Recall] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
 \end{description}
 
 En otras palabras, el balance entre precisión y recall se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
 
-Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 hace default. Un modelo que simplemente trate de maximizar la accuracy puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así un accuracy de 0.999.
+Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 no paga su crédito. Un modelo que simplemente trate de maximizar la accuracy puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así un accuracy de 0.999.
 
-En estos casos de desbalance tan extremo también la precision y el recall se ven afectados, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 default en 1000 personas, la precision sería de 0 y el recall también, indicando que nuestro modelo no tiene poder predictivo.
+En estos casos de desbalance tan extremo también la precision y el recall se ven afectados, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 moroso en 1000 personas, la precision sería de 0 y el recall también, indicando que nuestro modelo no tiene poder predictivo.
 
 \subsection{Curva ROC y Area bajo la curva (AUC)}
 

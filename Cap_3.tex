@@ -7,34 +7,34 @@
 %\end{itemize}
 %Este título debe de estar ade acuerdo con el asesor del tema. Consúltelo en su sala de clase.
 
-En este capítulo explicaremos la información necesaria y los procedimientos seguidos para llevar a cabo la experimentación. En primer lugar se explicarán los datasets que servirán de base y benchmark para los experimentos; luego se detallarán algunos detalles de la metodología; y finalmente se explicarán los experimentos a seguir.
+En este capítulo explicaremos la información necesaria y los procedimientos seguidos para llevar a cabo la experimentación. En primer lugar se explicarán los conjuntos de datos que servirán de base y referencia para los experimentos; luego se detallarán algunos detalles de la metodología; y finalmente se explicarán los experimentos a seguir.
 
-\section{Datasets}
+\section{Conjuntos de datos}
 
-Los datasets que serán utilizados como casos de prueba son los siguientes:
+Los conjuntos de datos que serán utilizados como casos de prueba son los siguientes:
 
 \begin{description}
-    \item[Apurata] Dataset privado de la fintech peruana con el mismo nombre
-    \item[Lending Club] Dataset público de la mayor fintech de préstamo peer to peer en EE.UU.
-    \item[Crédito Alemán] Dataset público de entidades bancarias Alemanas
+    \item[Apurata] Conjunto de datos privado de la fintech peruana con el mismo nombre
+    \item[Lending Club] Conjunto de datos público de la mayor fintech de préstamos peer to peer en EE.UU.
+    \item[Crédito Alemán] Conjunto de datos público de entidades bancarias Alemanas
 \end{description}
 
-Una mejor comparación entre estos datasets se puede encontrar en la tabla \ref{tab:dataset-comparison}
+Una mejor comparación entre estos conjuntos se puede encontrar en la tabla \ref{tab:dataset-comparison}
 
 \begin{table}
     \centering
-    \caption{Datasets utilizados}
+    \caption{Conjunto de datos utilizados}
     \label{tab:dataset-comparison}
     \includegraphics[width=0.8\linewidth]{graficos/dataset_comparison.png}
 \end{table}
 
-Como se puede apreciar, todos los datasets se componen de pocas variables, ninguno de ellos supera las 50. Los datasets de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de datapoints, con 1000 o menos registros.
+Como se puede apreciar, todos los conjuntos se componen de pocas características, ninguno de ellos supera las 50. Los conjuntos de datos de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de instancias, con 1000 o menos.
 
 También se cumple que los 3 conjuntos de datos son desbalanceados, ya que la clase de ``Default", o personas que no cumplieron con el pago de su deuda representa el 15\% para Apurata, 24\% para Lending Club y el 30\% para Crédito Alemán.
 
-Por otro lado, los 3 datasets también poseen diferencias importantes entre sí que enriquecen su estudio. Apurata y Lending Club son fintech que utilizan diferentes criterios de los de los bancos para seleccionar su información. Los datasets de Crédito Alemán y Lending Club registran créditos que se realizan por montos más altos y a un mayor plazo que los de Apurata. Los periodos de tiempo y los países abarcados por los datasets también son únicos, y finalmente Lending Club tiene bastante más datapoints que los otros 2 datasets.
+Por otro lado, los 3 conjuntos también poseen diferencias importantes entre sí que enriquecen su estudio. Apurata y Lending Club son fintech que utilizan diferentes criterios de los de los bancos para seleccionar su información. Los conjuntos de Crédito Alemán y Lending Club registran créditos que se realizan por montos más altos y a un mayor plazo que los de Apurata. Los periodos de tiempo y los países abarcados por los conjuntos de datos también son únicos, y finalmente Lending Club tiene bastante más instancias que los otros 2 conjuntos.
 
-Los datasets de Crédito Alemán y Lending Club son considerados benchmark en sus respectivos sub-dominios, ya que hay varios estudios que los utilizan para realizar sus experimentos. Entre los que usan el dataset de Lending Club tenemos \cite{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}. Y entre los que usan el dataset de Crédito Alemán tenemos \cite{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}.
+Los conjuntos de Crédito Alemán y Lending Club son considerados referenciales en sus respectivos sub-dominios, ya que hay varios estudios que los utilizan para realizar sus experimentos. Entre los que usan los datos de Lending Club tenemos \cite{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}. Y entre los que usan los datos del Crédito Alemán tenemos \cite{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}.
 
 \section{Metodología}
 
@@ -44,7 +44,7 @@ La interpretación de la variable $y$ se hizo de la siguiente manera: 1 para los
 
 Para la selección de parámetros se realizó un grid-search con un ajuste fino manual al final. Sobre el desbalanceo de los datos, no se tomó ningún procedimiento especial. 
 
-Para evaluar el desempeño de los modelos se hizo 10-fold validation 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundante data. Finalmente se extrajo el promedio de todas las mediciones como la medición final. 
+Para evaluar el desempeño de los modelos se hizo 10-fold validation 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final. 
 
 Las métricas utilizas son la accuracy, la precision, el recall y el AUC. La métrica que se buscó optimizar fue el AUC. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar el accuracy, de modo que los resultados son comparables con el estado del arte.
 
@@ -64,4 +64,4 @@ En este experimento compararemos los \ac{ECDD} con dos algoritmos de bagging usa
 
 \subsection{Experimento 3}
 
-Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos datasets. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos datasets benchmark.
+Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.

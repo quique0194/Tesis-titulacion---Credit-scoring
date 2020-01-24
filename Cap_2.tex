@@ -2,15 +2,15 @@
 
 El puntaje de crédito se obtiene mediante un conjunto de modelos de decisión que ayudan a los prestamistas a otorgar créditos. Estas técnicas son usadas para decidir quién obtiene crédito, cuánto crédito deben obtener, a qué precio lo tendrán, y qué estrategias operacionales mejorarán la rentabilidad de los clientes. Un puntaje de crédito puede ser transformado en la probabilidad del cliente de no pagar el préstamo. Así, desde el año 2000, se ha convertido en un pilar de los modelos desarrollados por instituciones financieras cumplir los requerimientos del Acuerdo de Basilea que dictamina que se deben estimar las probabilidades de default de cada portafolio de préstamos \cite[1]{thomas2017credit}.
 
-Con los avances en el concepto de minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, data ``social'' en línea, o data del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \cite[18]{thomas2017credit}.
+Con los avances en el concepto de minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \cite[18]{thomas2017credit}.
 
-Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de la data, su exactitud y su confiabilidad \cite[18--19]{thomas2017credit}. Sin embargo no trataremos estos temas porque están fuera del ámbito de esta investigación.
+Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de los datos, su exactitud y su confiabilidad \cite[18--19]{thomas2017credit}. Sin embargo no trataremos estos temas porque están fuera del ámbito de esta investigación.
 
 Cuando los puntajes de crédito se desarrollaron por primera vez en los años 1950s y 1960s, los únicos métodos utilizados fueron de discriminación estadística. Aún hoy, con el advenimiento de muchos nuevos enfoques de clasificación basados en minería de datos, los métodos estadísticos, especialmente la regresión logística son por mucho los métodos más utilizados para construir calificaciones crediticias \cite[25]{thomas2017credit}. Tienen la ventaja de permitir el uso de herramientas como los intervalos de confianza y prueba de hipótesis en el contexto de puntuación crediticia. Así, uno es capaz de comentar el poder discrimatorio del modelo construido y la importancia relativa de la diferentes características (variables) que constituyen el modelo y su discriminación. De esta forma, uno es capaz de usar esta información para proponer cambios en las preguntas hechas a los prestatarios.
 
 Actualmente numerosas técnicas de clasificación han sido adoptadas para hacer puntuación crediticia. Estas técnicas incluyen métodos estadísticos (e.g. análisis discrimante y regresión logística), modelos estadísticos no paramétricos (e.g. K-nearest neighbour y árboles de decisión) y redes neuronales. Con frecuencia surgen conflictos cuando se comparan las conclusiones de algunos de estos estudios. Por ejemplo, en \cite{desai1996comparison} encontraron que las redes neuronales se desempeñan considerablemente mejor que el análisis discriminante al predecir los malos préstamos, mientras que \cite{yobas2000credit} reportó que el segundo supera al primero. Por esto, el problema de escoger una técnica de clasificación para hacer la puntuación de crédito permanece como una problema difícil y desafiante \cite{baesens2003benchmarking}.
 
-Los últimos estudios de benchmarking en esta área son del año 2003 \cite{baesens2003benchmarking} y 2015 \cite{lessmann2015benchmarking}. En el último benchmarking de 2015 se compararon 41 métodos de clasificación a través de 8 datasets. Además se creó una tabla muy interesante comparando los algoritmos de clasificación y evaluación utilizados en los últimos estudios. En dicha tabla se evidencia que los algoritmos más utilizados son las \ac{MLP}, las \ac{SVM} y métodos de ensamble. También se ve que los algoritmos de evaluación más utilizados son el \ac{AUC} y aquellos que involucran un umbral, como error de clasificación, \ac{TPR}, etc. También se incluye información sobre qué estudios utilizaron una validación estadística de la hipótesis.
+Los últimos estudios comparativos en esta área son del año 2003 \cite{baesens2003benchmarking} y 2015 \cite{lessmann2015benchmarking}. En el último estudio comparativo de 2015 se compararon 41 métodos de clasificación a través de 8 conjuntos de datos. Además se creó una tabla muy interesante comparando los algoritmos de clasificación y evaluación utilizados en los últimos estudios. En dicha tabla se evidencia que los algoritmos más utilizados son las \ac{MLP}, las \ac{SVM} y métodos de ensamble. También se ve que los algoritmos de evaluación más utilizados son el \ac{AUC} y aquellos que involucran un umbral, como error de clasificación, \ac{TPR}, etc. También se incluye información sobre qué estudios utilizaron una validación estadística de la hipótesis.
 
 A pesar de tener mucha investigación, la literatura sobre puntuación crediticia no refleja varios recientes avances en aprendizaje predictivo \cite{lessmann2015benchmarking}. Estos avances conciernen 3 dimensiones:
 
@@ -23,7 +23,7 @@ A pesar de tener mucha investigación, la literatura sobre puntuación creditici
 Un análisis de le literatura de modelamiento de default confirma que los estudios en esta área tienen varias limitaciones \cite{lessmann2015benchmarking}:
 
 \begin{itemize}
-    \item Utilizan pocos o pequeños datasets
+    \item Utilizan pocos o pequeños conjuntos de datos
     \item No comparan diferentes clasificadores de estado del arte entre ellos
     \item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
 \end{itemize}
@@ -58,7 +58,7 @@ Es la red neuronal más utilizada. Está inspirada por el funcionamiento del cer
     \includegraphics[width=0.6\linewidth]{graficos/mlp_eg.png}
 \end{figure}
 
-Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en la data. Esta función de activación suele ser la función logistica, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
+Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logistica, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
 
 \begin{equation}
     \label{eq:mlp-out}
@@ -111,7 +111,7 @@ Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la
 
 Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la Figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
 
-Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo una variable en cada paso que separa mejor la data. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de la data''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
+Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo una variable en cada paso que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
 
 Entre las ventajas de los árboles de decisión tenemos que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
 
@@ -130,12 +130,12 @@ Evaluar la predicción de un ensamble requiere más computaciones de las que req
 
 \subsection{Random Forest}
 
-Los árboles de decisión son algoritmos muy simples que permiten ver claramente la importancia de cada variable. Sin embargo, son proclives al sobreajuste, y se hace necesario limitar la profundidad de los árboles para mitigar este problema. Además, son muy inestables, ya que con pequeñas variaciones del dataset de entrenamiento se puede generar un árbol completamente distinto. Esto es llamado varianza y se necesitan métodos como el bagging y el boosting para reducirla.
+Los árboles de decisión son algoritmos muy simples que permiten ver claramente la importancia de cada variable. Sin embargo, son proclives al sobreajuste, y se hace necesario limitar la profundidad de los árboles para mitigar este problema. Además, son muy inestables, ya que con pequeñas variaciones del conjunto de entrenamiento se puede generar un árbol completamente distinto. Esto es llamado varianza y se necesitan métodos como el bagging y el boosting para reducirla.
 
 El funcionamiento básico del bagging dentro de Random Forest se puede resumir en pocos pasos (Figura \ref{fig:rf}):
 
 \begin{enumerate}
-    \item Asumiendo que tenemos un dataset con 1000 instancias
+    \item Asumiendo que tenemos un conjunto de datos con 1000 instancias
     \item Creamos varias (e.g. 100) muestras aleatorias con repetición
     \item Entrenamos un árbol de decisión en cada muestra
     \item Dada una nueva instancia para clasificar, calculamos la predicción promedia de todos los árboles entrenados en el paso anterior
@@ -182,9 +182,9 @@ Finalmente, XGBoost es una implementación de Gradient Boosting en árboles de d
 
 Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en problemas con clases desbalanceadas \cite{batista2004study, mani2003knn, seiffert2010rusboost}.
 
-El bagging es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \cite{breiman1996bagging}. Sin embargo, cada clasificador base dentro del bagging aún sufre del mismo problema, puesto que la data se muestrea proporcionalmente del dataset original. Incluso si se balancea el dataset antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original de la data y se hace overfitting.
+El bagging es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \cite{breiman1996bagging}. Sin embargo, cada clasificador base dentro del bagging aún sufre del mismo problema, puesto que las instancias se muestrean proporcionalmente del conjunto original. Incluso si se balancean los datos antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original y se hace overfitting.
 
-El método de bagging propuesto \cite{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del dataset, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
+El método de bagging propuesto \cite{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
 
 \begin{figure}
     \centering
@@ -193,7 +193,7 @@ El método de bagging propuesto \cite{sun2015novel} ataca un problema desbalance
     \includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
 \end{figure}
 
-En este método, la clase mayoritaria genera varios subsets mediante muestreo sin repetición. Cada subset tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios datasets balanceados (Balanceo del dataset). Luego, cada dataset se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nueva data (Clasificación).
+En este método, la clase mayoritaria genera varios subsets mediante muestreo sin repetición. Cada subset tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada conjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
 
 Esta combinación de los resultados de los clasificadores base se realiza mediante un promedio ponderado por la inversa de la distancia de la instancia a clasificar con el subset utilizado. De esta manera, los subsets más parecidos a la nueva instancia tendrán un mayor peso en la decisión final.
 
@@ -246,7 +246,7 @@ Aunque en el ámbito de la puntuación de crédito lo normal sea que la clase po
     \item [Recall] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
 \end{description}
 
-En otras palabras, el balance entre precisión y recall se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Accuracy no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en datasets desbalanceados.
+En otras palabras, el balance entre precisión y recall se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
 
 Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 hace default. Un modelo que simplemente trate de maximizar la accuracy puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así un accuracy de 0.999.
 
@@ -288,26 +288,26 @@ Actualmente hay mucho trabajo científico buscando mejorar los sistemas de puntu
 
 En \cite{sohn2016technology} se propone una regresión logística difusa para explotar mejor atributos de evaluación linguísticos. Los resultados son que efectivamente se mejora el desempeño respecto a una regresión logística normal. En \cite{bahnsen2014example} se propone una regresión logística que usa una matriz de costo dependiendo de cada ejemplo. Los resultados subrayan la importancia de usar los costos financieros reales, ya que se logran mejoras significativas en términos de ahorro de dinero.
 
-Por otro lado en \cite{zhao2015investigation} se aplica una \ac{MLP} que se trata de optimizar mediante (i) la mejora de la distribución de la data usando un método llamado Average Random Choosing, (ii) probando diferentes tamaños de conjuntos de train-test-validation y (iii) encontrar el número óptimo de neuronas ocultas. Los resultados son bastante alentadores y los autores claman que se pueden utilizar incluso fuera del dominio de los puntajes de crédito.
+Por otro lado en \cite{zhao2015investigation} se aplica una \ac{MLP} que se trata de optimizar mediante (i) la mejora de la distribución de los datos usando un método llamado Average Random Choosing, (ii) probando diferentes tamaños de conjuntos de train-test-validation y (iii) encontrar el número óptimo de neuronas ocultas. Los resultados son bastante alentadores y los autores claman que se pueden utilizar incluso fuera del dominio de los puntajes de crédito.
 
-En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \cite{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de puntuación de crédito como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un dataset de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor accuracy y AUC.
+En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \cite{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de puntuación de crédito como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un conjunto de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor exactitud y AUC.
 
-En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos datasets crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de decision tree, los \ac{SVM} tienen una accuracy idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
+En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de decision tree, los \ac{SVM} tienen una accuracy idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
 
-En otro estudio \cite{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en datasets grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
+En otro estudio \cite{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en conjuntos grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
 
-En \cite{malekipirbazari2015risk} se propone una clasificación basada en \ac{RF}. Se utiliza el dataset de préstamos peer2peer Lending Club, y los resultados indican que los métodos basado en \ac{RF} superan los score crediticios del FICO así como los propios scores de LC.
+En \cite{malekipirbazari2015risk} se propone una clasificación basada en \ac{RF}. Se utilizan los datos de préstamos peer2peer Lending Club, y los resultados indican que los métodos basado en \ac{RF} superan los score crediticios del FICO así como los propios scores de LC.
 
 Además se presentan algunos métodos nuevos, como el \ac{RF} paralelo de \cite{van2016novel}. Donde al integrar el modelo en el proceso de selección de variables se mejora el average accuracy obteniendo un 76.2\%.
 
 En \cite{xia2017boosted} y \cite{bhatia2017credit} se experimenta con \ac{XGBoost}. En el primer artículo se centra en el ajuste de los parámetros del modelo, mientras que el segundo hace una comparación más amplia con otros modelos como \ac{LDA} y \ac{RF}.
 
-En \cite{zhang2016research} se usa un dataset P2P para construir un modelo basado en decision tree fusionando data de los medios de comunicación sociales. En \cite{zang2014credit} también se usa un dataset P2P, el dataset de Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con P2P, en \cite{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
+En \cite{zhang2016research} se usa un conjunto de datos P2P para construir un modelo basado en decision tree fusionando datos de los medios de comunicación sociales. En \cite{zang2014credit} también se usa un conjunto de datos P2P, perteneciente a Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con P2P, en \cite{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
 
-En \cite{nanni2009experimental} se prueban varios clasificadores de ensamble en los datasets de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \cite{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco datasets distintos. Se hace un énfasis especial en el desbalanceo de la data, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \cite{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
+En \cite{nanni2009experimental} se prueban varios clasificadores de ensamble en los datos de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \cite{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco conjuntos de datos distintos. Se hace un énfasis especial en el desbalanceo de la datos, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \cite{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
 
 En conclusión, hasta la fecha se ha venido realizando un trabajo muy diverso. El área de puntuación crediticia es un área muy fértil, pero aún quedan muchas potenciales mejoras por realizarse.
 
 \section{Consideraciones Finales}
 
-Ahora que tenemos una idea clara de cómo funcionan los clasificadores base, los ensambles y los métodos de evaluación; podemos pasar a explicar los datasets utilizados, la metodología y los experimentos realizados.
+Ahora que tenemos una idea clara de cómo funcionan los clasificadores base, los ensambles y los métodos de evaluación; podemos pasar a explicar los conjuntos de datos utilizados, la metodología y los experimentos realizados.

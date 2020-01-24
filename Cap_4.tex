@@ -8,22 +8,22 @@ Se ve que en el AUC, la precision y la accuracy mejoran en todos los clasificado
 
 El recall baja en la mayoría de modelos, ya que existe un trade-off entre la precisión y el recall. Y ya que se trató de optimizar el accuracy, indirectamente se optimizó la precisión, de forma que el recall cayó un poco.
 
-Se desprende también que la potencial mejora que podemos obtener con el método de ensamble para datos desbalanceados depende del clasificador base y del dataset sobre el cuál se aplica. 
+Se desprende también que la potencial mejora que podemos obtener con el método de ensamble para datos desbalanceados depende del clasificador base y del conjunto de datos sobre el cuál se aplica. 
 
 Si analizamos cuál fue el algoritmo base más afectado por el \ac{ECDD}, vemos claramente que el Decision Tree es el ganador. Esto se debe a que individualmente el Decisión Tree es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan Decision Tree como su clasificador base.
 
 \subsection{Sobre el aprendizaje profundo}
 
-El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque son varios parámetros y porque al ser poca información el modelo presenta una tendencia a caer en overfitting. Esto se observa al tener un desempeño impecable con la data de entrenamiento, pero un desempeño muy inferior con la data de prueba.
+El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque son varios parámetros y porque al ser poca información el modelo presenta una tendencia a caer en overfitting. Esto se observa al tener un desempeño impecable con los datos de entrenamiento, pero un desempeño muy inferior con los datos de prueba.
 
-Luego de ajustar cuidadosamente los parámetros de la mejor forma posible, el poder predictivo no es mejor que otros clasificadores base, específicamente es muy similar al de una \ac{MLP} simple. Esto se puede explicar con la baja dimensionalidad de los datasets y la poca cantidad de muestras; ya que no se explota la capacidad de reducción de dimensionalidad del modelo y tampoco se hace un entrenamiento adecuado por la escasez de datos.
+Luego de ajustar cuidadosamente los parámetros de la mejor forma posible, el poder predictivo no es mejor que otros clasificadores base, específicamente es muy similar al de una \ac{MLP} simple. Esto se puede explicar con la baja dimensionalidad de los datos y la poca cantidad de instancias; ya que no se explota la capacidad de reducción de dimensionalidad del modelo y tampoco se hace un entrenamiento adecuado por la escasez de datos.
 
 En conclusión, este clasificador no es adecuado para este problema, y al ser bastante complejo ya de por sí, no se le creó una versión ensamblada.
 
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con dataset Apurata}
+\caption{Proceso 1 con conjunto de datos de Apurata}
 \label{tab:apurata-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -49,7 +49,7 @@ DBN             & 67.80     & 88.04     & 91.76     & 79.84     \\
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con dataset LendingClub}
+\caption{Proceso 1 con conjunto de datos de LendingClub}
 \label{tab:lc-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -75,7 +75,7 @@ DBN             & 75.01     & 78.56     & 94.92     & 75.72		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con dataset Alemán}
+\caption{Proceso 1 con conjunto de datos Alemán}
 \label{tab:german-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -105,15 +105,15 @@ Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}
 
 Se observa que el desempeño de los \ac{ECDD} es ligeramente superior al desempeño de \ac{RF} y \ac{XGBoost}. Si comparamos la mejora obtenida por el mejor \ac{ECDD} respecto al mejor entre RF y XGBoost; vemos que el AUC en Apurata incrementa 3.33, en Lending Club mejora 0.50 y en Crédito Alemán aumenta en 0.06.
 
-Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de la data, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
+Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
 
-Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el dataset de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
+Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
 
-Finalmente, el \ac{ECDD} de Decision Tree obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si la data no es linealmente separable, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar el Decision Tree como base para algoritmos de ensamble tiene muy buenos resultados.
+Finalmente, el \ac{ECDD} de Decision Tree obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar el Decision Tree como base para algoritmos de ensamble tiene muy buenos resultados.
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con dataset Apurata}
+\caption{Proceso 2 con conjunto de datos de Apurata}
 \label{tab:apurata-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -133,7 +133,7 @@ XGB      		& 67.91     & 89.31     & 89.92     & 78.75		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con dataset LendingClub}
+\caption{Proceso 2 con conjunto de datos de LendingClub}
 \label{tab:lc-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -153,7 +153,7 @@ XGB             & 70.68     & 81.89     & 98.56     & 78.81     \\
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con dataset Alemán}
+\caption{Proceso 2 con conjunto de datos Alemán}
 \label{tab:german-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
                 \hline
@@ -173,18 +173,18 @@ XGB             & 80.28     & 81.43     & 91.66     & 78.93     \\
 
 \section{Proceso 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del proceso 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un dataset privado que es usado de forma inédita en este trabajo.
+Los resultados del proceso 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en este trabajo.
 
 Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios tienen una variación más alta que si se hubieran hecho las comparaciones usando los mismo procesos. Es por esto que las conclusiones del proceso 2 son tan importantes.
 
 Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
-Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para datasets desbalanceados al dominio de los puntajes de crédito puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
+Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para conjuntos de datos desbalanceados al dominio de los puntajes de crédito puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica. 
 
 
 \begin{table}[]
 \centering
-\caption{Proceso 3 con dataset LendingClub}
+\caption{Proceso 3 con conjunto de datos de LendingClub}
 \label{tab:lc-proc3}
 \begin{tabularx}{\textwidth}{|l|Y Y l|}
                 \hline
@@ -214,7 +214,7 @@ Las investigaciones utilizadas para la comparación son en orden: \cite{malekipi
 
 \begin{table}[]
 \centering
-\caption{Proceso 3 con dataset Alemán}
+\caption{Proceso 3 con conjunto de datos Alemán}
 \label{tab:german-proc3}
 \begin{tabularx}{\textwidth}{|l|Y Y l|}
                         \hline

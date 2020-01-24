@@ -107,7 +107,7 @@ Lamentablemente en las aplicaciones reales, las clases no suelen ser linealmente
 
 Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la solución resolviendo un conjunto de ecuaciones lineales en lugar de un problema convexo de programación cuadrática.
 
-\subsection{Decision Tree}
+\subsection{Árbol de decisión}
 
 Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la Figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
 
@@ -117,7 +117,7 @@ Entre las ventajas de los árboles de decisión tenemos que son fáciles de inte
 
 \begin{figure}
     \centering
-    \caption{Ejemplo de Decision Tree}
+    \caption{Ejemplo de árbol de decisión}
     \label{fig:dt-eg}
     \includegraphics[width=0.6\linewidth]{graficos/dt_example.png}
 \end{figure}
@@ -292,7 +292,7 @@ Por otro lado en \cite{zhao2015investigation} se aplica una \ac{MLP} que se trat
 
 En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \cite{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de puntuación de crédito como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un conjunto de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor exactitud y AUC.
 
-En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de decision tree, los \ac{SVM} tienen una accuracy idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
+En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de árboles, los \ac{SVM} tienen una accuracy idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
 
 En otro estudio \cite{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en conjuntos grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
 
@@ -302,7 +302,7 @@ Además se presentan algunos métodos nuevos, como el \ac{RF} paralelo de \cite{
 
 En \cite{xia2017boosted} y \cite{bhatia2017credit} se experimenta con \ac{XGBoost}. En el primer artículo se centra en el ajuste de los parámetros del modelo, mientras que el segundo hace una comparación más amplia con otros modelos como \ac{LDA} y \ac{RF}.
 
-En \cite{zhang2016research} se usa un conjunto de datos P2P para construir un modelo basado en decision tree fusionando datos de los medios de comunicación sociales. En \cite{zang2014credit} también se usa un conjunto de datos P2P, perteneciente a Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con P2P, en \cite{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
+En \cite{zhang2016research} se usa un conjunto de datos P2P para construir un modelo basado en árboles de decisión fusionando datos de los medios de comunicación sociales. En \cite{zang2014credit} también se usa un conjunto de datos P2P, perteneciente a Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con P2P, en \cite{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
 
 En \cite{nanni2009experimental} se prueban varios clasificadores de ensamble en los datos de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \cite{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco conjuntos de datos distintos. Se hace un énfasis especial en el desbalanceo de la datos, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \cite{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
 

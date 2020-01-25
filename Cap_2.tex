@@ -200,7 +200,7 @@ Esta combinación de los resultados de los clasificadores base se realiza median
 
 \section{Evaluación de los modelos}
 
-\subsection{Accuracy, Precision y Recall}
+\subsection{Exactitud, Precisión y Exhaustividad}
 
 Para entender estos conceptos necesitamos conocer primero a la matriz de confusión. Esta es una herramienta que permite la visualización del desempeño de un algoritmo de clasificación. Cada columna de la matriz representa el número de predicciones de cada clase, mientras que cada fila representa a las instancias en la clase real. Uno de los beneficios de las matrices de confusión es que facilitan ver si el sistema está confundiendo dos clases. Se puede ver un ejemplo en la figura \ref{fig:confussion}.
 
@@ -220,37 +220,37 @@ Cuando el problema de clasificación sólo tiene 2 clases, la matriz de confusi�
     \includegraphics[width=0.8\linewidth]{graficos/confussion_matrix_2.png}
 \end{figure}
 
-A partir de esta matriz se pueden definir formalmente la accuracy, precision y recall como se ve en la fórmula \ref{eq:accuracy-prec-rec}.
+A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad como se ve en la fórmula \ref{eq:accuracy-prec-rec}.
 
 \begin{equation}
     \label{eq:accuracy-prec-rec}
 \begin{split}
-    \text{Accuracy}  &= \frac{\text{true positive} + \text{true negative}}{\text{true positive} + \text{false positive} + \text{true negative} + \text{false negative}} \\\\
-    \text{Precision} &= \frac{\text{true positive}}{\text{true positive} + \text{false positive}} \\\\
-    \text{Recall}    &= \frac{\text{true positive}}{\text{true positive} + \text{false negative}} 
+    \text{Exactitud}  &= \frac{\text{verdaderos positivos} + \text{verdaderos negativos}}{\text{verdaderos positivos} + \text{falsos positivos} + \text{verdaderos negativos} + \text{falsos negativos}} \\\\
+    \text{Precisión} &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos positivos}} \\\\
+    \text{Exhaustividad}    &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos negativos}} 
 \end{split}
 \end{equation}
 
 De forma más intuitiva podemos definirlos de la siguiente manera:
 
 \begin{description}
-    \item [Accuracy] Porcentaje de clasificaciones correctas
-    \item [Precision] De aquellos clasificados como positivos, cuántos son realmente positivos
-    \item [Recall] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
+    \item [Exactitud] Porcentaje de clasificaciones correctas
+    \item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos
+    \item [Exhaustividad] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
 \end{description}
 
-Aunque en el ámbito de la puntuación de crédito lo normal sea que la clase positiva sean las personas morosas, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precision y el recall se vuelven métricas muy útiles, con significados muy prácticos:
+Aunque en el ámbito de la puntuación de crédito lo normal sea que la clase positiva sean las personas morosas, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precisión y la exhaustividad se vuelven métricas muy útiles, con significados muy prácticos:
 
 \begin{description}
-    \item [Precision] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
-    \item [Recall] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
+    \item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
+    \item [Exhaustividad] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
 \end{description}
 
-En otras palabras, el balance entre precisión y recall se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
+En otras palabras, el balance entre precisión y exhaustividad se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
 
-Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 no paga su crédito. Un modelo que simplemente trate de maximizar la accuracy puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así un accuracy de 0.999.
+Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 no paga su crédito. Un modelo que simplemente trate de maximizar la exactitud puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así una exactitud de 0.999.
 
-En estos casos de desbalance tan extremo también la precision y el recall se ven afectados, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 moroso en 1000 personas, la precision sería de 0 y el recall también, indicando que nuestro modelo no tiene poder predictivo.
+En estos casos de desbalance tan extremo también la precision y la exhaustividad se ven afectadas, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 moroso en 1000 personas, la precisión sería de 0 y la exhaustividad también, indicando que nuestro modelo no tiene poder predictivo.
 
 \subsection{Curva ROC y Area bajo la curva (AUC)}
 
@@ -292,13 +292,13 @@ Por otro lado en \cite{zhao2015investigation} se aplica una \ac{MLP} que se trat
 
 En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \cite{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de puntuación de crédito como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un conjunto de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor exactitud y AUC.
 
-En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de árboles, los \ac{SVM} tienen una accuracy idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
+En \cite{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de árboles, los \ac{SVM} tienen una exactitud idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
 
 En otro estudio \cite{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en conjuntos grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
 
 En \cite{malekipirbazari2015risk} se propone una clasificación basada en \ac{RF}. Se utilizan los datos de préstamos peer2peer Lending Club, y los resultados indican que los métodos basado en \ac{RF} superan los score crediticios del FICO así como los propios scores de LC.
 
-Además se presentan algunos métodos nuevos, como el \ac{RF} paralelo de \cite{van2016novel}. Donde al integrar el modelo en el proceso de selección de variables se mejora el average accuracy obteniendo un 76.2\%.
+Además se presentan algunos métodos nuevos, como el \ac{RF} paralelo de \cite{van2016novel}. Donde al integrar el modelo en el proceso de selección de variables se mejora la exactitud promedio obteniendo un 76.2\%.
 
 En \cite{xia2017boosted} y \cite{bhatia2017credit} se experimenta con \ac{XGBoost}. En el primer artículo se centra en el ajuste de los parámetros del modelo, mientras que el segundo hace una comparación más amplia con otros modelos como \ac{LDA} y \ac{RF}.
 

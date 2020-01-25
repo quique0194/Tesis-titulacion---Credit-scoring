@@ -1,5 +1,5 @@
 % Template LaTeX Tesis UCSP  tesis.sty
-% reviewed by Yv·n T˙pac 14 september 2017
+% reviewed by Yv√°n T√∫pac 14 september 2017
 
 
 %\NeedsTeXFormat{LaTeX2e}[01/06/2002]
@@ -9,19 +9,19 @@
 %\ProcessOptions*                  
 %\LoadClass[a4paper,openany,12pt]{book}
 
-\newcommand{\Institution}{Universidad CatÛlica San Pablo\xspace}
+\newcommand{\Institution}{Universidad Cat√≥lica San Pablo\xspace}
 \newcommand{\InstAcro}{UCSP\xspace}
-\newcommand{\College}{Facultad de IngenierÌa y ComputaciÛn\xspace}
-\newcommand{\SchoolNameFull}{Escuela Profesional de Ciencia de la ComputaciÛn\xspace}
-\newcommand{\SchoolNameShort}{Ciencia de la ComputaciÛn\xspace}
-\newcommand{\TitleIssued}{Licenciado en Ciencia de la ComputaciÛn\xspace}
+\newcommand{\College}{Facultad de Ingenier√≠a y Computaci√≥n\xspace}
+\newcommand{\SchoolNameFull}{Escuela Profesional de Ciencia de la Computaci√≥n\xspace}
+\newcommand{\SchoolNameShort}{Ciencia de la Computaci√≥n\xspace}
+\newcommand{\TitleIssued}{Licenciado en Ciencia de la Computaci√≥n\xspace}
 
 %*****************************************************************************
 %Definiendo Paquetes
 %*****************************************************************************
 
 %*****************************************************************************
-%DiseÒando Car·tula
+%Dise√±ando Car√°tula
 %*****************************************************************************
 \renewcommand{\maketitle}
 {
@@ -56,12 +56,12 @@
 
 
 %***************************************************************************** 
-%DiseÒando presentaciÛn 
+%Dise√±ando presentaci√≥n 
 %***************************************************************************** 
 \newcommand{\presentacion}{\gdef\@presentacion}
-\presentacion{Tesis de titulaciÛn presentada a la Escuela
-Profesional de Ciencia de la ComputaciÛn como parte de los requisitos
-para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
+\presentacion{Tesis de titulaci√≥n presentada a la Escuela
+Profesional de Ciencia de la Computaci√≥n como parte de los requisitos
+para obtener el T√≠tulo Profesional de Lic. en Ciencia de la Computaci√≥n.}
 
 \newcommand{\presentar}
 {
@@ -74,13 +74,13 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %***************************************************************************** 
-%DiseÒando Orientador 
+%Dise√±ando Orientador 
 %***************************************************************************** 
 \newcommand{\advisor}{\gdef\@orientador}
 
 
 %*****************************************************************************
-%DiseÒando Dedicatoria
+%Dise√±ando Dedicatoria
 %*****************************************************************************
 \newcommand{\dedicado}{\gdef\@dedicado}
 \dedicado{}
@@ -98,7 +98,7 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando Agradecimientos
+%Dise√±ando Agradecimientos
 %*****************************************************************************
 \newenvironment{agradecimientos}
 {
@@ -119,7 +119,7 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando Abstract
+%Dise√±ando Abstract
 %*****************************************************************************
 \newenvironment{abstract}
 {
@@ -139,7 +139,7 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando Resumen
+%Dise√±ando Resumen
 %*****************************************************************************
 \newenvironment{resumen}
 {
@@ -159,7 +159,7 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando los Õndices
+%Dise√±ando los √çndices
 %*****************************************************************************
 %\newif \if@listtab
 %\newif \if@listfig
@@ -185,13 +185,13 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando Encabezado y Pie de P·gina
+%Dise√±ando Encabezado y Pie de P√°gina
 %*****************************************************************************
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
-\fancyfoot[L]{Ciencia de la ComputaciÛn - \InstAcro}
+\fancyfoot[L]{Ciencia de la Computaci√≥n - \InstAcro}
 \fancyfoot[R]{\thepage}
 \renewcommand{\chaptermark}[1]
     {\markboth{\MakeUppercase{\chaptername}\ \thechapter. #1}{}}
@@ -202,14 +202,14 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 
 
 %*****************************************************************************
-%DiseÒando P·rrafos
+%Dise√±ando P√°rrafos
 %*****************************************************************************
 \parindent 1cm
 \parskip 0.4cm
 
 
 %*****************************************************************************
-%DiseÒando la BibliografÌa
+%Dise√±ando la Bibliograf√≠a
 %*****************************************************************************
 \newcommand{\bibliografia}[1]
 {
@@ -280,7 +280,7 @@ para obtener el TÌtulo Profesional de Lic. en Ciencia de la ComputaciÛn.}
 \large \@title \\
 \vspace{1cm}
 \end{center}
-Tesis de titulaciÛn presentada por el bachiller \@author \hspace{0.2mm} en el cumplimiento de los requisitos para obtener el tÌtulo profesional de \TitleIssued.\\
+Tesis de titulaci√≥n presentada por el bachiller \@author \hspace{0.2mm} en el cumplimiento de los requisitos para obtener el t√≠tulo profesional de \TitleIssued.\\
 
 \begin{flushright}
 {Arequipa, \@date} % the variable \@date{} or \today is valid

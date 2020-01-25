@@ -2,14 +2,14 @@
 \usepackage{graphicx}
 \usepackage[spanish,mexico]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{fancyhdr}
+\usepackage{sty/fancyhdr}
 \usepackage{ae}
 \usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=2cm]{geometry}
 \usepackage[printonlyused]{acronym}
 \usepackage{xspace}
 \usepackage{flafter}
-\usepackage{hlundef}
-\usepackage{tesis}
+\usepackage{sty/hlundef}
+\usepackage{sty/tesis}
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{algorithm2e}
@@ -20,18 +20,18 @@
 
 \title{Ensamble de múltiples subconjuntos de datos balanceados aplicado a puntuación crediticia}
 
-\author{José Enrique Carrillo Pino}
+\author{Carrillo Pino, José Enrique}
 
-\advisor{Prof Dr. Dennis Barrios Aranibar}
+\advisor{Prof. DSc. Dennis Barrios Aranibar}
 
 \examinerone{Prof. Dr. Hidalgo Buena Gente}{Presidente}%
-\examinertwo{Prof. Dr. Manuel Armando Líos}{Secretario}%
-\examinerthree{Prof. Dr. Antero A. Gal Oppe}{Integrante}%
+\examinertwo{Prof. Dr. Manuel Armando Líos}{Vocal}%
+\examinerthree{Prof. Dr. Antero A. Gal Oppe}{Secretario}%
 \examinerfour{Prof. Dr. Casso E. Staria}{Externo}{Universidad del ABC} % of being the case
-%\date{15 de Octubre del 2018}
+%\date{30 de Junio del 2018}
 \date{\today}
 
-\dedicado{Dedico este trabajo a mis padres que me encaminaron hasta aquí, a mis profesores que me aportaron los conocimientos necesarios y a mis amigos y pareja que influyeron de forma positiva en mi vida para hacerme la persona que soy ahora.}
+\dedicado{Dedico este trabajo a mis padres que me encaminaron hasta aquí, a mis profesores que me aportaron los conocimientos necesarios y a mi pareja y amigos que influyeron de forma positiva en mi vida para hacerme la persona que soy ahora.}
 
 \begin{document}
 \pagestyle{fancy}
@@ -42,7 +42,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DESCOMENTAR ESTO PARA LA TESIS FINAL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\approved{\cuatro}%  {\tres} or {\cuatro}
+\approved{\cuatro}%  {\tres} or {\cuatro}
 
 \include{abreviaturas}
 
@@ -50,10 +50,9 @@
 \input{Resumen} %Inserta el resumen
 \input{Abstract} %Inserta el abstract
 
-\clearpage
 \pagenumbering{roman}
-\pagestyle{plain}
 \setcounter{page}{1}
+\pagestyle{plain}
 
 \tableofcontents %Inserta el índice general
 \listoftables %Inserta el índice de cuadros
@@ -63,7 +62,6 @@
 %%%%   En esta parte deberas incluir los archivos de tu tesis   %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
 \pagestyle{plain}
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -74,7 +72,6 @@
 \input{conclusiones} %Inserta el capítulo 5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plain}
 \bibliographystyle{apalike}
 \bibliography{tesis}{}
 

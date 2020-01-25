@@ -1,48 +1,40 @@
+
+
+
 \documentclass[a4paper,openany,12pt]{book}
 \usepackage{graphicx}
 \usepackage[spanish,mexico]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{fancyhdr}
+\usepackage{sty/fancyhdr}
 \usepackage{ae}
 \usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=2cm]{geometry}
 \usepackage[printonlyused]{acronym}
 \usepackage{xspace}
-\usepackage{flafter}
-\usepackage{hlundef}
-\usepackage{tesis}
+\usepackage{sty/hlundef}
+\usepackage{sty/tesis}
 \usepackage{setspace}
-\usepackage{amsmath}
-\usepackage{algorithm2e}
-\usepackage{natbib}
-\setcitestyle{numbers,notesep={: }}
-\usepackage{tabularx}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-\title{Ensamble de m√∫ltiples subconjuntos de datos balanceados aplicado a puntuaci√≥n crediticia}
+\title{**TÌtulo de la Tesis**}
 
-\author{Jos√© Enrique Carrillo Pino}
+\author{**Apellidos y nombres del Alumno**}
 
-\advisor{Prof Dr. Dennis Barrios Aranibar}
+\advisor{**Prof. DSc./MSc. Nombre del Asesor**}
 
 \examinerone{Prof. Dr. Hidalgo Buena Gente}{Presidente}%
-\examinertwo{Prof. Dr. Manuel Armando L√≠os}{Secretario}%
-\examinerthree{Prof. Dr. Antero A. Gal Oppe}{Integrante}%
+\examinertwo{Prof. Dr. Manuel Armando LÌos}{Vocal}%
+\examinerthree{Prof. Dr. Antero A. Gal Oppe}{Secretario}%
 \examinerfour{Prof. Dr. Casso E. Staria}{Externo}{Universidad del ABC} % of being the case
-%\date{15 de Octubre del 2018}
+%\date{30 de Junio del 2018}
 \date{\today}
 
-\dedicado{Dedico este trabajo a mis padres que me encaminaron hasta aqu√≠, a mis profesores que me aportaron los conocimientos necesarios y a mis amigos y pareja que influyeron de forma positiva en mi vida para hacerme la persona que soy ahora.}
+\dedicado{AquÌ deber·s colocar a quien va dedicada tu tesis por ejemplo: A Dios, por todo lo que me ha dado, a todos los profesores por sus enseÒanzas y algunos amigos.}
 
 \begin{document}
 \pagestyle{fancy}
 
-\maketitle %Compone la car√°tula y la dedicatoria
+\maketitle %Compone la car·tula y la dedicatoria
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DESCOMENTAR ESTO PARA LA TESIS FINAL
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\approved{\cuatro}%  {\tres} or {\cuatro}
+\approved{\cuatro}%  {\tres} or {\cuatro}
 
 \include{abreviaturas}
 
@@ -50,33 +42,30 @@
 \input{Resumen} %Inserta el resumen
 \input{Abstract} %Inserta el abstract
 
-\clearpage
 \pagenumbering{roman}
-\pagestyle{plain}
 \setcounter{page}{1}
+\pagestyle{plain}
 
-\tableofcontents %Inserta el √≠ndice general
-\listoftables %Inserta el √≠ndice de cuadros
-\listoffigures %Inserta el √≠ndice de figuras
+\tableofcontents %Inserta el Ìndice general
+\listoftables %Inserta el Ìndice de cuadros
+\listoffigures %Inserta el Ìndice de figuras
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%   En esta parte deberas incluir los archivos de tu tesis   %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
 \pagestyle{plain}
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\input{Cap_1} %Inserta el cap√≠tulo 1
-\input{Cap_2} %Inserta el cap√≠tulo 2
-\input{Cap_3} %Inserta el cap√≠tulo 3
-\input{Cap_4} %Inserta el cap√≠tulo 4
-\input{conclusiones} %Inserta el cap√≠tulo 5
+\input{Cap_1} %Inserta el capÌtulo 1
+\input{Cap_2} %Inserta el capÌtulo 2
+\input{Cap_3} %Inserta el capÌtulo 3
+\input{Cap_4} %Inserta el capÌtulo 4
+\input{conclusiones} %Inserta el capÌtulo 5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plain}
-\bibliographystyle{apalike}
-\bibliography{tesis}{}
 
-\addcontentsline{toc}{chapter}{Bibliograf√≠a}
+\bibliographystyle{apalike}
+\bibliography{Bibliog}
+\addcontentsline{toc}{chapter}{BibliografÌa}
 \end{document}

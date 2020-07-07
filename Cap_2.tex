@@ -10,7 +10,7 @@ Cuando los puntajes de crédito se desarrollaron por primera vez en los años 19
 
 Actualmente numerosas técnicas de clasificación han sido adoptadas para hacer calificación crediticia. Estas técnicas incluyen métodos estadísticos (e.g. análisis discrimante y regresión logística), modelos estadísticos no paramétricos (e.g. K-nearest neighbour y árboles de decisión) y redes neuronales. Con frecuencia surgen conflictos cuando se comparan las conclusiones de algunos de estos estudios. Por ejemplo, en \citep{desai1996comparison} encontraron que las redes neuronales se desempeñan considerablemente mejor que el análisis discriminante al predecir los malos préstamos, mientras que \citep{yobas2000credit} reportó que el segundo supera al primero. Por esto, el problema de escoger una técnica de clasificación para hacer la calificación crediticia permanece como una problema difícil y desafiante \citep{baesens2003benchmarking}.
 
-Los últimos estudios comparativos en esta área son del año 2003 \citep{baesens2003benchmarking} y 2015 \citep{lessmann2015benchmarking}. En el último estudio comparativo de 2015 se compararon 41 métodos de clasificación a través de 8 conjuntos de datos. Además se creó una tabla muy interesante comparando los algoritmos de clasificación y evaluación utilizados en los últimos estudios. En dicha tabla se evidencia que los algoritmos más utilizados son las \ac{MLP}, las \ac{SVM} y métodos de ensamble. También se ve que los algoritmos de evaluación más utilizados son el \ac{AUC} y aquellos que involucran un umbral, como error de clasificación, \ac{TPR}, etc. También se incluye información sobre qué estudios utilizaron una validación estadística de la hipótesis.
+Los últimos estudios comparativos en esta área son del año 2003 \citep{baesens2003benchmarking} y 2015 \citep{lessmann2015benchmarking}. En el último estudio comparativo de 2015 se compararon 41 métodos de clasificación a través de 8 conjuntos de datos. Además se creó una tabla muy interesante \citep{lessmann2015benchmarking} comparando los algoritmos de clasificación y evaluación utilizados en los últimos estudios. En dicha tabla se evidencia que los algoritmos más utilizados son las \ac{MLP}, las \ac{SVM} y métodos de ensamble. También se ve que los algoritmos de evaluación más utilizados son el \ac{AUC} y aquellos que involucran un umbral, como error de clasificación, \ac{TPR}, etc. También se incluye información sobre qué estudios utilizaron una validación estadística de la hipótesis.
 
 A pesar de tener mucha investigación, la literatura sobre calificación crediticia no refleja varios recientes avances en aprendizaje predictivo \citep{lessmann2015benchmarking}. Estos avances conciernen 3 dimensiones:
 
@@ -35,7 +35,7 @@ A continuación se dará un breve repaso de los algoritmos que se utilizarán en
 
 \subsection{Regresión Logística}
 
-Es un modelo estadístico que, en su forma básica, utiliza una función logística para modelar una variable binaria dependiente.
+Es un modelo estadístico que, en su forma básica, utiliza una función logística para modelar una variable binaria dependiente. A continuación la definición formal.
 
 Dado que $y\in \{0, 1\}$ y $x$ sea el vector de entrada, se tiene un vector de parámetros $w$ y un intercepto $w_0$. Para clasificar a $x$ se calcula una combinación lineal de $x$ y $w$, a la que luego se le aplica la función logística para obtener la probabilidad de que $y = 1$, tal como se muestra en la fórmula \ref{eq:lr}.
 

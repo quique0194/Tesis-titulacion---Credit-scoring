@@ -10,27 +10,29 @@ Al utilizar los algoritmos de aprendizaje automático en problemas de puntuació
 
 El momento en que se publica este trabajo es muy emocionante, puesto que en el entorno emprendedor peruano han surgido varias \textit{Fintech} (entidad que brinda servicios financieros basados en innovación tecnológica) que aprovechan el potencial del aprendizaje automático para expandir el porcentaje de la población que tiene acceso al crédito, que actualmente está rondando el 30\%.
 
-Las instituciones financieras tradicionales se han dado cuenta de esto y también están empezando a apalancarse con herramientas de aprendizaje automático para mantenerse a la altura.
+Las instituciones financieras tradicionales se han dado cuenta de esto y también están empezando a utilizar herramientas de aprendizaje automático para mantenerse competitivas.
 
-Desde el lado de la ciencia, este florecimiento del campo de aplicación ha impulsado la investigación en esta área, de modo que ahora tenemos nuevos algoritmos poderosos y eficientes como \ac{XGBoost} y nuevas técnicas de bagging, además de muchos estudios comparativos.
+Desde el lado de la ciencia, este florecimiento del campo de aplicación ha impulsado la investigación en esta área, de modo que ahora tenemos nuevos algoritmos poderosos y eficientes como \ac{XGBoost} \cite{Chen:2016:XST:2939672.2939785} y nuevas técnicas de \textit{bagging} (entrenamiento de varias instancias del modelo con diferentes subconjuntos de la base de datos).
 
 Sin embargo, cuando se aplican estas técnicas, muchas veces se olvidan características intrínsecas de los datos en esta área, lo que lleva a crear modelos subóptimos. De ahí surge la necesidad de enfocarnos en estas características particulares para mejorar el estado del arte existente.
 
 \section{Planteamiento del Problema}
 
-La investigación actual en puntuación crediticia no explota la característica de los conjuntos de datos de ser desbalanceados.
+La investigación actual en puntuación crediticia no explota la característica de los conjuntos de datos de ser desbalanceados. Es posible que aplicando técnicas específicas para datos desbalanceados se logre una mejora sobre modelos del estado del arte.
 
 \section{Objetivos}
 
-Importar al área de puntuación crediticia, un reciente método de ensamble de clasificación de datos desbalanceados.
+Importar al área de puntuación crediticia, un reciente método de ensamble de clasificación de datos desbalanceados. Lamentablemente este método no tiene nombre, pero se puede leer al respecto en \cite{sun2015novel}.
 
 \subsection{Objetivos Específicos}
 
-Comparar el desempeño de cuatro clasificadores base de distintas familias (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}) contra su versión ensamblada.
+\begin{itemize}
+	\item Comparar el desempeño de cuatro clasificadores base de distintas familias (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}) contra su versión ensamblada.
 
-Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}.
+	\item Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}.
 
-Comparar el desempeño de los cuatro clasificadores ensamblados con los resultados de otros trabajos de investigación del estado del arte usando conjuntos de datos de referencia.
+	\item Comparar el desempeño de los cuatro clasificadores ensamblados con los resultados de otros trabajos de investigación del estado del arte usando conjuntos de datos de referencia.
+\end{itemize}
 
 \section{Organización de la tesis}
 
@@ -40,7 +42,7 @@ En el capítulo 3 se explicarán los experimentos llevados a cabo en esta invest
 
 Luego en el capítulo 4 se presentarán los resultados de este trabajo en forma de tablas, al mismo tiempo que se harán algunos comentarios sobre observaciones interesantes y conclusiones relevantes.
 
-Finalmente en el capítulo 5 se bosquejan las conclusiones, problemas encontrados, recomendaciones y trabajo futuro.
+Finalmente en el capítulo 5 se bosquejan las conclusiones, problemas encontrados, recomendaciones y se proponen trabajos futuros.
 
 %\section{Cronograma}
 

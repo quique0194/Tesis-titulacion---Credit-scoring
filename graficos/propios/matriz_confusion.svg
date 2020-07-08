@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="173.01912mm"
+   height="40.170162mm"
+   viewBox="0 0 173.01912 40.170162"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="matriz_confusion.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="271.00388"
+     inkscape:cy="39.882032"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-10.01979,-15.62343)">
+    <g
+       id="g1194">
+      <g
+         id="g1160">
+        <g
+           id="g839-9"
+           transform="translate(10.767405,-8.693452)">
+          <rect
+             y="44.698433"
+             x="31.558554"
+             height="9.8487778"
+             width="46.873966"
+             id="rect815-6"
+             style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <text
+             id="text819-1"
+             y="51.781963"
+             x="52.433411"
+             style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+             xml:space="preserve"><tspan
+               style="stroke-width:0.14479122"
+               y="51.781963"
+               x="52.433411"
+               id="tspan817-0"
+               sodipodi:role="line">Si</tspan></text>
+        </g>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect815-0-7-0-2"
+           width="46.873966"
+           height="9.8487778"
+           x="42.325958"
+           y="45.85376" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+           x="63.200817"
+           y="52.93729"
+           id="text819-7-0-4-2"><tspan
+             sodipodi:role="line"
+             id="tspan817-5-4-2-2"
+             x="63.200817"
+             y="52.93729"
+             style="stroke-width:0.14479122">No</tspan></text>
+      </g>
+      <rect
+         y="26.156204"
+         x="89.199921"
+         height="9.8487778"
+         width="46.873966"
+         id="rect815-5"
+         style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text819-5"
+         y="33.239735"
+         x="110.07478"
+         style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.14479122"
+           y="33.239735"
+           x="110.07478"
+           id="tspan817-2"
+           sodipodi:role="line">Si</tspan></text>
+      <rect
+         y="26.156204"
+         x="136.07388"
+         height="9.8487778"
+         width="46.873966"
+         id="rect815-0-0"
+         style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text819-7-2"
+         y="33.239735"
+         x="156.94875"
+         style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.14479122"
+           y="33.239735"
+           x="156.94875"
+           id="tspan817-5-8"
+           sodipodi:role="line">No</tspan></text>
+      <text
+         id="text819-5-3"
+         y="20.023726"
+         x="120.06625"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.14479122"
+           y="20.023726"
+           x="120.06625"
+           id="tspan817-2-8"
+           sodipodi:role="line">Clase real</tspan></text>
+      <text
+         id="text819-5-3-4"
+         y="43.831806"
+         x="23.795937"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.79155254px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+         xml:space="preserve"><tspan
+           y="43.831806"
+           x="23.795937"
+           id="tspan1056"
+           sodipodi:role="line">Clase</tspan><tspan
+           y="51.071247"
+           x="23.795937"
+           id="tspan1058"
+           sodipodi:role="line">predicha</tspan></text>
+      <g
+         id="g1151">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect815"
+           width="46.873966"
+           height="9.8487778"
+           x="89.199921"
+           y="36.004982" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+           x="92.944054"
+           y="42.09726"
+           id="text819"><tspan
+             sodipodi:role="line"
+             id="tspan817"
+             x="92.944054"
+             y="42.09726"
+             style="font-size:4.23333311px;stroke-width:0.14479122">Verdadero Positivo</tspan></text>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect815-0"
+           width="46.873966"
+           height="9.8487778"
+           x="136.07388"
+           y="36.004982" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect815-0-7"
+           width="46.873966"
+           height="9.8487778"
+           x="136.07388"
+           y="45.85376" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.18210961;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect815-0-7-0"
+           width="46.873966"
+           height="9.8487778"
+           x="89.199921"
+           y="45.85376" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+           x="145.28745"
+           y="42.507568"
+           id="text819-50"><tspan
+             sodipodi:role="line"
+             id="tspan817-29"
+             x="145.28745"
+             y="42.507568"
+             style="font-size:4.23333311px;stroke-width:0.14479122">Falso Positivo</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+           x="138.62119"
+           y="51.946037"
+           id="text819-4"><tspan
+             sodipodi:role="line"
+             id="tspan817-3"
+             x="138.62119"
+             y="51.946037"
+             style="font-size:4.23333311px;stroke-width:0.14479122">Verdadero Negativo</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.79164886px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.14479122"
+           x="97.074028"
+           y="51.946037"
+           id="text819-51"><tspan
+             sodipodi:role="line"
+             id="tspan817-7"
+             x="97.074028"
+             y="51.946037"
+             style="font-size:4.23333311px;stroke-width:0.14479122">Falso Negativo</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

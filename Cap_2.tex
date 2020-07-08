@@ -196,25 +196,26 @@ Esta combinación de los resultados de los clasificadores base se realiza median
 
 \subsection{Exactitud, Precisión y Exhaustividad}
 
-Para entender estos conceptos necesitamos conocer primero a la matriz de confusión. Esta es una herramienta que permite la visualización del desempeño de un algoritmo de clasificación. Cada columna de la matriz representa el número de predicciones de cada clase, mientras que cada fila representa a las instancias en la clase real. Uno de los beneficios de las matrices de confusión es que facilitan ver si el sistema está confundiendo dos clases. Se puede ver un ejemplo en la figura \ref{fig:confussion}.
+De forma intuitiva se pueden definir de la siguiente manera:
+
+\begin{description}
+	\item [Exactitud] Porcentaje de clasificaciones correctas. En inglés: \textit{accuracy}.
+	\item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos. En inglés: \textit{precision}.
+	\item [Exhaustividad] De los realmente positivos, cuántos fueron clasificados como tal. En inglés: \textit{recall}.
+\end{description}
+
+Por otro lado, para definir estos térmios rigurosamente, es necesario explicar la matriz de confusión, también conocida como tabla de contingencia. Esta es una herramienta que permite visualizar el desempeño de un algoritmo de clasificación. Contrasta las clasificaciones hechas con la clase verdadera. Los números en la diagonal representan el error o confusión entre las clases \citep{fawcett2006introduction}.
+
+En la figura \ref{fig:confussion2} se muestra una matriz de confusión con 2 clases.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.5\linewidth]{graficos/confussion_matrix.png}
-	\caption{Ejemplo de matriz de confusión}
-	\label{fig:confussion}
-\end{figure}
-
-Cuando el problema de clasificación sólo tiene 2 clases, la matriz de confusión se parece más a la figura \ref{fig:confussion2}.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.8\linewidth]{graficos/confussion_matrix_2.png}
-	\caption{Ejemplo de matriz de confusión con dos clases}
+	\includegraphics[width=0.6\linewidth]{graficos/propios/matriz_confusion.png}
+	\caption{Matriz de confusión de dos clases}
 	\label{fig:confussion2}
 \end{figure}
 
-A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad como se ve en la fórmula \ref{eq:accuracy-prec-rec}.
+A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad. Esta definición es presentada en la fórmula \ref{eq:accuracy-prec-rec}.
 
 \begin{equation}
 	\label{eq:accuracy-prec-rec}
@@ -225,15 +226,7 @@ A partir de esta matriz se pueden definir formalmente la exactitud, precisión y
 \end{split}
 \end{equation}
 
-De forma más intuitiva podemos definirlos de la siguiente manera:
-
-\begin{description}
-	\item [Exactitud] Porcentaje de clasificaciones correctas
-	\item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos
-	\item [Exhaustividad] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
-\end{description}
-
-Aunque en el ámbito de la calificación crediticia lo normal sea que la clase positiva sean las personas morosas, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precisión y la exhaustividad se vuelven métricas muy útiles, con significados muy prácticos:
+Para utilizar los diferentes modelos, hay que definir una etiqueta positiva y una etiqueta negativa. Normalmente, la etiqueta positiva se destina a las créditos morosos. Sin embargo, si se invierte esta etiqueta y se hace que los créditos morosos tengan la etiqueta negativa, entonces la precisión y la exhaustividad se pueden asociar con conceptos mucho más intuitivos:
 
 \begin{description}
 	\item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
@@ -278,7 +271,7 @@ Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tenga
 
 \section{Trabajo relacionado}
 
-Actualmente hay mucho trabajo científico buscando mejorar los sistemas de calificación crediticia mediante diferentes técnicas.
+Desde que se creó la calificación crediticia en 1956, se han investigado diferentes métodos para mejorar el poder predictivo de los modelos utilizados. A continuación se hará un breve resumen de algunas investigaciones recientes.
 
 En \citep{sohn2016technology} se propone una regresión logística difusa para explotar mejor atributos de evaluación linguísticos. Los resultados son que efectivamente se mejora el desempeño respecto a una regresión logística normal. En \citep{bahnsen2014example} se propone una regresión logística que usa una matriz de costo dependiendo de cada ejemplo. Los resultados subrayan la importancia de usar los costos financieros reales, ya que se logran mejoras significativas en términos de ahorro de dinero.
 

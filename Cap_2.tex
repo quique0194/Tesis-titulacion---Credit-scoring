@@ -146,7 +146,7 @@ La figura \ref{fig:rf} ilustra el funcionamiento de \textit{Random Forest} de ma
 
 \subsection{XGBoost}
 
-Boosting es un método similar a \textit{bagging} que agrupa varios modelos débiles en un modelo fuerte. La diferencia con \textit{bagging} es que no se crean muestras aleatorias con repetición, sino que se incrementa la exactitud del modelo de forma progresiva, haciendo que los módelos débiles se enfoquen más en las instancias mal clasificadas de los clasificadores anteriores. AdaBoost es un ejemplo simple de boosting que se puede resumir en el los siguientes pasos:
+\textit{Boosting} es un método similar a \textit{bagging} que agrupa varios modelos débiles en un modelo fuerte. La diferencia con \textit{bagging} es que no se crean muestras aleatorias con repetición, sino que se incrementa la exactitud del modelo de forma progresiva, haciendo que los módelos débiles se enfoquen más en las instancias mal clasificadas de los clasificadores anteriores. AdaBoost es un ejemplo simple de \textit{boosting} que se puede resumir en el los siguientes pasos:
 
 \begin{enumerate}
 	\item Se escoge una muestra aleatoria del conjunto de entrenamiento
@@ -155,9 +155,9 @@ Boosting es un método similar a \textit{bagging} que agrupa varios modelos déb
 	\item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
 \end{enumerate}
 
-Gradient boosting por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir sobre ajuste.
+\textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir sobre ajuste.
 
-Finalmente, XGBoost es una implementación de Gradient Boosting en árboles de decisión creada por Tianqi Chen. La palaba extreme se refiere a la meta de ingeniería de aprovechar los recursos computacionales al límite, lo que provocó que su uso se expandiera rápidamente en la comunidad.
+Finalmente, XGBoost es una implementación de \textit{Gradient Boosting} en árboles de decisión creada por Tianqi Chen. La palaba extreme se refiere a la meta de ingeniería de aprovechar los recursos computacionales al límite, lo que provocó que su uso se expandiera rápidamente en la comunidad.
 
 % \section{Recomendaciones generales de escritura}
 % Un trabajo de esta naturaleza debe tener en consideración varios aspectos generales:
@@ -298,7 +298,7 @@ En \citep{xia2017boosted} y \citep{bhatia2017credit} se experimenta con \ac{XGBo
 
 Los préstamos \ac{P2P} son una opción para tomar préstamos de personas individuales sin utilizar un banco o una entidad financiera tradicional. En \citep{zhang2016research} se usa un conjunto de datos \ac{P2P} para construir un modelo basado en árboles de decisión fusionando datos de los medios de comunicación sociales. En \citep{zang2014credit} también se usa un conjunto de datos \ac{P2P}, perteneciente a Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con \ac{P2P}, en \citep{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
 
-En \citep{nanni2009experimental} se prueban varios clasificadores de ensamble en los datos de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \citep{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco conjuntos de datos distintos. Se hace un énfasis especial en el desbalanceo de la datos, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de Gradient Boosting se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \citep{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
+En \citep{nanni2009experimental} se prueban varios clasificadores de ensamble en los datos de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \citep{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco conjuntos de datos distintos. Se hace un énfasis especial en el desbalanceo de la datos, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de \textit{Gradient Boosting} se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \citep{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
 
 En conclusión, hasta la fecha se ha venido realizando un trabajo muy diverso. El área de calificación crediticia es un área muy fértil, pero aún quedan muchas potenciales mejoras por realizarse.
 

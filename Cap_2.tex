@@ -15,17 +15,17 @@ Los últimos estudios comparativos en esta área son del año 2003 \citep{baesen
 A pesar de tener mucha investigación, la literatura sobre calificación crediticia no refleja varios recientes avances en aprendizaje predictivo \citep{lessmann2015benchmarking}. Estos avances conciernen 3 dimensiones:
 
 \begin{itemize}
-    \item Nuevos algoritmos de clasificación
-    \item Nuevas medidas de desempeño para \textit{evaluar} modelos
-    \item Pruebas de hipótesis estadísticas para \textit{comparar} modelos 
+	\item Nuevos algoritmos de clasificación
+	\item Nuevas medidas de desempeño para \textit{evaluar} modelos
+	\item Pruebas de hipótesis estadísticas para \textit{comparar} modelos
 \end{itemize}
 
 Un análisis de le literatura de modelamiento de morosidad confirma que los estudios en esta área tienen varias limitaciones \citep{lessmann2015benchmarking}:
 
 \begin{itemize}
-    \item Utilizan pocos o pequeños conjuntos de datos
-    \item No comparan diferentes clasificadores de estado del arte entre ellos
-    \item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
+	\item Utilizan pocos o pequeños conjuntos de datos
+	\item No comparan diferentes clasificadores de estado del arte entre ellos
+	\item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
 \end{itemize}
 
 A continuación se dará un breve repaso de los algoritmos que se utilizarán en esta investigación, tanto para la clasificación como para la evaluación de los modelos.
@@ -40,10 +40,10 @@ Es un modelo estadístico que, en su forma básica, utiliza una función logíst
 Dado que $y\in \{0, 1\}$ y $\vec{x}$ sea el vector de entrada, se tiene un vector de parámetros $\vec{w}$ y un intercepto $w_0$. Para clasificar a $\vec{x}$ se calcula una combinación lineal de $\vec{x}$ y $\vec{w}$, a la que luego se le aplica la función logística para obtener la probabilidad de que $y = 1$, tal como se muestra en la fórmula \ref{eq:lr}.
 
 \begin{equation}
-    \label{eq:lr}
+	\label{eq:lr}
 \begin{split}
-    f(\vec{x}) &= w_0 + \vec{w}\cdot\vec{x} \\
-    P(y=1|\vec{x}) &= \frac{1}{1 + \exp(-f(\vec{x})) }
+	f(\vec{x}) &= w_0 + \vec{w}\cdot\vec{x} \\
+	P(y=1|\vec{x}) &= \frac{1}{1 + \exp(-f(\vec{x})) }
 \end{split}
 \end{equation}
 
@@ -52,24 +52,24 @@ Dado que $y\in \{0, 1\}$ y $\vec{x}$ sea el vector de entrada, se tiene un vecto
 El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.6\linewidth]{graficos/propios/mlp.png}
-    \caption{Arquitectura de una MLP típica \citep{bouzgou2012advanced}}
-    \label{fig:mlp-eg}
+	\centering
+	\includegraphics[width=0.6\linewidth]{graficos/propios/mlp.png}
+	\caption{Arquitectura de una MLP típica \citep{bouzgou2012advanced}}
+	\label{fig:mlp-eg}
 \end{figure}
 
 Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logistica, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
 
 \begin{equation}
-    \label{eq:mlp-out}
-    h_j = f(b_j + \sum_{j=1}^{n_h} W_{ij} x_i)
+	\label{eq:mlp-out}
+	h_j = f(b_j + \sum_{j=1}^{n_h} W_{ij} x_i)
 \end{equation}
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\linewidth]{graficos/propios/funciones_de_activacion.png}
-    \caption{Funciones de activación \citep{sze2017efficient}}
-    \label{fig:mlp-activation}
+	\centering
+	\includegraphics[width=0.8\linewidth]{graficos/propios/funciones_de_activacion.png}
+	\caption{Funciones de activación \citep{sze2017efficient}}
+	\label{fig:mlp-activation}
 \end{figure}
 
 \subsection{Deep Belief Network}
@@ -81,10 +81,10 @@ El entrenamiento de esta red consiste en una etapa no supervisada seguida de otr
 Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervisadas tales como la \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa. Ver figura \ref{fig:dbn-train}.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.9\linewidth]{graficos/propios/entrenamiento_dbn.png}
-    \caption{Entrenamiento no supervisado de una DBN \citep{beysolow2017autoencoders}}
-    \label{fig:dbn-train}
+	\centering
+	\includegraphics[width=0.9\linewidth]{graficos/propios/entrenamiento_dbn.png}
+	\caption{Entrenamiento no supervisado de una DBN \citep{beysolow2017autoencoders}}
+	\label{fig:dbn-train}
 \end{figure}
 
 \subsection{Support Vector Machine}
@@ -94,13 +94,13 @@ Es una familia de algoritmos de aprendizaje supervisado que pueden hacer clasifi
 Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de dimensionalidad muy alta. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. De esta manera se consigue separar a las clases con un margen máximo. La figura \ref{fig:svm-hiperplanos} ilustra esta forma de separación.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\linewidth]{graficos/svm_hiperplanos.png}
-    \caption{Hiperplanos creados por una SVM \citep{wiki:svm_figure}}
-    \label{fig:svm-hiperplanos}
-    \par
-    \small
-    $H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
+	\centering
+	\includegraphics[width=0.4\linewidth]{graficos/svm_hiperplanos.png}
+	\caption{Hiperplanos creados por una SVM \citep{wiki:svm_figure}}
+	\label{fig:svm-hiperplanos}
+	\par
+	\small
+	$H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
 \end{figure}
 
 Lamentablemente en las aplicaciones reales, las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide \citep{cristianini2000introduction}.
@@ -116,10 +116,10 @@ Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia
 Entre las ventajas de los árboles de decisión tenemos que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\linewidth]{graficos/propios/arbol_decision.png}
-    \caption{Ejemplo de árbol de decisión}
-    \label{fig:dt-eg}
+	\centering
+	\includegraphics[width=0.4\linewidth]{graficos/propios/arbol_decision.png}
+	\caption{Ejemplo de árbol de decisión}
+	\label{fig:dt-eg}
 \end{figure}
 
 \section{Métodos de ensamble}
@@ -135,17 +135,17 @@ Los árboles de decisión son algoritmos muy simples que permiten ver claramente
 El funcionamiento básico del bagging dentro de Random Forest se puede resumir en pocos pasos (figura \ref{fig:rf}):
 
 \begin{enumerate}
-    \item Asumiendo que tenemos un conjunto de datos con 1000 instancias
-    \item Creamos varias (e.g. 100) muestras aleatorias con repetición
-    \item Entrenamos un árbol de decisión en cada muestra
-    \item Dada una nueva instancia para clasificar, calculamos la predicción promedia de todos los árboles entrenados en el paso anterior
+	\item Asumiendo que tenemos un conjunto de datos con 1000 instancias
+	\item Creamos varias (e.g. 100) muestras aleatorias con repetición
+	\item Entrenamos un árbol de decisión en cada muestra
+	\item Dada una nueva instancia para clasificar, calculamos la predicción promedia de todos los árboles entrenados en el paso anterior
 \end{enumerate}
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{graficos/rf.png}
-    \caption{Funcionamiento de Random Forest \citep{mql5:rf}}
-    \label{fig:rf}
+	\centering
+	\includegraphics[width=\linewidth]{graficos/rf.png}
+	\caption{Funcionamiento de Random Forest \citep{mql5:rf}}
+	\label{fig:rf}
 \end{figure}
 
 Random Forest además incluye una mejora adicional conocida como Random Subspace. En lugar de entrenar los árboles de decisión con la totalidad de las variables, se escoge un subset aleatorio de variables y se entrena el árbol con ellas. Esto resulta en una mayor diversidad que generalmente produce un mejor modelo.
@@ -155,10 +155,10 @@ Random Forest además incluye una mejora adicional conocida como Random Subspace
 Boosting es un método similar a bagging que agrupa varios modelos débiles en un modelo fuerte. La diferencia con bagging es que no se crean muestras aleatorias con repetición, sino que se incrementa la exactitud del modelo de forma progresiva, haciendo que los módelos débiles se enfoquen más en las instancias mal clasificadas de los clasificadores anteriores. AdaBoost es un ejemplo simple de boosting que se puede resumir en el los siguientes pasos:
 
 \begin{enumerate}
-    \item Se escoge una muestra aleatoria del conjunto de entrenamiento
-    \item Se entrena un clasificador débil con esta muestra y se clasifica todo el conjunto de entrenamiento
-    \item A las instancias mal clasificadas se les da más peso para que tengan más probabilidad de aparecer en la siguiente muestra
-    \item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
+	\item Se escoge una muestra aleatoria del conjunto de entrenamiento
+	\item Se entrena un clasificador débil con esta muestra y se clasifica todo el conjunto de entrenamiento
+	\item A las instancias mal clasificadas se les da más peso para que tengan más probabilidad de aparecer en la siguiente muestra
+	\item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
 \end{enumerate}
 
 Gradient boosting por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir sobre ajuste.
@@ -169,11 +169,11 @@ Finalmente, XGBoost es una implementación de Gradient Boosting en árboles de d
 % Un trabajo de esta naturaleza debe tener en consideración varios aspectos generales:
 
 % \begin{itemize}
-% \item Ir de lo genérico a lo específico. Siempre hay qeu considerar que el lector podría ser alguien no muy familiar con el tema 
+% \item Ir de lo genérico a lo específico. Siempre hay qeu considerar que el lector podría ser alguien no muy familiar con el tema
 % y la lectura debe serle atractiva.
 % \item No poner frases muy largas. Si las frases son de mas de 2 líneas continuas es probable que la lectura sea dificultosa.
 % \item Las figuras, ecuaciones, tablas deben ser citados y explicados {\bf antes} de que aparezcan en el documento.
-% \item Encadenar las ideas. Ninguna frase debe estar suelta. Siempre que terminas un párrafo y hay otro a continuación, 
+% \item Encadenar las ideas. Ninguna frase debe estar suelta. Siempre que terminas un párrafo y hay otro a continuación,
 % el primero debe dejar abierta la idea que se explicará a continuación. Todo debe tener secuencia.
 % \end{itemize}
 
@@ -187,10 +187,10 @@ El bagging es un método de aprendizaje de ensamble que podría resolver este pr
 El método de bagging propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
-    \caption{Método de bagging propuesto \citep{sun2015novel}}
-    \label{fig:bagging-imbalanced}
+	\centering
+	\includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
+	\caption{Método de bagging propuesto \citep{sun2015novel}}
+	\label{fig:bagging-imbalanced}
 \end{figure}
 
 En este método, la clase mayoritaria genera varios subsets mediante muestreo sin repetición. Cada subset tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada conjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
@@ -205,45 +205,45 @@ Esta combinación de los resultados de los clasificadores base se realiza median
 Para entender estos conceptos necesitamos conocer primero a la matriz de confusión. Esta es una herramienta que permite la visualización del desempeño de un algoritmo de clasificación. Cada columna de la matriz representa el número de predicciones de cada clase, mientras que cada fila representa a las instancias en la clase real. Uno de los beneficios de las matrices de confusión es que facilitan ver si el sistema está confundiendo dos clases. Se puede ver un ejemplo en la figura \ref{fig:confussion}.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{graficos/confussion_matrix.png}
-    \caption{Ejemplo de matriz de confusión}
-    \label{fig:confussion}
+	\centering
+	\includegraphics[width=0.5\linewidth]{graficos/confussion_matrix.png}
+	\caption{Ejemplo de matriz de confusión}
+	\label{fig:confussion}
 \end{figure}
 
 Cuando el problema de clasificación sólo tiene 2 clases, la matriz de confusión se parece más a la figura \ref{fig:confussion2}.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\linewidth]{graficos/confussion_matrix_2.png}
-    \caption{Ejemplo de matriz de confusión con dos clases}
-    \label{fig:confussion2}
+	\centering
+	\includegraphics[width=0.8\linewidth]{graficos/confussion_matrix_2.png}
+	\caption{Ejemplo de matriz de confusión con dos clases}
+	\label{fig:confussion2}
 \end{figure}
 
 A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad como se ve en la fórmula \ref{eq:accuracy-prec-rec}.
 
 \begin{equation}
-    \label{eq:accuracy-prec-rec}
+	\label{eq:accuracy-prec-rec}
 \begin{split}
-    \text{Exactitud}  &= \frac{\text{verdaderos positivos} + \text{verdaderos negativos}}{\text{verdaderos positivos} + \text{falsos positivos} + \text{verdaderos negativos} + \text{falsos negativos}} \\\\
-    \text{Precisión} &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos positivos}} \\\\
-    \text{Exhaustividad}    &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos negativos}} 
+	\text{Exactitud}  &= \frac{\text{verdaderos positivos} + \text{verdaderos negativos}}{\text{verdaderos positivos} + \text{falsos positivos} + \text{verdaderos negativos} + \text{falsos negativos}} \\\\
+	\text{Precisión} &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos positivos}} \\\\
+	\text{Exhaustividad}	&= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos negativos}}
 \end{split}
 \end{equation}
 
 De forma más intuitiva podemos definirlos de la siguiente manera:
 
 \begin{description}
-    \item [Exactitud] Porcentaje de clasificaciones correctas
-    \item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos
-    \item [Exhaustividad] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
+	\item [Exactitud] Porcentaje de clasificaciones correctas
+	\item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos
+	\item [Exhaustividad] De la población total de positivos, cuántos clasificó como positivos nuestro modelo
 \end{description}
 
 Aunque en el ámbito de la calificación crediticia lo normal sea que la clase positiva sean las personas morosas, si invertimos esta situación haciendo que la clase positiva sean las personas que pagan su crédito, entonces la precisión y la exhaustividad se vuelven métricas muy útiles, con significados muy prácticos:
 
 \begin{description}
-    \item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
-    \item [Exhaustividad] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
+	\item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
+	\item [Exhaustividad] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
 \end{description}
 
 En otras palabras, el balance entre precisión y exhaustividad se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
@@ -261,10 +261,10 @@ La curva ROC grafica la relación entre la razón de verdaderos positivos y la r
 El \ac{AUC} es una medida que nos permite comparar diferentes curvas fácilmente. Funciona calculando el área debajo de la curva ROC, tal como su nombre lo indica. Ver figura \ref{fig:eg-roc}.
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\linewidth]{graficos/eg_roc.png}
-    \caption{Ejemplo de curvas ROC \citep{wiki:roc_figure}}
-    \label{fig:eg-roc}
+	\centering
+	\includegraphics[width=0.8\linewidth]{graficos/eg_roc.png}
+	\caption{Ejemplo de curvas ROC \citep{wiki:roc_figure}}
+	\label{fig:eg-roc}
 \end{figure}
 
 Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tengan la misma área bajo la curva. Por eso no se puede descartar el uso de las curvas ROC totalmente, ya que dependiendo de a qué se le quiera dar más importancia, se escogerá una curva y otra. Tarea que es imposible solamente observando el \ac{AUC}.
@@ -292,7 +292,7 @@ Por otro lado en \citep{zhao2015investigation} se aplica una \ac{MLP} que se tra
 
 En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \citep{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de calificación crediticia como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un conjunto de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor exactitud y AUC.
 
-En \citep{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de árboles, los \ac{SVM} tienen una exactitud idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo. 
+En \citep{huang2007credit} se usan tres estrategias para construir modelos híbridos de \ac{SVM}, las pruebas se ejecutan con dos conjuntos de datos crediticios de la UCI. Comparados con redes neuronales, programación genética y clasificadores de árboles, los \ac{SVM} tienen una exactitud idéntica con relativamente pocas características. Adicionalmente, al combinar algoritmos genéticos con \ac{SVM}, se puede realizar simultáneamente la selección de variables y la optimización de parámetros del modelo.
 
 En otro estudio \citep{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en conjuntos grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
 

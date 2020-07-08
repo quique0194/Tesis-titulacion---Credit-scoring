@@ -14,28 +14,28 @@ En este capítulo explicaremos la información necesaria y los procedimientos se
 Los conjuntos de datos que serán utilizados como casos de prueba son los siguientes:
 
 \begin{description}
-    \item[Apurata] Conjunto de datos privado de la \textit{fintech} peruana con el mismo nombre
-    \item[Lending Club] Conjunto de datos público de la mayor \textit{fintech} de préstamos \ac{P2P} en EE.UU.
-    \item[Crédito Alemán] Conjunto de datos público de entidades bancarias Alemanas
+	\item[Apurata] Conjunto de datos privado de la \textit{fintech} peruana con el mismo nombre
+	\item[Lending Club] Conjunto de datos público de la mayor \textit{fintech} de préstamos \ac{P2P} en EE.UU.
+	\item[Crédito Alemán] Conjunto de datos público de entidades bancarias Alemanas
 \end{description}
 
 Una mejor comparación entre estos conjuntos se puede encontrar en la tabla \ref{tab:dataset-comparison}
 
 \begin{table}
-    \centering
-    \caption{Conjunto de datos utilizados}
-    \label{tab:dataset-comparison}
-    \begin{tabular}{@{}lll@{}}
-    \toprule
-    \textbf{Apurata}  & \textbf{Lending Club} & \textbf{Crédito Alemán} \\
-    \midrule
-    Perú (2016-2018)  & E.E.U.U (2007-2015)   & Alemania (1994)         \\
-    100 - 1,000 PEN   & 1000 - 35,000 USD     & 1,000 - 20,000 EUR      \\
-    1 - 9 semanas     & 36 - 60 meses         & 6 - 60 meses            \\ 
-    626 observaciones & 194,208 observaciones & 1000 observaciones      \\
-    33 atributos      & 46 atributos          & 24 atributos            \\
-    \bottomrule
-    \end{tabular}
+	\centering
+	\caption{Conjunto de datos utilizados}
+	\label{tab:dataset-comparison}
+	\begin{tabular}{@{}lll@{}}
+	\toprule
+	\textbf{Apurata}  & \textbf{Lending Club} & \textbf{Crédito Alemán} \\
+	\midrule
+	Perú (2016-2018)  & E.E.U.U (2007-2015)   & Alemania (1994)		 \\
+	100 - 1,000 PEN   & 1000 - 35,000 USD	 & 1,000 - 20,000 EUR	  \\
+	1 - 9 semanas	 & 36 - 60 meses		 & 6 - 60 meses			\\
+	626 observaciones & 194,208 observaciones & 1000 observaciones	  \\
+	33 atributos	  & 46 atributos		  & 24 atributos			\\
+	\bottomrule
+	\end{tabular}
 \end{table}
 
 Como se puede apreciar, todos los conjuntos se componen de pocas características, ninguno de ellos supera las 50. Los conjuntos de datos de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de instancias, con 1000 o menos.
@@ -52,9 +52,9 @@ Para el preprocesamiento de la información, se eliminaron las variables con má
 
 La interpretación de la variable $y$ se hizo de la siguiente manera: 1 para los buenos pagadores y 0 para los malos.
 
-Para la selección de parámetros se realizó un grid-search con un ajuste fino manual al final. Sobre el desbalanceo de los datos, no se tomó ningún procedimiento especial. 
+Para la selección de parámetros se realizó un grid-search con un ajuste fino manual al final. Sobre el desbalanceo de los datos, no se tomó ningún procedimiento especial.
 
-Para evaluar el desempeño de los modelos se hizo 10-fold validation 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final. 
+Para evaluar el desempeño de los modelos se hizo 10-fold validation 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final.
 
 Las métricas utilizas son la exactitud, la precisión, la exhaustividad y el \ac{AUC}. La métrica que se buscó optimizar fue el \ac{AUC}. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar la exactitud, de modo que los resultados son comparables con el estado del arte.
 

@@ -130,16 +130,11 @@ Evaluar la predicción de un ensamble requiere más computaciones de las que req
 
 \subsection{Random Forest}
 
-Los árboles de decisión son algoritmos muy simples que permiten ver claramente la importancia de cada variable. Sin embargo, son proclives al sobreajuste, y se hace necesario limitar la profundidad de los árboles para mitigar este problema. Además, son muy inestables, ya que con pequeñas variaciones del conjunto de entrenamiento se puede generar un árbol completamente distinto. Esto es llamado varianza y se necesitan métodos como el bagging y el boosting para reducirla.
+\textit{Random Forest} es un método de construcción sistemática de un bosque de árboles de decisión. Se basa en un procedimiento pseudoaleatorio para seleccionar componentes de un vector de características, y los árboles de decisión son generados usando sólo los componentes seleccionados. Cada árbol generaliza la clasificación de nuevos puntos de diferentes maneras por las invarianzas de las características no seleccionadas. Las decisiones de los árboles son combinadas promediando las probabilidades en cada hoja \citep{ho1998random}.
 
-El funcionamiento básico del bagging dentro de Random Forest se puede resumir en pocos pasos (figura \ref{fig:rf}):
+Con \ac{RF} se obtienen importantes mejoras de exactitud respecto a un árbol de decisión entrenado con el conjunto de datos completo. Además, mientras que un bosque crece en complejidad (medida como el número de árboles) su exactitud en el conjunto de prueba no disminuye.
 
-\begin{enumerate}
-	\item Asumiendo que tenemos un conjunto de datos con 1000 instancias
-	\item Creamos varias (e.g. 100) muestras aleatorias con repetición
-	\item Entrenamos un árbol de decisión en cada muestra
-	\item Dada una nueva instancia para clasificar, calculamos la predicción promedia de todos los árboles entrenados en el paso anterior
-\end{enumerate}
+La figura \ref{fig:rf} ilustra el funcionamiento de \textit{Random Forest} de manera gráfica.
 
 \begin{figure}[htbp]
 	\centering
@@ -148,7 +143,6 @@ El funcionamiento básico del bagging dentro de Random Forest se puede resumir e
 	\label{fig:rf}
 \end{figure}
 
-Random Forest además incluye una mejora adicional conocida como Random Subspace. En lugar de entrenar los árboles de decisión con la totalidad de las variables, se escoge un subset aleatorio de variables y se entrena el árbol con ellas. Esto resulta en una mayor diversidad que generalmente produce un mejor modelo.
 
 \subsection{XGBoost}
 

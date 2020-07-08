@@ -78,7 +78,7 @@ Es un tipo de red neuronal profunda, compuesta por múltiples capas de variables
 
 El entrenamiento de esta red consiste en una etapa no supervisada seguida de otra supervisada. En la etapa no supervisada la \ac{DBN} aprende a reconstruir probabilísticamente sus entradas. Luego, se mejora la clasificación mediante la siguiente etapa de entrenamiento supervisado.
 
-Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervisadas tales como la \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa. Ver Figura \ref{fig:dbn-train}.
+Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervisadas tales como la \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa. Ver figura \ref{fig:dbn-train}.
 
 \begin{figure}[htbp]
     \centering
@@ -89,9 +89,9 @@ Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervis
 
 \subsection{Support Vector Machine}
 
-Es una familia de algoritmos de aprendizaje supervisado desarrollados en los laboratorios AT\&T, que pueden hacer clasificación y regresión.
+Es una familia de algoritmos de aprendizaje supervisado que pueden hacer clasificación y regresión \citep{cortes1995support}.
 
-Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de dimensionalidad muy alta. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. De esta manera se consigue separar a las clases con un margen máximo. Ver Figura \ref{fig:svm-hiperplanos}.
+Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de dimensionalidad muy alta. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. De esta manera se consigue separar a las clases con un margen máximo. La figura \ref{fig:svm-hiperplanos} ilustra esta forma de separación.
 
 \begin{figure}[htbp]
     \centering
@@ -103,13 +103,13 @@ Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de 
     $H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
 \end{figure}
 
-Lamentablemente en las aplicaciones reales, las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide.
+Lamentablemente en las aplicaciones reales, las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide \citep{cristianini2000introduction}.
 
-Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la solución resolviendo un conjunto de ecuaciones lineales en lugar de un problema convexo de programación cuadrática.
+Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la solución resolviendo un conjunto de ecuaciones lineales en lugar de un problema convexo de programación cuadrática \citep{ak2002least}.
 
 \subsection{Árbol de decisión}
 
-Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la Figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
+Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
 
 Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo una variable en cada paso que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
 
@@ -132,7 +132,7 @@ Evaluar la predicción de un ensamble requiere más computaciones de las que req
 
 Los árboles de decisión son algoritmos muy simples que permiten ver claramente la importancia de cada variable. Sin embargo, son proclives al sobreajuste, y se hace necesario limitar la profundidad de los árboles para mitigar este problema. Además, son muy inestables, ya que con pequeñas variaciones del conjunto de entrenamiento se puede generar un árbol completamente distinto. Esto es llamado varianza y se necesitan métodos como el bagging y el boosting para reducirla.
 
-El funcionamiento básico del bagging dentro de Random Forest se puede resumir en pocos pasos (Figura \ref{fig:rf}):
+El funcionamiento básico del bagging dentro de Random Forest se puede resumir en pocos pasos (figura \ref{fig:rf}):
 
 \begin{enumerate}
     \item Asumiendo que tenemos un conjunto de datos con 1000 instancias

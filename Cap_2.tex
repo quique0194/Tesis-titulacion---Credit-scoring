@@ -53,9 +53,9 @@ El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está ins
 
 \begin{figure}
     \centering
-    \caption{Arquitectura de una MLP típica}
     \label{fig:mlp-eg}
     \includegraphics[width=0.6\linewidth]{graficos/mlp_eg.png}
+    \caption{Arquitectura de una MLP típica}
 \end{figure}
 
 Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logistica, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
@@ -67,9 +67,9 @@ Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta 
 
 \begin{figure}
     \centering
-    \caption{Funciones de activación}
     \label{fig:mlp-activation}
     \includegraphics[width=0.6\linewidth]{graficos/mlp_activation_functions.png}
+    \caption{Funciones de activación}
 \end{figure}
 
 \subsection{Deep Belief Network}
@@ -82,9 +82,9 @@ Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervis
 
 \begin{figure}
     \centering
-    \caption{Entrenamiento no supervisado de una DBN}
     \label{fig:dbn-train}
     \includegraphics[width=0.75\linewidth]{graficos/dbn_train.png}
+    \caption{Entrenamiento no supervisado de una DBN}
 \end{figure}
 
 \subsection{Support Vector Machine}
@@ -95,9 +95,9 @@ Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de 
 
 \begin{figure}
     \centering
-    \caption{Hiperplanos creados por una SVM}
     \label{fig:svm-hiperplanos}
     \includegraphics[width=0.6\linewidth]{graficos/svm_hiperplanos.png}
+    \caption{Hiperplanos creados por una SVM}
     \par
     \small
     $H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
@@ -117,9 +117,9 @@ Entre las ventajas de los árboles de decisión tenemos que son fáciles de inte
 
 \begin{figure}
     \centering
-    \caption{Ejemplo de árbol de decisión}
     \label{fig:dt-eg}
     \includegraphics[width=0.6\linewidth]{graficos/dt_example.png}
+    \caption{Ejemplo de árbol de decisión}
 \end{figure}
 
 \section{Métodos de ensamble}
@@ -143,9 +143,9 @@ El funcionamiento básico del bagging dentro de Random Forest se puede resumir e
 
 \begin{figure}
     \centering
-    \caption{Funcionamiento de Random Forest}
     \label{fig:rf}
     \includegraphics[width=\linewidth]{graficos/rf.png}
+    \caption{Funcionamiento de Random Forest}
 \end{figure}
 
 Random Forest además incluye una mejora adicional conocida como Random Subspace. En lugar de entrenar los árboles de decisión con la totalidad de las variables, se escoge un subset aleatorio de variables y se entrena el árbol con ellas. Esto resulta en una mayor diversidad que generalmente produce un mejor modelo.
@@ -188,9 +188,9 @@ El método de bagging propuesto \citep{sun2015novel} ataca un problema desbalanc
 
 \begin{figure}
     \centering
-    \caption{Método de bagging propuesto}
     \label{fig:bagging-imbalanced}
     \includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
+    \caption{Método de bagging propuesto}
 \end{figure}
 
 En este método, la clase mayoritaria genera varios subsets mediante muestreo sin repetición. Cada subset tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada conjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
@@ -206,18 +206,18 @@ Para entender estos conceptos necesitamos conocer primero a la matriz de confusi
 
 \begin{figure}
     \centering
-    \caption{Ejemplo de matriz de confusión}
     \label{fig:confussion}
     \includegraphics[width=0.5\linewidth]{graficos/confussion_matrix.png}
+    \caption{Ejemplo de matriz de confusión}
 \end{figure}
 
 Cuando el problema de clasificación sólo tiene 2 clases, la matriz de confusión se parece más a la figura \ref{fig:confussion2}.
 
 \begin{figure}
     \centering
-    \caption{Ejemplo de matriz de confusión con dos clases}
     \label{fig:confussion2}
     \includegraphics[width=0.8\linewidth]{graficos/confussion_matrix_2.png}
+    \caption{Ejemplo de matriz de confusión con dos clases}
 \end{figure}
 
 A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad como se ve en la fórmula \ref{eq:accuracy-prec-rec}.
@@ -262,9 +262,9 @@ El \ac{AUC} es una medida que nos permite comparar diferentes curvas fácilmente
 
 \begin{figure}
     \centering
-    \caption{Ejemplo de curvas ROC}
     \label{fig:eg-roc}
     \includegraphics[width=0.8\linewidth]{graficos/eg_roc.png}
+    \caption{Ejemplo de curvas ROC}
 \end{figure}
 
 Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tengan la misma área bajo la curva. Por eso no se puede descartar el uso de las curvas ROC totalmente, ya que dependiendo de a qué se le quiera dar más importancia, se escogerá una curva y otra. Tarea que es imposible solamente observando el \ac{AUC}.

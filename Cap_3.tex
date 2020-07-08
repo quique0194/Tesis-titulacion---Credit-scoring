@@ -25,7 +25,17 @@ Una mejor comparación entre estos conjuntos se puede encontrar en la tabla \ref
     \centering
     \caption{Conjunto de datos utilizados}
     \label{tab:dataset-comparison}
-    \includegraphics[width=0.8\linewidth]{graficos/dataset_comparison.png}
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Apurata}  & \textbf{Lending Club} & \textbf{Crédito Alemán} \\
+    \midrule
+    Perú (2016-2018)  & E.E.U.U (2007-2015)   & Alemania (1994)         \\
+    100 - 1,000 PEN   & 1000 - 35,000 USD     & 1,000 - 20,000 EUR      \\
+    1 - 9 semanas     & 36 - 60 meses         & 6 - 60 meses            \\ 
+    626 observaciones & 194,208 observaciones & 1000 observaciones      \\
+    33 atributos      & 46 atributos          & 24 atributos            \\
+    \bottomrule
+    \end{tabular}
 \end{table}
 
 Como se puede apreciar, todos los conjuntos se componen de pocas características, ninguno de ellos supera las 50. Los conjuntos de datos de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de instancias, con 1000 o menos.

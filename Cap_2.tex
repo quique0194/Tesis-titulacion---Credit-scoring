@@ -37,19 +37,19 @@ A continuación se dará un breve repaso de los algoritmos que se utilizarán en
 
 Es un modelo estadístico que, en su forma básica, utiliza una función logística para modelar una variable binaria dependiente. A continuación la definición formal.
 
-Dado que $y\in \{0, 1\}$ y $x$ sea el vector de entrada, se tiene un vector de parámetros $w$ y un intercepto $w_0$. Para clasificar a $x$ se calcula una combinación lineal de $x$ y $w$, a la que luego se le aplica la función logística para obtener la probabilidad de que $y = 1$, tal como se muestra en la fórmula \ref{eq:lr}.
+Dado que $y\in \{0, 1\}$ y $\vec{x}$ sea el vector de entrada, se tiene un vector de parámetros $\vec{w}$ y un intercepto $w_0$. Para clasificar a $\vec{x}$ se calcula una combinación lineal de $\vec{x}$ y $\vec{w}$, a la que luego se le aplica la función logística para obtener la probabilidad de que $y = 1$, tal como se muestra en la fórmula \ref{eq:lr}.
 
 \begin{equation}
     \label{eq:lr}
 \begin{split}
-    f(x) &= w_0 + wx \\
-    P(y=1|x) &= \frac{1}{1 + \exp(-f(x)) }
+    f(\vec{x}) &= w_0 + \vec{w}\cdot\vec{x} \\
+    P(y=1|\vec{x}) &= \frac{1}{1 + \exp(-f(\vec{x})) }
 \end{split}
 \end{equation}
 
 \subsection{Multi Layer Perceptron}
 
-Es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa.
+El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa.
 
 \begin{figure}
     \centering

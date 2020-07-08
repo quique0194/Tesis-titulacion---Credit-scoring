@@ -1,0 +1,2 @@
+TODO:
+* Mejorar imagen de random forest

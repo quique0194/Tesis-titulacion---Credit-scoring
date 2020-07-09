@@ -101,7 +101,9 @@ DBN				& 66.84		& 80.07		& 97.98			& 78.24		\\
 
 \section{Proceso 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}.
+Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}. Para comparar estos resultados se realizó una prueba de T de Student desapareada.
+
+El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.21$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.13$)} demostró un \ac{AUC} significativamente mejor, $t(198)=7.47, p=.0001$.
 
 Se observa que el desempeño de los \ac{ECDD} es ligeramente superior al desempeño de \ac{RF} y \ac{XGBoost}. Si comparamos la mejora obtenida por el mejor \ac{ECDD} respecto al mejor entre RF y XGBoost; vemos que el AUC en Apurata incrementa 3.33, en Lending Club mejora 0.50 y en Crédito Alemán aumenta en 0.06.
 

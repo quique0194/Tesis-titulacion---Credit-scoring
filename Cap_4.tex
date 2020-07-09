@@ -27,7 +27,7 @@ En conclusión, este clasificador no es adecuado para este problema, y al ser ba
 \label{tab:apurata-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
 LR				& 70.02		& 89.25		& 96.35			& 82.78		\\
 ECDD-LR			& 72.56		& 89.76		& 95.96			& 82.86		\\
@@ -53,7 +53,7 @@ DBN				& 67.80		& 88.04		& 91.76			& 79.84		\\
 \label{tab:lc-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
 LR				& 73.36		& 77.83		& 95.40			& 75.05		\\
 ECDD-LR			& 73.34		& 77.55		& 96.23			& 74.85		\\
@@ -79,7 +79,7 @@ DBN				& 75.01		& 78.56		& 94.92			& 75.72		\\
 \label{tab:german-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
 LR				& 71.45		& 81.77		& 99.32			& 78.92		\\
 ECDD-LR			& 71.50		& 81.84		& 98.83			& 78.68		\\
@@ -119,14 +119,14 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 \label{tab:apurata-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
-ECDD-LR			& 72.56		& 89.76		& 95.96			& 82.86		\\
+ECDD-LR			& 72.56		& 89.76		& 95.96			& 82.86		\\	% AUC std: 0.032
 ECDD-MLP	 	& 70.61		& 89.64		& 92.30			& 80.61		\\
 ECDD-SVM	 	& 71.70		& 89.81		& 94.44			& 82.04		\\
 ECDD-AD			& 68.81		& 89.42		& 92.93			& 80.73		\\
 				\hline
-RF		 		& 69.23		& 89.37		& 94.57			& 81.66		\\
+RF		 		& 69.23		& 89.37		& 94.57			& 81.66		\\	% AUC std: 0.031
 XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\
 				\hline
 \end{tabularx}
@@ -139,7 +139,7 @@ XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\
 \label{tab:lc-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
 ECDD-LR			& 71.50		& 81.84		& 98.83			& 78.68		\\
 ECDD-MLP		& 71.61		& 82.44		& 97.08			& 79.00		\\
@@ -159,7 +159,7 @@ XGB				& 70.68		& 81.89		& 98.56			& 78.81		\\
 \label{tab:german-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
-				& AUC		& Precisión	& Exhaustividad	& Exactitud	\\
+				& AUC		& Precisión	& Exhaust.		& Exactitud	\\
 				\hline
 ECDD-LR			& 73.34		& 77.55		& 96.23			& 74.85		\\
 ECDD-MLP		& 75.67		& 79.09		& 94.07			& 75.82		\\

@@ -10,14 +10,12 @@ To-Do:
 ======
 
 // Contenido
-* Mejorar la redacción del objetivo principal, enfatizar la contribución del trabajo, creo que "importar" no es una palabra adecuada.
-* Mejorar la redacción de los objetivos específicos, deben tener una finalidad.
-* Mejorar conclusiones, deben estar asociadas con los objetivos principal y específicos.
 * Descripción muy breve de MLP, regresión logística, SVM, etc. La descripción no refleja realmente como estos algoritmos resuelven tareas de clasificación. Por ejemplo, no se específica como se realiza el entrenamiento.
 * Se pasa directamente al capítulo de experimentos sin haber presentado la propuesta en sí (debe ser un capítulo). Es extraña esta forma de presentar una contribución científica.
 	* El capítulo 3 y 4 podrían ser unidos en un único capítulo de resultados
 * Con datos desbalanceados no tiene sentido usar accuracy, tal vez quitar esto de los resultados y usar F1
 * Evitar argumentos como "el clasificador es ligeramente superior". Para poder afirmar si un algoritmo es mejor que otro, debería utilizar una prueba de significancia estadística.
+* Mejorar conclusiones, deben estar asociadas con los objetivos principal y específicos.
 
 // Referencias
 * Referenciar todos los algoritmos usados

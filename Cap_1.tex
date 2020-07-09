@@ -34,16 +34,21 @@ Resolver este problema podría mejorar el acceso al crédito para muchas persona
 
 \section{Objetivos}
 
-Importar al área de calificación crediticia, un reciente método de ensamble de clasificación de datos desbalanceados. Lamentablemente este método no tiene nombre, pero se puede leer al respecto en \citep{sun2015novel}.
+Aplicar en el área de calificación crediticia, un reciente método de ensamble para clasificación de datos desbalanceados \citep{sun2015novel}. Y compararlo con otros modelos del estado del arte.
+
 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-	\item Comparar el desempeño de cuatro clasificadores base de distintas familias (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}) contra su versión ensamblada.
+	\item Implementar el método de ensamble para poder realizar pruebas con él.
 
-	\item Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}.
+	\item Elegir 3 bases de datos para ejecutar los experimentos.
 
-	\item Comparar el desempeño de los cuatro clasificadores ensamblados con los resultados de otros trabajos de investigación del estado del arte usando conjuntos de datos de referencia.
+	\item Comparar el desempeño de cuatro clasificadores: (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}); contra su versión ensamblada. Para comprobar si el ensamble mejora el poder predictivo de estos clasificadores base.
+
+	\item Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}. Para comprobar si es un método de ensamble al menos competitivo.
+
+	\item Comparar el desempeño de los cuatro clasificadores ensamblados, con los resultados de otros trabajos de investigación del estado del arte, usando conjuntos de datos de referencia. De esta manera verificar si hay una mejora respecto al estado del arte.
 \end{itemize}
 
 \section{Organización de la tesis}

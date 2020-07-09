@@ -4,9 +4,21 @@ TODO:
 Observaciones pendientes prof. Yván:
 
 * Mejorar conclusiones
+* Al quitar las referencias, el texto debe seguir teniendo sentido
+* Referenciar todos los algoritmos usados
 * Cambiar palabras en inglés:
 	* boosting
 	* grid-search
+	* k-fold validation
+	* trade off
+	* overfitting
+	* Revisar apariciones de AUC
+	* Revisar acronimos
+	No se pueden traducir:
+	* Big Data
+	* bagging
+	* random forest
+	* Lending Club
 * Mejorar imagen de random forest
 * hablar todo en 3ra persona. Buscar verbos que acaban en *mos e.g. hacemos, acabamos, mostramos
 * Menciono que el desbalance siempre es que hay pocos default?

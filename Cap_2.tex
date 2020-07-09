@@ -35,17 +35,38 @@ A continuación se dará un breve repaso de los algoritmos que se utilizarán en
 
 \subsection{Regresión Logística}
 
-Es un modelo estadístico que, en su forma básica, utiliza una función logística para modelar una variable binaria dependiente. A continuación la definición formal.
+Es un modelo estadístico que, en su forma básica, utiliza una regresión lineal transformada por una función logística para modelar una variable binaria dependiente. A continuación la definición formal.
 
-Dado que $y\in \{0, 1\}$ y $\vec{x}$ sea el vector de entrada, se tiene un vector de parámetros $\vec{w}$ y un intercepto $w_0$. Para clasificar a $\vec{x}$ se calcula una combinación lineal de $\vec{x}$ y $\vec{w}$, a la que luego se le aplica la función logística para obtener la probabilidad de que $y = 1$, tal como se muestra en la fórmula \ref{eq:lr}.
+Dado que $y\in \{0, 1\}$ es la clase real y $\vec{x}$ es el vector de características de entrada, donde $\vec{x}_0 = 1$ para tener un intercepto. La probabilidad de que $y=1$, dado $\vec{x}$, parametrizado por un vector de pesos $\vec{w}$,
+se define en la fórmula \ref{eq:lr}.
 
 \begin{equation}
 	\label{eq:lr}
 \begin{split}
-	f(\vec{x}) &= w_0 + \vec{w}\cdot\vec{x} \\
-	P(y=1|\vec{x}) &= \frac{1}{1 + \exp(-f(\vec{x})) }
+	g(z) &= \frac{1}{1 + \exp(-z) } \\
+	h &= P(y=1|\vec{x};\vec{w}) = g(\vec{w}\cdot\vec{x})
 \end{split}
 \end{equation}
+
+A esta probabilidad se le conoce como hipótesis. En base a esta hipótesis, se define una función de costo en la fórmula \ref{eq:lr-loss} que penaliza cuando $y \ne h$.
+
+\begin{equation}
+	\label{eq:lr-loss}
+\begin{split}
+	C(h, y) &= -y \cdot \log{h} - (1-y) \log{h}
+\end{split}
+\end{equation}
+
+Luego la función de costo del modelo de la fórmula \ref{eq:lr-loss-model}, es el promedio de la función de costo de todas las instancias del conjunto de entrenamiento.
+
+\begin{equation}
+	\label{eq:lr-loss-model}
+\begin{split}
+	J &= \frac{1}{m} \cdot \sum_{i=1}^{m} {C(h_i, y_i)}
+\end{split}
+\end{equation}
+
+Esta función de costo del modelo es usada en el algoritmo de la gradiente descendente para ajustar los pesos $\vec{w}$ del modelo y de esta manera entrenarlo.
 
 \subsection{Multi Layer Perceptron}
 

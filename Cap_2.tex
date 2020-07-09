@@ -66,7 +66,7 @@ Luego la función de costo del modelo de la fórmula \ref{eq:lr-loss-model}, es 
 \end{split}
 \end{equation}
 
-Esta función de costo del modelo es usada en el algoritmo de la gradiente descendente para ajustar los pesos $\vec{w}$ del modelo y de esta manera entrenarlo.
+Esta última función de costo es usada en el algoritmo de la gradiente descendente \citep{curry1944method} para ajustar los pesos $\vec{w}$ del modelo y de esta manera entrenarlo.
 
 \subsection{Multi Layer Perceptron}
 
@@ -79,7 +79,7 @@ El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está ins
 	\label{fig:mlp-eg}
 \end{figure}
 
-Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logistica, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
+Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logística, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
 
 \begin{equation}
 	\label{eq:mlp-out}

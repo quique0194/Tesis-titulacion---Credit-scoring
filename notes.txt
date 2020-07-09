@@ -12,7 +12,6 @@ To-Do:
 // Contenido
 * Mejorar la redacción del objetivo principal, enfatizar la contribución del trabajo, creo que "importar" no es una palabra adecuada.
 * Mejorar la redacción de los objetivos específicos, deben tener una finalidad.
-* planteamiento del problema muy breve, hay que contextualizar y demostrar su relevancia computacional
 * Mejorar conclusiones, deben estar asociadas con los objetivos principal y específicos.
 * Descripción muy breve de MLP, regresión logística, SVM, etc. La descripción no refleja realmente como estos algoritmos resuelven tareas de clasificación. Por ejemplo, no se específica como se realiza el entrenamiento.
 * Se pasa directamente al capítulo de experimentos sin haber presentado la propuesta en sí (debe ser un capítulo). Es extraña esta forma de presentar una contribución científica.

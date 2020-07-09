@@ -10,7 +10,6 @@ To-Do:
 ======
 
 // Contenido
-* Qué es poder discriminatorio? pagina 4
 * Mejorar la redacción del objetivo principal, enfatizar la contribución del trabajo, creo que "importar" no es una palabra adecuada.
 * Mejorar la redacción de los objetivos específicos, deben tener una finalidad.
 * planteamiento del problema muy breve, hay que contextualizar y demostrar su relevancia computacional

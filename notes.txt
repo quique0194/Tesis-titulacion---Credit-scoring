@@ -14,8 +14,6 @@ To-Do:
 	* Como se hace el fit
 	* Como se hace el predict
 	=================
-	* SVM
-	* RF
 	* XGB
 * Se pasa directamente al capítulo de experimentos sin haber presentado la propuesta en sí (debe ser un capítulo). Es extraña esta forma de presentar una contribución científica.
 	* El capítulo 3 y 4 podrían ser unidos en un único capítulo de resultados

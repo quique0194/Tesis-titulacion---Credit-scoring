@@ -1,4 +1,4 @@
-\chapter{Propuesta}
+\chapter{Propuesta: Método de ensamble para datos desbalanceados}
 
 %El título del capítulo es flexible de acuerdo a cada tesis. Algunos títulos sugeridos podrían ser:
 %\begin{itemize}
@@ -7,7 +7,27 @@
 %\end{itemize}
 %Este título debe de estar ade acuerdo con el asesor del tema. Consúltelo en su sala de clase.
 
-En este capítulo explicaremos la información necesaria y los procedimientos seguidos para llevar a cabo la experimentación. En primer lugar se explicarán los conjuntos de datos que servirán de base y referencia para los experimentos; luego se detallarán algunos detalles de la metodología; y finalmente se explicarán los experimentos a seguir.
+
+
+Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en problemas con clases desbalanceadas \citep{batista2004study, mani2003knn, seiffert2010rusboost}.
+
+El ensamble es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \citep{breiman1996bagging}. Sin embargo, cada clasificador base dentro del ensamble aún sufre del mismo problema, puesto que las instancias se muestrean proporcionalmente del conjunto original. Incluso si se balancean los datos antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original y se hace overfitting.
+
+El método de ensamble propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
+	\caption{Método de \textit{bagging} propuesto \citep{sun2015novel}}
+	\label{fig:bagging-imbalanced}
+\end{figure}
+
+En este método, la clase mayoritaria genera varios subconjuntos mediante muestreo sin repetición. Cada subconjunto tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada subconjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
+
+Esta combinación de los resultados de los clasificadores base se realiza mediante un promedio ponderado por la inversa de la distancia de la instancia a clasificar con el subconjunto utilizado. De esta manera, los subconjuntos más parecidos a la nueva instancia tendrán un mayor peso en la decisión final.
+
+Para cumplir los objetivos de este trabajo, se implementó el algoritmo en python, usando la librería \textit{sklearn}. Se seleccionaron 3 conjuntos de datos con información creditica de diferentes características. Y se llevaron a cabo 3 experimentos para comparar el desempeño de este método con otros algoritmos del estado del arte que no se enfocan en el desbalanceo directamente. A continuación se describen los detalles al respecto.
+
 
 \section{Conjuntos de datos}
 
@@ -57,21 +77,3 @@ Para la selección de parámetros se realizó un \textit{grid-search} con un aju
 Para evaluar el desempeño de los modelos se hizo \textit{10-fold validation} 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final.
 
 Las métricas utilizas son la exactitud, la precisión, la exhaustividad y el \ac{AUC}. La métrica que se buscó optimizar fue el \ac{AUC}. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar la exactitud, de modo que los resultados son comparables con el estado del arte.
-
-\section{Experimentos}
-
-En esta sección se describirán los experimentos llevados a cabo.
-
-\subsection{Experimento 1}
-
-El primer paso es hacer una comparación entre los clasificadores individuales y los \ac{ECDD}. El objetivo de este experimento es verificar si efectivamente el desempeño mejora individualmente por cada clasificador, sin hacer una comparación transversal entre clasificadores de distintas familias.
-
-En este experimento también se considerará usar un algoritmo de aprendizaje profundo: \ac{DBN}.
-
-\subsection{Experimento 2}
-
-En este experimento compararemos los \ac{ECDD} con dos algoritmos de \textit{bagging} usados ampliamente en la actualidad: \ac{RF} y \ac{XGBoost}. El objectivo de este experimento es verificar que el método de \ac{ECDD} es competitivo con otros métodos de ensamble del estado del arte, sin el sesgo de haber usado una metodología diferente para el entrenamiento y la evaluación de los modelos.
-
-\subsection{Experimento 3}
-
-Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.

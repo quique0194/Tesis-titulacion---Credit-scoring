@@ -225,25 +225,6 @@ Finalmente, XGBoost es una implementación de \textit{Gradient Boosting} en árb
 % el primero debe dejar abierta la idea que se explicará a continuación. Todo debe tener secuencia.
 % \end{itemize}
 
-\subsection{Método de ensamble para datos desbalanceados}
-
-
-Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en problemas con clases desbalanceadas \citep{batista2004study, mani2003knn, seiffert2010rusboost}.
-
-El \textit{bagging} es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \citep{breiman1996bagging}. Sin embargo, cada clasificador base dentro del \textit{bagging} aún sufre del mismo problema, puesto que las instancias se muestrean proporcionalmente del conjunto original. Incluso si se balancean los datos antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original y se hace overfitting.
-
-El método de \textit{bagging} propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
-	\caption{Método de \textit{bagging} propuesto \citep{sun2015novel}}
-	\label{fig:bagging-imbalanced}
-\end{figure}
-
-En este método, la clase mayoritaria genera varios subsets mediante muestreo sin repetición. Cada subset tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada conjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
-
-Esta combinación de los resultados de los clasificadores base se realiza mediante un promedio ponderado por la inversa de la distancia de la instancia a clasificar con el subset utilizado. De esta manera, los subsets más parecidos a la nueva instancia tendrán un mayor peso en la decisión final.
 
 
 \section{Evaluación de los modelos}
@@ -313,6 +294,7 @@ El \ac{AUC} es una medida que nos permite comparar diferentes curvas fácilmente
 \end{figure}
 
 Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tengan la misma área bajo la curva. Por eso no se puede descartar el uso de las curvas ROC totalmente, ya que dependiendo de a qué se le quiera dar más importancia, se escogerá una curva y otra. Tarea que es imposible solamente observando el \ac{AUC}.
+
 
 %\section{Repeated-N cross fold validation}
 

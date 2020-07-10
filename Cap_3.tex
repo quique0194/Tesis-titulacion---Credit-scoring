@@ -76,4 +76,6 @@ Para la selección de parámetros se realizó un \textit{grid-search} con un aju
 
 Para evaluar el desempeño de los modelos se hizo \textit{10-fold validation} 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final.
 
-Las métricas utilizas son la exactitud, la precisión, la exhaustividad y el \ac{AUC}. La métrica que se buscó optimizar fue el \ac{AUC}. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar la exactitud, de modo que los resultados son comparables con el estado del arte.
+Las métricas utilizas son la exactitud, la precisión, la exhaustividad y el \ac{AUC}. La métrica que se buscó optimizar fue el \ac{AUC}. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar la exactitud, de modo que los resultados son comparables con el estado del arte. Normalmente no se usa la exactitud para datos desbalanceados, pero ya que el estado del arte no suele tomar en cuenta el desbalanceo de las clases, la exactitud es una métrica muy utilizada en calificación crediticia, así que también se tomó en cuenta en este trabajo.
+
+

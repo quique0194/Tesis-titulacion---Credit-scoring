@@ -10,7 +10,6 @@ To-Do:
 ======
 
 // Contenido
-* Con datos desbalanceados no tiene sentido usar accuracy, tal vez quitar esto de los resultados y usar F1
 * Evitar argumentos como "el clasificador es ligeramente superior". Para poder afirmar si un algoritmo es mejor que otro, debería utilizar una prueba de significancia estadística.
 * Mejorar conclusiones, deben estar asociadas con los objetivos principal y específicos.
 

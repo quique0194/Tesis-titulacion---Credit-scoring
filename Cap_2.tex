@@ -57,7 +57,7 @@ A esta probabilidad se le conoce como hipótesis. En base a esta hipótesis, se 
 \end{split}
 \end{equation}
 
-Luego la función de costo del modelo de la fórmula \ref{eq:lr-loss-model}, es el promedio de la función de costo de todas las instancias del conjunto de entrenamiento.
+Luego la función de costo del modelo de la fórmula \ref{eq:lr-loss-model}, es el promedio de la función de costo de todas las $m$ instancias del conjunto de entrenamiento.
 
 \begin{equation}
 	\label{eq:lr-loss-model}
@@ -70,7 +70,7 @@ Esta última función de costo es usada en el algoritmo de la gradiente descende
 
 \subsection{Multi Layer Perceptron}
 
-El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa.
+El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa. Esta estructura se ilustra en la figura \ref{fig:mlp-eg}.
 
 \begin{figure}[htbp]
 	\centering
@@ -79,12 +79,28 @@ El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está ins
 	\label{fig:mlp-eg}
 \end{figure}
 
-Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta $j$ es calculada procesando las entradas multiplicadas por sus respectivos pesos $w_{ij}$ y sumándole un bias $b_j$. Luego a este resultado le aplicamos una función de activación (ver fórmula \ref{eq:mlp-out}) que le permite a la red modelar relaciones no lineales en los datos. Esta función de activación suele ser la función logística, la tangente hiperbólica o la función \ac{ReLU}. Para una comparación entre estas funciones ver figura \ref{fig:mlp-activation}
+En esta red neuronal hay 2 tipos de propagación: la propagación hacia adelante y la propagación hacia atrás. En la propagación hacia adelante se calcula la salida $y$ a partir del vector de entrada $\vec{x}$. Y en la propagación hacia atrás, se propaga el error empezando por la última capa para ajustar los pesos de la red.
+
+Formalmente, se definen los siguiente componentes para una red de $n$ neuronas en la capa de entrada, $n_h$ neuronas en la capa oculta y $1$ neurona de salida: $\vec{x}$ es el vector de características de entrada de tamaño $n$, $W$ es la matriz de pesos de dimensión $n \times n_h$ entre la capa de entrada y la capa oculta; $f$ es la función de activación en la capa oculta y $g$ es la función de activación de la capa de salida; $\vec{b_h}$ es el vector de interceptos en la capa oculta y $b$ es el intercepto en la capa de salida; $\vec{v}$ es el vector de pesos entre la capa oculta y la capa de salida; $y$ es la clase predicha por el modelo, y $\hat{y}$ es la clase real.
+
+El cálculo de la clase predicha por el modelo se ilustra en la fórmula \ref{eq:mlp-pred}. Mientras que para la función de costo se utiliza la función de error cuadrático, descrita en la fórmula \ref{eq:mlp-cost}. A esta función de costo se le puede agregar un parámetro de regularización, tal como se muestra en la fórmula \ref{eq:mlp-cost-reg}.
 
 \begin{equation}
-	\label{eq:mlp-out}
-	h_j = f(b_j + \sum_{j=1}^{n_h} W_{ij} x_i)
+	\label{eq:mlp-pred}
+	y = g(\vec{v} \cdot f(\vec{x} \cdot W + \vec{b_h}) + b)
 \end{equation}
+
+\begin{equation}
+	\label{eq:mlp-cost}
+	Loss(\hat{y}, y) = (\hat{y} - y)^2
+\end{equation}
+
+\begin{equation}
+	\label{eq:mlp-cost-reg}
+	Loss(\hat{y}, y, W) = (\hat{y} - y)^2 + \alpha W^2
+\end{equation}
+
+La función de activación utilizada suele elegirse de entre las siguientes opciones: la función logística, la tangente hiperbólica o la función \ac{ReLU}. La figura \ref{fig:mlp-activation} hace una comparación entre ellas.
 
 \begin{figure}[htbp]
 	\centering
@@ -92,6 +108,15 @@ Tomando como ejemplo la figura \ref{fig:mlp-eg}, la salida de la neurona oculta 
 	\caption{Funciones de activación \citep{sze2017efficient}}
 	\label{fig:mlp-activation}
 \end{figure}
+
+Iniciando con unos pesos iniciales aleatorios, este modelo minimiza la función de costo mediante la actualización repetitiva de los pesos. Luego de calcular el costo, éste se propaga hacia atrás desde la última capa hacia las capas anteriores, actualizando cada peso de acuerdo a la gradiente descendente de la función de costo; esto se expresa formalmente en la fórmula \ref{eq:mlp-gd}, donde $i$ es el número de la iteración y $\epsilon$ es la tasa de aprendizaje con un valor mayor a $0$.
+
+\begin{equation}
+	\label{eq:mlp-gd}
+	W^{i+1} = W^i - \epsilon \nabla Loss_W^i
+\end{equation}
+
+El algoritmo se detiene cuando alcanza un máximo número de iteraciones pre-establecidas; o cuando la mejora en la función de costo cae debajo de un cierto umbral.
 
 \subsection{Deep Belief Network}
 
@@ -132,16 +157,16 @@ Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la
 
 Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
 
-Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo una variable en cada paso que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
-
-Entre las ventajas de los árboles de decisión tenemos que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.4\linewidth]{graficos/propios/arbol_decision.png}
 	\caption{Ejemplo de árbol de decisión}
 	\label{fig:dt-eg}
 \end{figure}
+
+Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo en cada paso la variable que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
+
+Entre las ventajas de los árboles de decisión tenemos que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
 
 \section{Métodos de ensamble}
 

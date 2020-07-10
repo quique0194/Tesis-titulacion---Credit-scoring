@@ -232,7 +232,7 @@ El \textit{bagging} es un método de aprendizaje de ensamble que podría resolve
 
 El método de \textit{bagging} propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
 
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
 	\caption{Método de \textit{bagging} propuesto \citep{sun2015novel}}
@@ -272,9 +272,13 @@ A partir de esta matriz se pueden definir formalmente la exactitud, precisión y
 \begin{equation}
 	\label{eq:accuracy-prec-rec}
 \begin{split}
-	\text{Exactitud} &= \frac{\text{verdaderos positivos} + \text{verdaderos negativos}}{\text{verdaderos positivos} + \text{falsos positivos} + \text{verdaderos negativos} + \text{falsos negativos}} \\\\
-	\text{Precisión} &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos positivos}} \\\\
-	\text{Exhaustividad} &= \frac{\text{verdaderos positivos}}{\text{verdaderos positivos} + \text{falsos negativos}}
+    VP &= \text{Verdaderos Positivos} \\
+    VN &= \text{Verdaderos Negativos} \\
+    FP &= \text{Falsos Positivos} \\
+    FN &= \text{Falsos Negativos} \\\\
+	\text{Exactitud} &= \frac{VP + VN}{VP + FP + VN + FN} \\\\
+	\text{Precisión} &= \frac{VP}{VP + FP} \\\\
+	\text{Exhaustividad} &= \frac{VP}{VP + FN}
 \end{split}
 \end{equation}
 

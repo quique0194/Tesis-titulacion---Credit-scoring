@@ -122,9 +122,9 @@ El algoritmo se detiene cuando alcanza un máximo número de iteraciones pre-est
 
 Es un tipo de red neuronal profunda, compuesta por múltiples capas de variables latentes (unidades ocultas), con conexiones entre las capas pero no entre unidades dentro de una misma capa.
 
-El entrenamiento de esta red consiste en una etapa no supervisada seguida de otra supervisada. En la etapa no supervisada la \ac{DBN} aprende a reconstruir probabilísticamente sus entradas. Luego, se mejora la clasificación mediante la siguiente etapa de entrenamiento supervisado.
+El entrenamiento de esta red consiste en una etapa no supervisada seguida de otra supervisada. En la etapa no supervisada \ac{DBN} aprende a reconstruir probabilísticamente sus entradas. Luego, se mejora la clasificación mediante la siguiente etapa de entrenamiento supervisado, que utiliza la misma propagación hacia atrás de \ac{MLP}.
 
-Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervisadas tales como la \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa. Ver figura \ref{fig:dbn-train}.
+\ac{DBN} puede ser vista como la composición de redes simples no supervisadas tales como \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa, tal como se ilustra en la figura \ref{fig:dbn-train}.
 
 \begin{figure}[htbp]
 	\centering
@@ -132,6 +132,8 @@ Las \ac{DBN} pueden ser vistas como la composición de redes simples no supervis
 	\caption{Entrenamiento no supervisado de una DBN \citep{beysolow2017autoencoders}}
 	\label{fig:dbn-train}
 \end{figure}
+
+Finalmente, para producir una predicción se hace una propagación hacia adelante igual a \ac{MLP}.
 
 \subsection{Support Vector Machine}
 

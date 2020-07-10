@@ -11,7 +11,9 @@ To-Do:
 
 // Contenido
 * Descripción muy breve de MLP, regresión logística, SVM, etc. La descripción no refleja realmente como estos algoritmos resuelven tareas de clasificación. Por ejemplo, no se específica como se realiza el entrenamiento.
-	* DBN
+	* Como se hace el fit
+	* Como se hace el predict
+	=================
 	* SVM
 	* RF
 	* XGB

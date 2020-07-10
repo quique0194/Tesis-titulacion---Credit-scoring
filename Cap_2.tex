@@ -137,9 +137,9 @@ Finalmente, para producir una predicción se hace una propagación hacia adelant
 
 \subsection{Support Vector Machine}
 
-Es una familia de algoritmos de aprendizaje supervisado que pueden hacer clasificación y regresión \citep{cortes1995support}.
+\textit{Support Vector Machine} es una familia de algoritmos de aprendizaje supervisado que pueden hacer clasificación y regresión \citep{cortes1995support}.
 
-Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de dimensionalidad muy alta. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. De esta manera se consigue separar a las clases con un margen máximo. La figura \ref{fig:svm-hiperplanos} ilustra esta forma de separación.
+Funcionan encontrando el hiperplano o conjunto de hiperplanos óptimos para separar las clases maximizando el margen entre ellas. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. Esta separación es ilustrada en la figura \ref{fig:svm-hiperplanos}. Sim embargo, al igual que las redes neuronales, esta técnica es criticada por ser una caja negra.
 
 \begin{figure}[htbp]
 	\centering
@@ -151,9 +151,13 @@ Funcionan construyendo un hiperplano o conjunto de hiperplanos en un espacio de 
 	$H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
 \end{figure}
 
-Lamentablemente en las aplicaciones reales, las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide \citep{cristianini2000introduction}.
+Dado que el hiperplano tiene que separar perfectamente las observaciones, es muy sensible a variaciones en los datos. Incluir una nueva observación puede suponer cambios muy grandes en el hiperplano de separación (poca robustez). En otras palabras, conlleva problemas de overfitting. Para evitar esto, existe un parámetro de regularización que permite crear hiperplanos que no separan perfectamente las clases, pero que son más robustos y tienen mayor capacidad predictiva al aplicarlo a nuevas observaciones.
 
-Finalmente existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la solución resolviendo un conjunto de ecuaciones lineales en lugar de un problema convexo de programación cuadrática \citep{ak2002least}.
+Usualmente las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide \citep{cristianini2000introduction}.
+
+También se puede manipular el parámetro gamma, que define cuántos puntos de la frontera de las clases se convierten en vectores de soporte. Con un valor de gamma alto, sólo los puntos más cercanos a los márgenes son considerados; y con un valor de gamma bajo, puntos más lejanos también son considerados, teniendo más vectores de soporte en total.
+
+Además, existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la solución resolviendo un conjunto de ecuaciones lineales en lugar de un problema convexo de programación cuadrática \citep{ak2002least}.
 
 \subsection{Árbol de decisión}
 

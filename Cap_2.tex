@@ -207,7 +207,9 @@ La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Fore
 	\item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
 \end{enumerate}
 
-\textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir sobre ajuste.
+\textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir overfitting, por esta razón existen varias técnicas de regularización.
+
+Al reducir la tasa de aprendizaje a valores menores a 1 se mejora dramáticamente la capacidad del modelo de generalizar. Otra mejora es llamada \textit{Stochastic Gradient Boosting}, que lo que propone es que en cada iteración del algoritmo el clasificador débil debe ser entrenado con una muestra del conjunto de entrenamiento obtenida aleatoriamente sin reposición. De esta manera se incrementa notablemente la exactitud del modelo. Además, se suele limitar el número mínimo de observaciones en las hojas terminales de los árboles para reducir la varianza de las predicciones. Por otro lado, otra técnica común es penalizar la complejidad del modelo, definida como el número de hojas en los árboles entrenados.
 
 Finalmente, XGBoost es una implementación de \textit{Gradient Boosting} en árboles de decisión creada por Tianqi Chen. La palaba extreme se refiere a la meta de ingeniería de aprovechar los recursos computacionales al límite, lo que provocó que su uso se expandiera rápidamente en la comunidad.
 

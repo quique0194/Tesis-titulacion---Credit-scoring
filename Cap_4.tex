@@ -1,8 +1,8 @@
-\chapter{Pruebas y Resultados}
+\chapter{Experimentos y Resultados}
 
-\section{Proceso 1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimento 1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del proceso 1 se pueden ver en las Tablas \ref{tab:apurata-proc1}, \ref{tab:lc-proc1} y \ref{tab:german-proc1}.
+Los resultados del experimento 1 se pueden ver en las Tablas \ref{tab:apurata-proc1}, \ref{tab:lc-proc1} y \ref{tab:german-proc1}.
 
 Se ve que en el \ac{AUC}, la precisión y la exactitud mejoran en todos los clasificadores. Particularmente el AUC se incrementa un promedio de 4.30 en Apurata, 2.80 en Lending Club y 1.62 en el Crédito Alemán.
 
@@ -23,7 +23,7 @@ En conclusión, este clasificador no es adecuado para este problema, y al ser ba
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con conjunto de datos de Apurata}
+\caption{Experimento 1 con conjunto de datos de Apurata}
 \label{tab:apurata-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -49,7 +49,7 @@ DBN				& 67.80		& 88.04		& 91.76			& 79.84		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con conjunto de datos de LendingClub}
+\caption{Experimento 1 con conjunto de datos de LendingClub}
 \label{tab:lc-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -75,7 +75,7 @@ DBN				& 75.01		& 78.56		& 94.92			& 75.72		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 1 con conjunto de datos Alemán}
+\caption{Experimento 1 con conjunto de datos Alemán}
 \label{tab:german-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -99,9 +99,9 @@ DBN				& 66.84		& 80.07		& 97.98			& 78.24		\\
 \end{table}
 
 
-\section{Proceso 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimento 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del proceso 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}. Para comparar estos resultados se realizó una prueba de T de Student desapareada.
+Los resultados del experimento 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}. Para comparar estos resultados se realizó una prueba de T de Student desapareada.
 
 El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.21$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.13$)} demostró un \ac{AUC} significativamente mejor, $t(198)=7.47, p=.0001$.
 
@@ -115,7 +115,7 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con conjunto de datos de Apurata}
+\caption{Experimento 2 con conjunto de datos de Apurata}
 \label{tab:apurata-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -135,7 +135,7 @@ XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con conjunto de datos de LendingClub}
+\caption{Experimento 2 con conjunto de datos de LendingClub}
 \label{tab:lc-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -155,7 +155,7 @@ XGB				& 70.68		& 81.89		& 98.56			& 78.81		\\
 
 \begin{table}[]
 \centering
-\caption{Proceso 2 con conjunto de datos Alemán}
+\caption{Experimento 2 con conjunto de datos Alemán}
 \label{tab:german-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -173,11 +173,11 @@ XGB				& 80.28		& 81.43		& 91.66			& 78.93		\\
 \end{table}
 
 
-\section{Proceso 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del proceso 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en este trabajo.
+Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en este trabajo.
 
-Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios tienen una variación más alta que si se hubieran hecho las comparaciones usando los mismo procesos. Es por esto que las conclusiones del proceso 2 son tan importantes.
+Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios tienen una variación más alta que si se hubieran hecho las comparaciones usando los mismo procesos. Es por esto que las conclusiones del experimento 2 son tan importantes.
 
 Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
@@ -186,7 +186,7 @@ Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efect
 
 \begin{table}[]
 \centering
-\caption{Proceso 3 con conjunto de datos de LendingClub}
+\caption{Experimento 3 con conjunto de datos de LendingClub}
 \label{tab:lc-proc3}
 \begin{tabularx}{\textwidth}{|l|Y Y l|}
 				\hline
@@ -216,7 +216,7 @@ Las investigaciones utilizadas para la comparación son en orden: \citep{malekip
 
 \begin{table}[]
 \centering
-\caption{Proceso 3 con conjunto de datos Alemán}
+\caption{Experimento 3 con conjunto de datos Alemán}
 \label{tab:german-proc3}
 \begin{tabularx}{\textwidth}{|l|Y Y l|}
 						\hline

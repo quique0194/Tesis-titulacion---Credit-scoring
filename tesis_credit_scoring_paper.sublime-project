@@ -1,4 +1,13 @@
 {
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"/usr/bin/python3\" -u \"$file\""
+		}
+	],
 	"folders":
 	[
 		{
@@ -6,9 +15,9 @@
 		}
 	],
 	"settings":
-    {
-		"word_wrap": true,
-	    "tab_size": 4,
-    	"translate_tabs_to_spaces": false
-    },
+	{
+		"tab_size": 4,
+		"translate_tabs_to_spaces": false,
+		"word_wrap": true
+	}
 }

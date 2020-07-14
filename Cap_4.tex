@@ -128,7 +128,7 @@ DBN				& 66.84		& 80.07		& 97.98			& 78.24		\\		% AUC std: 3.68
 
 \subsection{Sobre el aprendizaje profundo}
 
-El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque tiene numerosos parámetros y porque al ser pocos datos el modelo presenta una tendencia al overfitting. Esto se observa al tener un desempeño impecable con los datos de entrenamiento, pero un desempeño muy inferior con los datos de prueba.
+El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque tiene numerosos parámetros y porque al ser pocos datos el modelo presenta una tendencia al \textit{overfitting}. Esto se observa al tener un desempeño impecable con los datos de entrenamiento, pero un desempeño muy inferior con los datos de prueba.
 
 En el conjunto de datos Apurata, el modelo DBN \textit{(M=$67.80$, SD=$3.57$)} comparado al modelo \ac{LR} \textit{(M=$70.02$, SD=$3.55$)} demostró un \ac{AUC} significativamente peor, $t(198)=4.41, p=.0001$.
 
@@ -153,7 +153,7 @@ Se vió que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en práctica
 
 La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad disminuyó.
 
-Se ve claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
+Se ve claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace \textit{overfitting}. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
 
 
 
@@ -269,7 +269,7 @@ Se observó que en los conjuntos de datos de Apurata y \textit{Lending Club}, se
 
 Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que \textit{Random Forest} y \textit{XGBoost}.
 
-Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de overfitting, razón por la cuál su desempeño no es óptimo.
+Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de \textit{overfitting}, razón por la cuál su desempeño no es óptimo.
 
 Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en \textit{Lending Club} y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
 

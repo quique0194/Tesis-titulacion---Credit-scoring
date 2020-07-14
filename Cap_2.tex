@@ -151,7 +151,7 @@ Funcionan encontrando el hiperplano o conjunto de hiperplanos óptimos para sepa
 	$H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
 \end{figure}
 
-Dado que el hiperplano tiene que separar perfectamente las observaciones, es muy sensible a variaciones en los datos. Incluir una nueva observación puede suponer cambios muy grandes en el hiperplano de separación (poca robustez). En otras palabras, conlleva problemas de overfitting. Para evitar esto, existe un parámetro de regularización que permite crear hiperplanos que no separan perfectamente las clases, pero que son más robustos y tienen mayor capacidad predictiva al aplicarlo a nuevas observaciones.
+Dado que el hiperplano tiene que separar perfectamente las observaciones, es muy sensible a variaciones en los datos. Incluir una nueva observación puede suponer cambios muy grandes en el hiperplano de separación (poca robustez). En otras palabras, conlleva problemas de \textit{overfitting}. Para evitar esto, existe un parámetro de regularización que permite crear hiperplanos que no separan perfectamente las clases, pero que son más robustos y tienen mayor capacidad predictiva al aplicarlo a nuevas observaciones.
 
 Usualmente las clases no suelen ser linealmente separables. Por eso existen las representaciones por medio de funciones de Kernel, que mapean el espacio de entradas $X$ a un espacio de características de mayor dimensionalidad, donde aumenta la capacidad computacional de las máquinas de aprendizaje lineal. Algunos tipos de función de Kernel son el Kernel Polinomial Homogéneo, el Kernel Perceptrón, la función de Base Radial Gaussiana y el Kernel Sigmoide \citep{cristianini2000introduction}.
 
@@ -172,7 +172,7 @@ Un árbol de decisión es un modelo simple de clasificación, se puede ver un ej
 
 Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo en cada paso la variable que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos se encuentran la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
 
-Entre las ventajas de los árboles de decisión se tiene que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
+Entre las ventajas de los árboles de decisión se tiene que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al \textit{overfitting} y la dificultad para aprender relaciones tipo XOR.
 
 \section{Métodos de ensamble}
 
@@ -184,7 +184,7 @@ Evaluar la predicción de un ensamble requiere más computaciones de las que req
 
 \textit{Random Forest} es un método que crea varios árboles de decisión a modo de bosque para hacer una tarea de clasificación. Se basa en un procedimiento pseudoaleatorio para seleccionar un subconjunto de características, luego los árboles de decisión son generados usando sólo las características seleccionadas y un subconjunto aleatorio de las observaciones de entrenamiento. Cada árbol generaliza la clasificación de nuevos puntos de diferentes maneras gracias a las invarianzas de las características no seleccionadas. Las decisiones de los árboles son combinadas promediando las probabilidades en cada hoja \citep{ho1998random}.
 
-Con \ac{RF} se obtienen importantes mejoras de exactitud y se reduce el overfitting respecto a un árbol de decisión entrenado con el conjunto de datos completo. Además, mientras que un bosque crece en complejidad (medida como el número de árboles) su exactitud en el conjunto de prueba no disminuye.
+Con \ac{RF} se obtienen importantes mejoras de exactitud y se reduce el \textit{overfitting} respecto a un árbol de decisión entrenado con el conjunto de datos completo. Además, mientras que un bosque crece en complejidad (medida como el número de árboles) su exactitud en el conjunto de prueba no disminuye.
 
 La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Forest} de manera gráfica.
 
@@ -207,7 +207,7 @@ La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Fore
 	\item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
 \end{enumerate}
 
-\textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir overfitting, por esta razón existen varias técnicas de regularización.
+\textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir \textit{overfitting}, por esta razón existen varias técnicas de regularización.
 
 Al reducir la tasa de aprendizaje a valores menores a 1 se mejora dramáticamente la capacidad del modelo de generalizar. Otra mejora es llamada \textit{Stochastic Gradient Boosting}, que lo que propone es que en cada iteración del algoritmo el clasificador débil debe ser entrenado con una muestra del conjunto de entrenamiento obtenida aleatoriamente sin reposición. De esta manera se incrementa notablemente la exactitud del modelo. Además, se suele limitar el número mínimo de observaciones en las hojas terminales de los árboles para reducir la varianza de las predicciones. Por otro lado, otra técnica común es penalizar la complejidad del modelo, definida como el número de hojas en los árboles entrenados.
 

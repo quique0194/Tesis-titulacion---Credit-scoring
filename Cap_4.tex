@@ -151,7 +151,7 @@ En conclusión, este clasificador no es adecuado para este problema, y al ser ba
 
 Se vió que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en prácticamente todos los clasificadores base, excepto las \ac{LR} en dos conjuntos de datos.
 
-La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad cayó un poco.
+La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad disminuyó.
 
 Vemos claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
 
@@ -269,7 +269,7 @@ Se observó que en los conjuntos de datos de Apurata y LendingClub, se consigui�
 
 Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
 
-Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
+Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de overfitting, razón por la cuál su desempeño no es óptimo.
 
 Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
 
@@ -346,6 +346,6 @@ Los modelos utilizados en los estudios referenciales son bastante diversos, abar
 
 Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios son más difíciles de comparar. Es por esto que las conclusiones del experimento 2 son tan importantes.
 
-Muchos estudios no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
+Cinco de los siete estudios referenciales no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
 
 

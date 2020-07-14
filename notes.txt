@@ -9,11 +9,7 @@ Como citar test T de student:
 To-Do:
 ======
 
-* Mejorar conclusiones, deben estar asociadas con los objetivos principal y específicos.
-
-
 // Redacción
-* No usar palabras como MUCHO, POCO, LIGERAMENTE\
 * No hablar en futuro, todo en pasado.
 * hablar todo en 3ra persona. Buscar verbos que acaban en *mos e.g. hacemos, acabamos, mostramos
 * Cambiar palabras en inglés:

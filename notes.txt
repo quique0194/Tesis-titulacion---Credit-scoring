@@ -11,18 +11,8 @@ To-Do:
 
 // Redacción
 * Cambiar palabras en inglés:
-	* boosting
-	* grid-search
-	* k-fold validation
-	* trade off
-	* overfitting
-	* Revisar apariciones de AUC
-	* Revisar acronimos
 	No se pueden traducir:
-	* Big Data
-	* bagging
-	* random forest
-	* Lending Club
+	* overfitting
 * Poner nombres de modelos y palabras en inglés o semi en inglés en cursiva. Igual con abreviaturas
 
 

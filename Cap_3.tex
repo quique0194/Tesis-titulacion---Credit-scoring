@@ -60,11 +60,11 @@ Una mejor comparación entre estos conjuntos se puede encontrar en la tabla \ref
 
 Como se puede apreciar, todos los conjuntos se componen de pocas características, ninguno de ellos supera las 50. Los conjuntos de datos de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de instancias, con 1000 o menos.
 
-También se cumple que los 3 conjuntos de datos son desbalanceados, ya que la clase de ``Moroso", representa el 15\% para Apurata, 24\% para Lending Club y el 30\% para Crédito Alemán.
+También se cumple que los 3 conjuntos de datos son desbalanceados, ya que la clase de ``Moroso", representa el 15\% para Apurata, 24\% para \textit{Lending Club} y el 30\% para Crédito Alemán.
 
-Por otro lado, los 3 conjuntos también poseen diferencias importantes entre sí que enriquecen su estudio. Apurata y Lending Club son \textit{fintech} que utilizan diferentes criterios de los de los bancos para seleccionar su información. Los conjuntos de Crédito Alemán y Lending Club registran créditos que se realizan por montos más altos y a un mayor plazo que los de Apurata. Los periodos de tiempo y los países abarcados por los conjuntos de datos también son únicos, y finalmente Lending Club tiene bastante más instancias que los otros 2 conjuntos.
+Por otro lado, los 3 conjuntos también poseen diferencias importantes entre sí que enriquecen su estudio. Apurata y \textit{Lending Club} son \textit{fintech} que utilizan diferentes criterios de los de los bancos para seleccionar su información. Los conjuntos de Crédito Alemán y \textit{Lending Club} registran créditos que se realizan por montos más altos y a un mayor plazo que los de Apurata. Los periodos de tiempo y los países abarcados por los conjuntos de datos también son únicos, y finalmente \textit{Lending Club} tiene bastante más instancias que los otros 2 conjuntos.
 
-Los conjuntos de Crédito Alemán y Lending Club son considerados referenciales en sus respectivos sub-dominios, ya que hay varios estudios que los utilizan para realizar sus experimentos. Entre los que usan los datos de Lending Club se cuentan \citep{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}. Y entre los que usan los datos del Crédito Alemán están \citep{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}.
+Los conjuntos de Crédito Alemán y \textit{Lending Club} son considerados referenciales en sus respectivos sub-dominios, ya que hay varios estudios que los utilizan para realizar sus experimentos. Entre los que usan los datos de \textit{Lending Club} se cuentan \citep{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}. Y entre los que usan los datos del Crédito Alemán están \citep{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}.
 
 \section{Metodología}
 
@@ -74,7 +74,7 @@ La interpretación de la variable $y$ se hizo de la siguiente manera: 1 para los
 
 Para la selección de parámetros se realizó un \textit{grid-search} con un ajuste fino manual al final. Sobre el desbalanceo de los datos, no se tomó ningún procedimiento especial.
 
-Para evaluar el desempeño de los modelos se hizo \textit{10-fold validation} 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en Lending Club, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final.
+Para evaluar el desempeño de los modelos se hizo \textit{10-fold validation} 10 veces en Apurata y en el Crédito Alemán y 1 sola vez en \textit{Lending Club}, ya que tiene abundantes datos. Finalmente se extrajo el promedio de todas las mediciones como la medición final.
 
 Las métricas utilizas son la exactitud, la precisión, la exhaustividad y el \ac{AUC}. La métrica que se buscó optimizar fue el \ac{AUC}. Para las otras métricas se tuvo que seleccionar un punto de corte óptimo, que se escogió tratando de optimizar la exactitud, de modo que los resultados son comparables con el estado del arte. Normalmente no se usa la exactitud para datos desbalanceados, pero ya que el estado del arte no suele tomar en cuenta el desbalanceo de las clases, la exactitud es una métrica muy utilizada en calificación crediticia, así que también se tomó en cuenta en este trabajo.
 

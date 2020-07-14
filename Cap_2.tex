@@ -2,7 +2,7 @@
 
 La calificación crediticia se obtiene mediante un conjunto de modelos de decisión que ayudan a los prestamistas a otorgar créditos. Estas técnicas son usadas para decidir quién obtiene crédito, cuánto crédito deben obtener, a qué precio lo tendrán, y qué estrategias operacionales mejorarán la rentabilidad de los clientes. Un puntaje de crédito puede ser transformado en la probabilidad del cliente de no pagar el préstamo. Así, desde el año 2000, se ha convertido en un pilar de los modelos desarrollados por instituciones financieras cumplir los requerimientos del Acuerdo de Basilea que dictamina que se deben estimar las probabilidades de morosidad de cada portafolio de préstamos \citep[1]{thomas2017credit}.
 
-Con los avances en minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \citep[18]{thomas2017credit}.
+Con los avances en minería de datos y \textit{Big Data}, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \citep[18]{thomas2017credit}.
 
 Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de los datos, su exactitud y su confiabilidad \citep[18--19]{thomas2017credit}. Sin embargo, no se trataron estos temas porque están fuera del ámbito de esta investigación.
 
@@ -191,7 +191,7 @@ La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Fore
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\linewidth]{graficos/rf.png}
-	\caption{Funcionamiento de Random Forest \citep{mql5:rf}}
+	\caption{Funcionamiento de \textit{Random Forest} \citep{mql5:rf}}
 	\label{fig:rf}
 \end{figure}
 
@@ -323,13 +323,13 @@ En \citep{huang2007credit} se usan tres estrategias para construir modelos híbr
 
 En otro estudio \citep{harris2015credit} se introduce el uso de \ac{CSVM} para calificación crediticia. Este algoritmo resolvería algunas limitaciones \ac{SVM}, particularmente se centra en el costo computacional en conjuntos grandes, logrando niveles de clasificación similares mientras se mantiene un costo computacional bajo.
 
-En \citep{malekipirbazari2015risk} se propone una clasificación basada en \ac{RF}. Se utilizan los datos de préstamos peer2peer Lending Club, y los resultados indican que los métodos basado en \ac{RF} superan los score crediticios del FICO así como los propios scores de LC.
+En \citep{malekipirbazari2015risk} se propone una clasificación basada en \ac{RF}. Se utilizan los datos de préstamos peer2peer \textit{Lending Club}, y los resultados indican que los métodos basado en \ac{RF} superan los score crediticios del FICO así como los propios scores de LC.
 
 Además se presentan algunos métodos nuevos, como el \ac{RF} paralelo de \citep{van2016novel}. Donde al integrar el modelo en el proceso de selección de variables se mejora la exactitud promedio obteniendo un 76.2\%.
 
 En \citep{xia2017boosted} y \citep{bhatia2017credit} se experimenta con \ac{XGBoost}. En el primer artículo se centra en el ajuste de los parámetros del modelo, mientras que el segundo hace una comparación más amplia con otros modelos como \ac{LDA} y \ac{RF}.
 
-Los préstamos \ac{P2P} son una opción para tomar préstamos de personas individuales sin utilizar un banco o una entidad financiera tradicional. En \citep{zhang2016research} se usa un conjunto de datos \ac{P2P} para construir un modelo basado en árboles de decisión fusionando datos de los medios de comunicación sociales. En \citep{zang2014credit} también se usa un conjunto de datos \ac{P2P}, perteneciente a Lending Club. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con \ac{P2P}, en \citep{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
+Los préstamos \ac{P2P} son una opción para tomar préstamos de personas individuales sin utilizar un banco o una entidad financiera tradicional. En \citep{zhang2016research} se usa un conjunto de datos \ac{P2P} para construir un modelo basado en árboles de decisión fusionando datos de los medios de comunicación sociales. En \citep{zang2014credit} también se usa un conjunto de datos \ac{P2P}, perteneciente a \textit{Lending Club}. Se aplica una \ac{MLP} y se obtienen resultados favorables. Para terminar con \ac{P2P}, en \citep{tan2018deep} se utiliza una red neuronal profunda para modelar los riesgos en competencia, el del prestamista y el del prestatario, este sería el primer lugar donde se prueba dicho concepto obteniendo un desempeño interesante en las inversiones.
 
 En \citep{nanni2009experimental} se prueban varios clasificadores de ensamble en los datos de crédito Alemán y Australiano. Dichos clasificadores ensamblados mejoran el desempeño de sus respectivos clasificadores base. En \citep{brown2012experimental} se hace un estudio comparativo de varios modelos en cinco conjuntos de datos distintos. Se hace un énfasis especial en el desbalanceo de la datos, pues se hace un undersampling de la clase minoritaria para pronunciar el desbalance cada vez más y evaluar como se van comportando los modelos en cada caso. Los resultados son que \ac{RF} y clasificadores de \textit{Gradient Boosting} se desempeñan bien incluso en conjuntos de datos altamente desbalanceados. Finalmente en \citep{wang2012two} se proponen dos estrategias de ensamble para árboles, que luego se comparan con cinco clasificadores base y cuatro clasificadores de ensamble, obteniendo resultados competitivos.
 

@@ -50,7 +50,7 @@ DBN				& 67.80		& 88.04		& 91.76			& 79.84		\\		% AUC std: 3.57
 \end{table}
 
 
-\subsection{Conjunto de datos LendingClub}
+\subsection{Conjunto de datos \textit{Lending Club}}
 
 El modelo ECDD-LR \textit{(M=$73.34$, SD=$0.11$)} comparado al modelo \ac{LR} \textit{(M=$73.36$, SD=$0.21$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=0.84, p=.3999$.
 
@@ -64,7 +64,7 @@ En resumen, el método propuesto de ensamble mejoró a tres de los cuatro modelo
 
 \begin{table}[htbp]
 \centering
-\caption{Experimento 1 con conjunto de datos de LendingClub}
+\caption{Experimento 1 con conjunto de datos de \textit{Lending Club}}
 \label{tab:lc-proc1}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -134,9 +134,9 @@ En el conjunto de datos Apurata, el modelo DBN \textit{(M=$67.80$, SD=$3.57$)} c
 
 En el conjunto de datos Apurata, el modelo DBN \textit{(M=$67.80$, SD=$3.57$)} comparado al modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} demostró un \ac{AUC} significativamente peor, $t(198)=9.55, p=.0001$.
 
-En el conjunto de datos LendingClub, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo \ac{AD} \textit{(M=$75.52$, SD=$0.56$)} demostró un \ac{AUC} significativamente peor, $t(198)=8.42, p=.0001$.
+En el conjunto de datos \textit{Lending Club}, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo \ac{AD} \textit{(M=$75.52$, SD=$0.56$)} demostró un \ac{AUC} significativamente peor, $t(198)=8.42, p=.0001$.
 
-En el conjunto de datos LendingClub, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo ECDD-AD \textit{(M=$80.34$, SD=$0.12$)} demostró un \ac{AUC} significativamente peor, $t(198)=205.46, p=.0001$.
+En el conjunto de datos \textit{Lending Club}, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo ECDD-AD \textit{(M=$80.34$, SD=$0.12$)} demostró un \ac{AUC} significativamente peor, $t(198)=205.46, p=.0001$.
 
 En el conjunto de datos Alemán, el modelo DBN \textit{(M=$66.84$, SD=$3.68$)} comparado al modelo \ac{LR} \textit{(M=$71.45$, SD=$3.12$)} demostró un \ac{AUC} significativamente peor, $t(198)=9.56, p=.0001$.
 
@@ -197,7 +197,7 @@ XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\		% AUC std: 3.47
 \end{tabularx}
 \end{table}
 
-\subsection{Conjunto de datos de LendingClub}
+\subsection{Conjunto de datos de \textit{Lending Club}}
 
 De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-SVM. A continuación se compararán ambos modelos con \ac{RF} y \ac{XGBoost}.
 
@@ -213,7 +213,7 @@ En resumen, los modelos propuestos son mejores que los modelos del estado del ar
 
 \begin{table}[htbp]
 \centering
-\caption{Experimento 2 con conjunto de datos de LendingClub}
+\caption{Experimento 2 con conjunto de datos de \textit{Lending Club}}
 \label{tab:lc-proc2}
 \begin{tabularx}{0.75\textwidth}{|l|Y Y Y Y|}
 				\hline
@@ -265,13 +265,13 @@ XGB				& 80.28		& 81.43		& 91.66			& 78.93		\\		% AUC std: 2.08
 
 \subsection{Conclusiones del Experimento 2}
 
-Se observó que en los conjuntos de datos de Apurata y LendingClub, se consiguió superar el desempeño de \ac{RF} y \ac{XGBoost}. Y en el conjunto de datos Alemán se obtuvo un desempeño similar. En consecuencia, se puede afirmar que el método propuesto mejora o al menos mantiene un desempeño similar a modelos del estado del arte. Los resultados varían según el clasificador base utilizado y el conjunto de datos.
+Se observó que en los conjuntos de datos de Apurata y \textit{Lending Club}, se consiguió superar el desempeño de \ac{RF} y \ac{XGBoost}. Y en el conjunto de datos Alemán se obtuvo un desempeño similar. En consecuencia, se puede afirmar que el método propuesto mejora o al menos mantiene un desempeño similar a modelos del estado del arte. Los resultados varían según el clasificador base utilizado y el conjunto de datos.
 
-Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
+Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que \textit{Random Forest} y \textit{XGBoost}.
 
 Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de overfitting, razón por la cuál su desempeño no es óptimo.
 
-Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
+Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en \textit{Lending Club} y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
 
 
 
@@ -279,12 +279,12 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 
 En este experimento se compararon los resultados obtenidos por los modelos \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.
 
-Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo se tienen resultados para Lending Club y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
+Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo se tienen resultados para \textit{Lending Club} y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
 
 
 \begin{table}[htbp]
 \centering
-\caption{Experimento 3 con conjunto de datos de LendingClub}
+\caption{Experimento 3 con conjunto de datos de \textit{Lending Club}}
 \label{tab:lc-proc3}
 \begin{tabularx}{\textwidth}{|l|Y Y l|}
 				\hline

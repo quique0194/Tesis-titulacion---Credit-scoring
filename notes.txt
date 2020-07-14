@@ -7,6 +7,3 @@ To-Do:
 
 // Referencias
 * Referenciar todos los algoritmos usados
-
-// Opcionales
-* Mejorar imagen de random forest

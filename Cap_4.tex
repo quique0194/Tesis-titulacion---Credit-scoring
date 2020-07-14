@@ -26,24 +26,20 @@ Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestro
 
 Los resultados del experimento 1 se pueden ver en las Tablas \ref{tab:apurata-proc1}, \ref{tab:lc-proc1} y \ref{tab:german-proc1}.
 
-Se ve que en el \ac{AUC}, la precisión y la exactitud mejoran en todos los clasificadores. Particularmente el AUC se incrementa un promedio de 4.30 en Apurata, 2.80 en Lending Club y 1.62 en el Crédito Alemán.
 
-La exhaustividad baja en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad cayó un poco.
+\subsection{Conjunto de datos Apurata}
 
-Se desprende también que la potencial mejora que podemos obtener con el método de ensamble para datos desbalanceados depende del clasificador base y del conjunto de datos sobre el cuál se aplica.
+El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} comparado al modelo \ac{LR} \textit{(M=$70.02$, SD=$3.55$)} demostró un \ac{AUC} significativamente mejor, $t(198)=5.11, p=.0001$.
 
-Si analizamos cuál fue el algoritmo base más afectado por el \ac{ECDD}, vemos claramente que el árbol de decisión es el ganador. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble más poderosos actualmente usan árboles de decisión como su clasificador base.
+El modelo ECDD-MLP \textit{(M=$70.61$, SD=$3.49$)} comparado al modelo \ac{MLP} \textit{(M=$68.13$, SD=$3.58$)} demostró un \ac{AUC} significativamente mejor, $t(198)=4.96, p=.0001$.
 
-\subsection{Sobre el aprendizaje profundo}
+El modelo ECDD-AD \textit{(M=$68.81$, SD=$3.46$)} comparado al modelo \ac{AD} \textit{(M=$61.75$, SD=$6.34$)} demostró un \ac{AUC} significativamente mejor, $t(198)=9.77, p=.0001$.
 
-El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque son varios parámetros y porque al ser poca información el modelo presenta una tendencia a caer en overfitting. Esto se observa al tener un desempeño impecable con los datos de entrenamiento, pero un desempeño muy inferior con los datos de prueba.
+El modelo ECDD-SVM \textit{(M=$71.70$, SD=$3.54$)} comparado al modelo \ac{SVM} \textit{(M=$66.56$, SD=$3.61$)} demostró un \ac{AUC} significativamente mejor, $t(198)=10.17, p=.0001$.
 
-Luego de ajustar cuidadosamente los parámetros de la mejor forma posible, el poder predictivo no es mejor que otros clasificadores base, específicamente es muy similar al de una \ac{MLP} simple. Esto se puede explicar con la baja dimensionalidad de los datos y la poca cantidad de instancias; ya que no se explota la capacidad de reducción de dimensionalidad del modelo y tampoco se hace un entrenamiento adecuado por la escasez de datos.
+En resumen, el método propuesto de \textit{bagging} mejoró a los 4 modelos base utilizados.
 
-En conclusión, este clasificador no es adecuado para este problema, y al ser bastante complejo ya de por sí, no se le creó una versión ensamblada.
-
-
-\begin{table}[]
+\begin{table}[htbp]
 \centering
 \caption{Experimento 1 con conjunto de datos de Apurata}
 \label{tab:apurata-proc1}
@@ -69,7 +65,19 @@ DBN				& 67.80		& 88.04		& 91.76			& 79.84		\\		% AUC std: 3.57
 \end{table}
 
 
-\begin{table}[]
+\subsection{Conjunto de datos LendingClub}
+
+El modelo ECDD-LR \textit{(M=$73.34$, SD=$0.11$)} comparado al modelo \ac{LR} \textit{(M=$73.36$, SD=$0.21$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=0.84, p=.3999$.
+
+El modelo ECDD-MLP \textit{(M=$75.67$, SD=$0.14$)} comparado al modelo \ac{MLP} \textit{(M=$74.87$, SD=$0.18$)} demostró un \ac{AUC} significativamente mejor, $t(198)=35.08, p=.0001$.
+
+El modelo ECDD-AD \textit{(M=$80.34$, SD=$0.12$)} comparado al modelo \ac{AD} \textit{(M=$75.52$, SD=$0.56$)} demostró un \ac{AUC} significativamente mejor, $t(198)=8.16, p=.0001$.
+
+El modelo ECDD-SVM \textit{(M=$74.41$, SD=$0.13$)} comparado al modelo \ac{SVM} \textit{(M=$73.53$, SD=$0.19$)} demostró un \ac{AUC} significativamente mejor, $t(198)=38.22, p=.0001$.
+
+En resumen, el método propuesto de ensamble mejoró a tres de los cuatro modelos base utilizados. Es interesante notar que el modelo base \ac{LR} que no mejoró con la propuesta, es también aquel que tiene el \ac{AUC} promedio más bajo del conjunto.
+
+\begin{table}[htbp]
 \centering
 \caption{Experimento 1 con conjunto de datos de LendingClub}
 \label{tab:lc-proc1}
@@ -95,7 +103,20 @@ DBN				& 75.01		& 78.56		& 94.92			& 75.72		\\		% AUC std: 0.23
 \end{table}
 
 
-\begin{table}[]
+\subsection{Conjunto de datos Alemán}
+
+El modelo ECDD-LR \textit{(M=$71.50$, SD=$2.02$)} comparado al modelo \ac{LR} \textit{(M=$71.45$, SD=$3.12$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=0.13, p=.8931$.
+
+El modelo ECDD-MLP \textit{(M=$71.61$, SD=$2.10$)} comparado al modelo \ac{MLP} \textit{(M=$69.36$, SD=$3.63$)} demostró un \ac{AUC} significativamente mejor, $t(198)=26.83, p=.0001$.
+
+El modelo ECDD-AD \textit{(M=$71.82$, SD=$1.99$)} comparado al modelo \ac{AD} \textit{(M=$66.86$, SD=$5.52$)} demostró un \ac{AUC} significativamente mejor, $t(198)=8.45, p=.0001$.
+
+El modelo ECDD-SVM \textit{(M=$71.49$, SD=$2.09$)} comparado al modelo \ac{SVM} \textit{(M=$67.54$, SD=$3.34$)} demostró un \ac{AUC} significativamente mejor, $t(198)=10.03, p=.0001$.
+
+En resumen, el método propuesto de ensamble mejoró a tres de los cuatro modelos base utilizados. Es interesante notar que el modelo base \ac{LR} que no mejoró con la propuesta, es también aquel que tiene el \ac{AUC} promedio más alto del conjunto.
+
+
+\begin{table}[htbp]
 \centering
 \caption{Experimento 1 con conjunto de datos Alemán}
 \label{tab:german-proc1}
@@ -119,6 +140,37 @@ DBN				& 66.84		& 80.07		& 97.98			& 78.24		\\		% AUC std: 3.68
 				\hline
 \end{tabularx}
 \end{table}
+
+\subsection{Sobre el aprendizaje profundo}
+
+El caso de la \ac{DBN} es particular. En primer lugar, ajustar los parámetros del modelo resulta complejo, porque tiene numerosos parámetros y porque al ser pocos datos el modelo presenta una tendencia al overfitting. Esto se observa al tener un desempeño impecable con los datos de entrenamiento, pero un desempeño muy inferior con los datos de prueba.
+
+En el conjunto de datos Apurata, el modelo DBN \textit{(M=$67.80$, SD=$3.57$)} comparado al modelo \ac{LR} \textit{(M=$70.02$, SD=$3.55$)} demostró un \ac{AUC} significativamente peor, $t(198)=4.41, p=.0001$.
+
+En el conjunto de datos Apurata, el modelo DBN \textit{(M=$67.80$, SD=$3.57$)} comparado al modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} demostró un \ac{AUC} significativamente peor, $t(198)=9.55, p=.0001$.
+
+En el conjunto de datos LendingClub, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo \ac{AD} \textit{(M=$75.52$, SD=$0.56$)} demostró un \ac{AUC} significativamente peor, $t(198)=8.42, p=.0001$.
+
+En el conjunto de datos LendingClub, el modelo DBN \textit{(M=$75.01$, SD=$0.23$)} comparado al modelo ECDD-AD \textit{(M=$80.34$, SD=$0.12$)} demostró un \ac{AUC} significativamente peor, $t(198)=205.46, p=.0001$.
+
+En el conjunto de datos Alemán, el modelo DBN \textit{(M=$66.84$, SD=$3.68$)} comparado al modelo \ac{LR} \textit{(M=$71.45$, SD=$3.12$)} demostró un \ac{AUC} significativamente peor, $t(198)=9.56, p=.0001$.
+
+En el conjunto de datos Alemán, el modelo DBN \textit{(M=$66.84$, SD=$3.68$)} comparado al modelo ECDD-AD \textit{(M=$71.82$, SD=$1.99$)} demostró un \ac{AUC} significativamente peor, $t(198)=11.90, p=.0001$.
+
+Luego de ajustar cuidadosamente los parámetros de la mejor forma posible, el \ac{AUC} es peor que otros clasificadores base. Esto se puede explicar con la baja dimensionalidad de los datos y la poca cantidad de instancias; ya que no se explota la capacidad de reducción de dimensionalidad del modelo y tampoco se hace un entrenamiento adecuado por la escasez de datos.
+
+En conclusión, este clasificador no es adecuado para este problema, y al ser bastante complejo en sí mismo, no se le creó una versión ensamblada.
+
+
+\subsection{Conclusiones del Experimento 1}
+
+Se vió que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en prácticamente todos los clasificadores base, excepto las \ac{LR} en dos conjuntos de datos.
+
+La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad cayó un poco.
+
+Vemos claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
+
+
 
 
 \section{Experimento 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

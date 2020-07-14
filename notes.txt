@@ -17,7 +17,8 @@ To-Do:
 				comparar(base con EDD), AUC
 		DBN
 			for dataset in datasets:
-				* comparar con un clasificador MLP, AUC
+				* comparar contra el mejor base
+				* comparar contra el mejor ECDD
 
 	Experimento 2:
 		for dataset in datasets:

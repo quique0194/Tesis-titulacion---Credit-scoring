@@ -1,28 +1,13 @@
 \chapter{Experimentos y Resultados}
 
+En esta sección se describirán los experimentos llevados a cabo y sus resultados. Todas las comparaciones se llevan a cabo mediante una prueba de T de Student desapareada.
 
-\section{Experimentos}
 
-En esta sección se describirán los experimentos llevados a cabo. Todas las comparaciones se llevan a cabo mediante una prueba de T de Student desapareada.
-
-\subsection{Experimento 1}
+\section{Experimento 1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 El primer paso es hacer una comparación entre los clasificadores individuales y los \ac{ECDD}. El objetivo de este experimento es verificar si efectivamente el desempeño mejora individualmente por cada clasificador, sin hacer una comparación transversal entre clasificadores de distintas familias.
 
 En este experimento también se usó un algoritmo de aprendizaje profundo: \ac{DBN}.
-
-\subsection{Experimento 2}
-
-En este experimento compararemos los \ac{ECDD} con dos algoritmos de \textit{bagging} usados ampliamente en la actualidad: \ac{RF} y \ac{XGBoost}. El objectivo de este experimento es verificar que el método de \ac{ECDD} es competitivo con otros métodos de ensamble del estado del arte, sin el sesgo de haber usado una metodología diferente para el entrenamiento y la evaluación de los modelos.
-
-\subsection{Experimento 3}
-
-Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.
-
-
-\section{Resultados}
-
-\section{Experimento 1} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Los resultados del experimento 1 se pueden ver en las Tablas \ref{tab:apurata-proc1}, \ref{tab:lc-proc1} y \ref{tab:german-proc1}.
 
@@ -175,6 +160,8 @@ Vemos claramente que el árbol de decisión fue el algoritmo base que mejora má
 
 \section{Experimento 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+En este experimento compararemos los \ac{ECDD} con dos algoritmos de \textit{bagging} usados ampliamente en la actualidad: \ac{RF} y \ac{XGBoost}. El objectivo de este experimento es verificar que el método de \ac{ECDD} es competitivo con otros métodos de ensamble del estado del arte, sin el sesgo de haber usado una metodología diferente para el entrenamiento y la evaluación de los modelos.
+
 Los resultados del experimento 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}.
 
 \subsection{Conjunto de datos Apurata}
@@ -290,16 +277,13 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 
 \section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.
+
 Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
 
-Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
-Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios son más difíciles de comparar. Es por esto que las conclusiones del experimento 2 son tan importantes.
-
-Muchos estudios no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
-
-
-\begin{table}[]
+\begin{table}[htbp]
 \centering
 \caption{Experimento 3 con conjunto de datos de LendingClub}
 \label{tab:lc-proc3}
@@ -327,7 +311,7 @@ CRSA			& 69.30			& -				& Tan, F. et al (2018)					\\		% AUC std: 0.44
 \end{table}
 
 
-\begin{table}[]
+\begin{table}[htbp]
 \centering
 \caption{Experimento 3 con conjunto de datos Alemán}
 \label{tab:german-proc3}
@@ -356,4 +340,12 @@ Bagging-RS AD			& -			& 78.52		& Wang, G. et al. (2012)				\\		% No std data
 \end{tabularx}
 \par
 \end{table}
+
+
+Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
+
+Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios son más difíciles de comparar. Es por esto que las conclusiones del experimento 2 son tan importantes.
+
+Muchos estudios no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
+
 

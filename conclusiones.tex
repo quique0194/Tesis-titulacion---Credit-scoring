@@ -2,19 +2,18 @@
 
 %En primer lugar debes escribir las conclusiones generales de tu trabajo. evita escribirlas en forma de viñetas. Simplemente utiliza texto continuo.
 
-Hemos visto que en el área de calificación crediticia hay abundante investigación, pero que no se ha explotado lo suficiente características de los datos crediticios típicos, como el desbalanceo de las instancias, el cuál se trato de explotar en este trabajo para obtener los mejores resultados posibles.
+En esta tesis se implementó un reciente método de ensamble para clasificación de datos desbalanceados, y se comparó su desempeño con otras técnicas de calificación crediticia del estado del arte. Nos basamos en la hipótesis de que no se han explotado las características de los datos crediticios típicos, como el desbalanceo de las instancias.
 
-Se vio que al aplicar un algoritmo recientemente propuesto de ensamble para conjuntos de datos desbalanceados con varias familias de clasificadores base, se mejora el poder predictivo en prácticamente la totalidad de los casos. Sin embargo esta mejora depende del conjunto de datos en cuestión y el modelo base que se esté utilizando.
+Se elegieron tres conjuntos de datos para realizar los experimentos, con diferentes características: El conjunto de datos Apurata, inédito de Perú; el conjunto de datos LendingClub, con casi 200 mil observaciones; y el conjunto de datos Alemán que ha sido ampliamente usado en varias investigaciones desde 1994.
 
-El caso del aprendizaje profundo, y específicamente de la \ac{DBN} es particular, porque la complejidad de ajustar los parámetros del modelo es elevada y el beneficio obtenido no lo justifica. Y debido a que este clasificador ya es bastante complejo de por sí no se le creó una versión ensamblada.
+Se analizó la mejora de cuatro clasificadores base al aplicarles el método de ensamble propuesto. Los resultados fueron muy positivos. De los doce clasificadores base (cuatro por cada conjunto de datos), diez incrementaron su \ac{AUC} de forma significativa.
 
-Por otro lado, al comparar los resultados de los \ac{ECDD} con otros métodos de ensamble del estado del arte, específicamente \ac{RF} y \ac{XGBoost}, vemos que se consigue una pequeña mejora, lo cuál es muy alentador.
+Se probó una red neuronal profunda llamada \ac{DBN}. Sus resultados no fueron buenos debido a la complejidad del modelo y el tamaño reducido de los datos. Debido a la complejidad inherente de este clasificador, no se le creó una versión ensamblada.
 
-Lamentablemente estos resultados no se pueden extrapolar a otros dominios debido a las particularidades de los conjuntos de datos crediticios.
+Se comparó los mejores ensambles propuestos con \ac{RF} y \ac{XGBoost}, dos algoritmos del estado del arte. Los resultados fueron que en dos de los tres conjuntos de datos se consiguió mejorar el desempeño medido en términos de \ac{AUC}.
 
-Al igual que con otros algoritmos de ensamble en estado del arte, el árbol de decisión fue el clasificador base que mejor se adaptó al método de ensamble para conjuntos desbalanceados.
+Finalmente, al comparar los resultados con otras investigaciones referenciales, se pudo comprobar que el desempeño es competitivo dentro del estado del arte. Esto es alentador y motiva a profundizar en la exploración de técnicas que se enfoquen en otras carácterísticas de los conjuntos de datos crediticios, como la no estacionalidad y la sensibilidad al costo.
 
-Finalmente cuando comparamos nuestros resultados con el estado del arte actual, observamos que este método de ensamble para conjuntos de datos desbalanceados puede producir modelos competitivos, lo cuál refuerza la idea de profundizar la investigación en explotar las características inherentes a los datos crediticios.
 
 \section{Problemas encontrados}
 

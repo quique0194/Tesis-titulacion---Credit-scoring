@@ -3,7 +3,7 @@
 
 \section{Experimentos}
 
-En esta sección se describirán los experimentos llevados a cabo.
+En esta sección se describirán los experimentos llevados a cabo. Todas las comparaciones se llevan a cabo mediante una prueba de T de Student desapareada.
 
 \subsection{Experimento 1}
 
@@ -123,19 +123,23 @@ DBN				& 66.84		& 80.07		& 97.98			& 78.24		\\		% AUC std: 3.68
 
 \section{Experimento 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del experimento 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}. Para comparar estos resultados se realizó una prueba de T de Student desapareada.
+Los resultados del experimento 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}.
 
-El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.21$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.13$)} demostró un \ac{AUC} significativamente mejor, $t(198)=7.47, p=.0001$.
+\subsection{Conjunto de datos Apurata}
 
-Se observa que el desempeño de los \ac{ECDD} es ligeramente superior al desempeño de \ac{RF} y \ac{XGBoost}. Si comparamos la mejora obtenida por el mejor \ac{ECDD} respecto al mejor entre RF y XGBoost; vemos que el AUC en Apurata incrementa 3.33, en Lending Club mejora 0.50 y en Crédito Alemán aumenta en 0.06.
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-LR, y el que tiene un \ac{AUC} promedio más bajo es ECDD-AD. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
 
-Lamentablemente no es posible extrapolar estos resultados a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no podemos afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
+El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.52$)} demostró un \ac{AUC} significativamente mejor, $t(198)=6.73, p=.0001$.
 
-Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
+El modelo ECDD-AD  \textit{(M=$68.81$, SD=$3.46$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.52$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=0.85, p=.3958$.
 
-Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
+El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} comparado al modelo \ac{XGBoost} \textit{(M=$67.91$, SD=$3.47$)} demostró un \ac{AUC} significativamente mejor, $t(198)=9.46, p=.0001$.
 
-\begin{table}[]
+El modelo ECDD-AD \textit{(M=$68.81$, SD=$3.46$)} comparado al modelo \ac{XGBoost} \textit{(M=$67.91$, SD=$3.47$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=1.84, p=.0678$.
+
+En resumen, los modelos propuestos son competitivos e incluso superan a los modelos del estado del arte en este conjunto de datos particular.
+
+\begin{table}[htbp]
 \centering
 \caption{Experimento 2 con conjunto de datos de Apurata}
 \label{tab:apurata-proc2}
@@ -154,8 +158,21 @@ XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\		% AUC std: 3.47
 \end{tabularx}
 \end{table}
 
+\subsection{Conjunto de datos de LendingClub}
 
-\begin{table}[]
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-SVM. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
+
+El modelo ECDD-AD \textit{(M=$71.82$, SD=$0.12$)} comparado al modelo \ac{RF} \textit{(M=$71.32$, SD=$0.14$)} demostró un \ac{AUC} significativamente mejor, $t(198)=27.12, p=.0001$.
+
+El modelo ECDD-SVM  \textit{(M=$71.49$, SD=$0.13$)} comparado al modelo \ac{RF} \textit{(M=$71.32$, SD=$0.14$)} demostró un \ac{AUC} significativamente mejor, $t(198)=8.90, p=.0001$.
+
+El modelo ECDD-AD \textit{(M=$71.82$, SD=$0.12$)} comparado al modelo \ac{XGBoost} \textit{(M=$70.68$, SD=$0.12$)} demostró un \ac{AUC} significativamente mejor, $t(198)=67.18, p=.0001$.
+
+El modelo ECDD-SVM \textit{(M=$71.49$, SD=$0.13$)} comparado al modelo \ac{XGBoost} \textit{(M=$70.68$, SD=$0.12$)} demostró un \ac{AUC} significativamente mejor, $t(198)=45.78, p=.0001$.
+
+En resumen, los modelos propuestos son mejores que los modelos del estado del arte en este conjunto de datos.
+
+\begin{table}[htbp]
 \centering
 \caption{Experimento 2 con conjunto de datos de LendingClub}
 \label{tab:lc-proc2}
@@ -174,8 +191,21 @@ XGB				& 70.68		& 81.89		& 98.56			& 78.81		\\		% AUC std: 0.12
 \end{tabularx}
 \end{table}
 
+\subsection{Conjunto de datos Alemán}
 
-\begin{table}[]
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-LR. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
+
+El modelo ECDD-AD \textit{(M=$80.34$, SD=$2.09$)} comparado al modelo \ac{RF} \textit{(M=$79.82$, SD=$2.14$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=1.74, p=.0837$.
+
+El modelo ECDD-LR  \textit{(M=$73.34$, SD=$2.12$)} comparado al modelo \ac{RF} \textit{(M=$79.82$, SD=$2.14$)} demostró un \ac{AUC} significativamente peor, $t(198)=21.52, p=.0001$.
+
+El modelo ECDD-AD \textit{(M=$80.34$, SD=$2.09$)} comparado al modelo \ac{XGBoost} \textit{(M=$80.28$, SD=$2.08$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=0.20, p=.8390$.
+
+El modelo ECDD-LR \textit{(M=$73.34$, SD=$2.12$)} comparado al modelo \ac{XGBoost} \textit{(M=$80.28$, SD=$2.08$)} demostró un \ac{AUC} significativamente peor, $t(198)=23.37, p=.0001$.
+
+En resumen, los modelos propuestos son competitivos pero no alcanzan a superar a los modelos del estado del arte en este conjunto de datos.
+
+\begin{table}[htbp]
 \centering
 \caption{Experimento 2 con conjunto de datos Alemán}
 \label{tab:german-proc2}
@@ -193,6 +223,17 @@ XGB				& 80.28		& 81.43		& 91.66			& 78.93		\\		% AUC std: 2.08
 				\hline
 \end{tabularx}
 \end{table}
+
+\subsection{Conclusiones del Experimento 2}
+
+Se observó que en los conjuntos de datos de Apurata y LendingClub, se consiguió superar el desempeño de \ac{RF} y \ac{XGBoost}. Y en el conjunto de datos Alemán se obtuvo un desempeño similar. En consecuencia, se puede afirmar que el método propuesto mejora o al menos mantiene un desempeño similar a modelos del estado del arte. Los resultados varían según el clasificador base utilizado y el conjunto de datos.
+
+Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que Random Forest y XGBoost.
+
+Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de un poco de overfitting, razón por la cuál su desempeño no es óptimo.
+
+Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en Lending Club y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran poder predictivo. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
+
 
 
 \section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

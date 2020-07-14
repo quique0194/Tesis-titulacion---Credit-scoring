@@ -21,9 +21,9 @@ El procesamiento de la información es costoso en términos de tiempo del invest
 
 Hay demasiadas combinaciones de modelos y parámetros, y esto se puede complicar aún más si se agregan métodos de \textit{bagging}, por lo que se requiere muchas ejecuciones de los modelos para encontrar los parámetros mas adecuados. Esto, al igual que el punto anterior es costoso en términos de tiempo del investigador.
 
-Los resultados de una sóla ejecución pueden no ser confiables, esto es fácilmente detectable si al ejectuar varias veces las pruebas los resultados no son estables. Esto es especialmente relevante con pocas instancias, como sucedió en esta investigación.
+Los resultados de una sóla ejecución pueden no ser confiables, esto es fácilmente detectable si al ejectuar varias veces las pruebas, los resultados no son estables. Esto es especialmente relevante con pocas instancias, como sucedió en esta investigación.
 
-A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no depende de la selección de un punto de corte y es insensible al desbalanceo de las clases; otros estudios del estado del arte insisten en utilizar otras métricas sub-óptimas como la exactitud. De modo que uno se ve forzado a usar estas mismas métricas para poder comparar sus resultados con el estado del arte de forma mas o menos efectiva.
+A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no depende de la selección de un punto de corte y es insensible al desbalanceo de las clases; otros estudios del estado del arte insisten en utilizar otras métricas sub-óptimas como la exactitud. De modo que uno se ve forzado a usar estas mismas métricas para poder comparar sus resultados con el estado del arte de forma más o menos efectiva.
 
 % La segunda parte de este capítulo corresponde a los problemas encontrados. esta seccion es muy importante para que los siguientes estudiantes que hagan algo en esta línea no cometan los mismos errores y tu tesis sea un buen peldaño para avanzar más rápido.
 
@@ -31,7 +31,7 @@ A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no d
 
 Si la limpieza de los datos no es parte de la investigación, hay que procurar tomar conjuntos de datos ya pre-procesados.
 
-Si se tienen pocas instancias y los resultados cambian con cada ejecución de las pruebas, hay que utilizar cross validation con repetición. El número de repeticiones se puede escoger a mano hasta que los resultados sean estables. Basta probar que los resultados sean estables con un modelo simple como \ac{LR} y se puede asumir que van a seguir siendo estables con modelos más complejos.
+Si se tienen pocas instancias y los resultados cambian con cada ejecución de las pruebas, hay que utilizar \textit{cross validation} con repetición. El número de repeticiones se puede escoger a mano hasta que los resultados sean estables. Basta probar que los resultados sean estables con un modelo simple como \ac{LR} y se puede asumir que van a seguir siendo estables con modelos más complejos.
 
 Usar conjuntos de datos heterogéneos permite obtener conclusiones más generalizables, y hacer una mejor comparación que no esté tan sesgada por características particulares de ciertos datos.
 

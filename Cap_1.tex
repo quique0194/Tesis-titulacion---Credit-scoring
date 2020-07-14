@@ -8,11 +8,11 @@ Al utilizar los algoritmos de aprendizaje automático en problemas de calificaci
 
 \section{Motivación y Contexto}
 
-El momento en que se publica este trabajo es muy emocionante, puesto que en el entorno emprendedor peruano han surgido varias \textit{Fintech} (entidad que brinda servicios financieros basados en innovación tecnológica) que aprovechan el potencial del aprendizaje automático para expandir el porcentaje de la población que tiene acceso al crédito, que actualmente está rondando el 30\%.
+El momento en que se publica este trabajo es muy emocionante, puesto que en el entorno emprendedor peruano han surgido varias \textit{Fintech} (entidad que brinda servicios financieros basados en innovación tecnológica) que aprovechan el potencial del aprendizaje automático para expandir el porcentaje de la población que tiene acceso al crédito, que actualmente está rondando el 30\% \citep{carballo2019fintech}.
 
 Las instituciones financieras tradicionales se han dado cuenta de esto y también están empezando a utilizar herramientas de aprendizaje automático para mantenerse competitivas.
 
-Desde el lado de la ciencia, este florecimiento del campo de aplicación ha impulsado la investigación en esta área, de modo que ahora se tienen nuevos algoritmos poderosos y eficientes como \ac{XGBoost} \citep{Chen:2016:XST:2939672.2939785} y nuevas técnicas de \textit{bagging} (entrenamiento de varias instancias del modelo con diferentes subconjuntos de la base de datos).
+Desde el lado de la ciencia, este florecimiento del campo de aplicación ha impulsado la investigación en esta área, de modo que ahora se tienen nuevos algoritmos como \ac{XGBoost} \citep{Chen:2016:XST:2939672.2939785} y nuevas técnicas de \textit{bagging} (entrenamiento de varias instancias del modelo con diferentes subconjuntos de la base de datos) \citep{breiman1996bagging}.
 
 Sin embargo, cuando se aplican estas técnicas, muchas veces se olvidan características intrínsecas de los datos en esta área, lo que lleva a crear modelos subóptimos. De ahí surge la necesidad de enfocarnos en estas características particulares para mejorar el estado del arte existente.
 
@@ -22,14 +22,14 @@ Sin embargo, cuando se aplican estas técnicas, muchas veces se olvidan caracter
 Al entrenar modelos para predecir morosidad, los conjuntos de datos siempre son desbalanceados. Esto ocurre en todas las entidades financieras del mundo. El desbalance puede encontrarse desde un moderado 30\% hasta llegar a menos de 1\% de instancias de la clase minoritaria, que suelen ser los créditos morosos.
 
 % Qué intentos ha habido de solucionar el problema?
-Se ha intentado solucionar este problema haciendo sobremuestreo y submuestro. También se ajustan los parámetros de los modelos para compensar el desbalance. Pero estos métodos aún no han tenido un efecto significativo en el poder predictivo de los modelos.
+Se ha intentado solucionar este problema haciendo sobremuestreo y submuestro \citep{drummond2003c4}. También se ha intentado ajustar los parámetros de los modelos para compensar el desbalance. Pero estos métodos aún no han tenido un efecto significativo en el desempeño de los modelos.
 
 % Qué pasa si no se soluciona el problema?
-Los modelos de crédito ineficientes perjudican a las entidades financieras y los prestatarios. Las entidades financieras tienen elevadas tasas de morosidad y costos elevados de adquisión de clientes. Mientras que los prestatarios encuentran más caro y mas difícil acceder a un crédito.
+Los modelos de crédito ineficientes perjudican a las entidades financieras y los prestatarios. Las entidades financieras tienen elevadas tasas de morosidad y costos elevados de adquisión de clientes. Mientras que los prestatarios encuentran más caro y mas difícil acceder a un crédito \citep{avery2009credit}.
 
 % El problema tiene implicaciones más amplias?
 % Cuál es la relevancia cokmputacional
-Resolver este problema podría mejorar el acceso al crédito para muchas personas, especialmente en nuestro país Perú, donde el 70\% de la población aún no está bancarizada. Y desde el punto de vista computacional, permitiría encontrar nuevas aplicaciones para las técnicas de aprendizaje de máquina para conjuntos de datos desbalanceados.
+Resolver este problema podría mejorar el acceso al crédito para millones de personas, especialmente en latinoamérica, donde hay países como Perú, con el 70\% de la población que aún no está bancarizada. Por otro lado, desde el punto de vista computacional, permitiría abrir nuevas áreas de investigación para las técnicas de aprendizaje de máquina para conjuntos de datos desbalanceados.
 
 
 \section{Objetivos}
@@ -44,7 +44,7 @@ Aplicar en el área de calificación crediticia, un reciente método de ensamble
 
 	\item Elegir 3 bases de datos para ejecutar los experimentos.
 
-	\item Comparar el desempeño de cuatro clasificadores: (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}); contra su versión ensamblada. Para comprobar si el ensamble mejora el poder predictivo de estos clasificadores base.
+	\item Comparar el desempeño de cuatro clasificadores: (\ac{LR}, \ac{MLP}, \ac{SVM} y \ac{AD}); contra su versión ensamblada. Para comprobar si el ensamble es mejor que los clasificadores base.
 
 	\item Comparar el desempeño de los cuatro clasificadores ensamblados en el punto anterior contra otros algoritmos de ensamble del estado del arte: \ac{RF} y \ac{XGBoost}. Para comprobar si es un método de ensamble al menos competitivo.
 
@@ -53,11 +53,11 @@ Aplicar en el área de calificación crediticia, un reciente método de ensamble
 
 \section{Organización de la tesis}
 
-En el capítulo 2 se dará un marco teórico al mismo tiempo que una revisión del Estado del Arte. Se abordarán temas como la historia de la minería de datos y los puntajes de crédito, estudios comparativos y problemas identificados con la investigación actual. También se explicarán los algoritmos de clasificación usados en esta investigación, los algoritmos de ensamble referenciales, el algoritmo de ensamble para datos desbalanceados y los algoritmos de evaluación. Finalmente se hará un estudio del trabajo relacionado.
+En el capítulo 2 se dará un marco teórico al mismo tiempo que una revisión del Estado del Arte. Se abordarán temas como la historia de la minería de datos y los puntajes de crédito, estudios comparativos y problemas identificados con la investigación actual. También se explicarán los algoritmos de clasificación usados en esta investigación, los algoritmos de ensamble referenciales y los algoritmos de evaluación. Finalmente se hará un estudio del trabajo relacionado.
 
-En el capítulo 3 se explicarán los experimentos llevados a cabo en esta investigación. Se hablará de los conjuntos de datos utilizados, la metodología seguida y los procesos mediante los cuales se lograron los objetivos y se obtuvieron los resultados.
+En el capítulo 3 se explicará la propuesta: el algoritmo de ensamble para datos desbalanceados. Se detallarán los conjuntos de datos que serán utilizados y la metodología para realizar los experimentos.
 
-Luego en el capítulo 4 se presentarán los resultados de este trabajo en forma de tablas, al mismo tiempo que se harán algunos comentarios sobre observaciones interesantes y conclusiones relevantes.
+Luego en el capítulo 4 se presentarán los experimentos en detalle y sus resultados en forma de tabla, al mismo tiempo, se harán pruebas de significancia estadística y observaciones interesantes.
 
 Finalmente en el capítulo 5 se bosquejan las conclusiones, problemas encontrados, recomendaciones y se proponen trabajos futuros.
 

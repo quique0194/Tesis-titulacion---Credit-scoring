@@ -16,10 +16,9 @@ To-Do:
 
 // Referencias
 * Referenciar todos los algoritmos usados
-* No hay ninguna referencia bibliográfica en el capítulo de la introducción. Colocal referencias respectivas.
-* Al quitar las referencias, el texto debe seguir teniendo sentido
+* Al quitar las referencias, el texto debe seguir teniendo sentido.
+	* Sólo quedan de estas en "Trabajo relacionado", dónde es difícil quitarlas
 
 
 // Opcionales
 * Mejorar imagen de random forest
-* Menciono que el desbalance siempre es que hay pocos default?

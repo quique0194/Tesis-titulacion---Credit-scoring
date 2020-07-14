@@ -176,7 +176,7 @@ Entre las ventajas de los árboles de decisión se tiene que son fáciles de int
 
 \section{Métodos de ensamble}
 
-En el aprendizaje automático, los métodos de ensamble usan múltiples algoritmos de aprendizaje para obtener un mejor poder predictivo del que podría ser conseguido por cualquiera de los algoritmos constituyentes por sí solo.
+En el aprendizaje automático, los métodos de ensamble usan múltiples algoritmos de aprendizaje para obtener una mejor clasificación del que podría ser conseguido por cualquiera de los algoritmos constituyentes por sí solo.
 
 Evaluar la predicción de un ensamble requiere más computaciones de las que requiere un modelo individual, así que los ensambles pueden ser imaginados como una manera para compensar algoritmos con un pobre aprendizaje realizando mucha computación adicional. Algoritmos rápidos como los árboles de decisión son comúnmente usados en los métodos de ensamble, sin embargo, otros algoritmos más lentos pueden beneficiarse de las técnicas de ensamble también.
 
@@ -311,11 +311,11 @@ Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tenga
 
 \section{Trabajo relacionado}
 
-Desde que se creó la calificación crediticia en 1956, se han investigado diferentes métodos para mejorar el poder predictivo de los modelos utilizados. A continuación se hará un breve resumen de algunas investigaciones recientes.
+Desde que se creó la calificación crediticia en 1956, se han investigado diferentes métodos para mejorar el desempeño de los modelos utilizados. A continuación se hará un breve resumen de algunas investigaciones recientes.
 
 En \citep{sohn2016technology} se propone una regresión logística difusa para explotar mejor atributos de evaluación linguísticos. Los resultados son que efectivamente se mejora el desempeño respecto a una regresión logística normal. En \citep{bahnsen2014example} se propone una regresión logística que usa una matriz de costo dependiendo de cada ejemplo. Los resultados subrayan la importancia de usar los costos financieros reales, ya que se logran mejoras significativas en términos de ahorro de dinero.
 
-Por otro lado en \citep{zhao2015investigation} se aplica una \ac{MLP} que se trata de optimizar mediante (i) la mejora de la distribución de los datos usando un método llamado Average Random Choosing, (ii) probando diferentes tamaños de conjuntos de train-test-validation y (iii) encontrar el número óptimo de neuronas ocultas. Los resultados son bastante alentadores y los autores claman que se pueden utilizar incluso fuera del dominio de los puntajes de crédito.
+Por otro lado en \citep{zhao2015investigation} se aplica una \ac{MLP} que se trata de optimizar mediante (i) la mejora de la distribución de los datos usando un método llamado \textit{Average Random Choosing}, (ii) probando diferentes tamaños de conjuntos de \textit{train-test-validation} y (iii) encontrar el número óptimo de neuronas ocultas. Los resultados son bastante alentadores y los autores claman que se pueden utilizar incluso fuera del dominio de los puntajes de crédito.
 
 En el área de aprendizaje profundo también se ha hecho progreso. Particularmente en \citep{luo2017deep} se hace uso de una \ac{DBN} que se compara con algoritmos más populares de calificación crediticia como \ac{LR}, \ac{MLP} y \ac{SVM}. Los modelos son aplicados en un conjunto de contratos CDS XR 14 (sin reestructuración) y los resultados arrojan que la \ac{DBN} tiene la mejor exactitud y AUC.
 

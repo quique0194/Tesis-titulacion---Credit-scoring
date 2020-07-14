@@ -2,7 +2,7 @@
 
 %En primer lugar debes escribir las conclusiones generales de tu trabajo. evita escribirlas en forma de viñetas. Simplemente utiliza texto continuo.
 
-En esta tesis se implementó un reciente método de ensamble para clasificación de datos desbalanceados, y se comparó su desempeño con otras técnicas de calificación crediticia del estado del arte. Nos basamos en la hipótesis de que no se han explotado las características de los datos crediticios típicos, como el desbalanceo de las instancias.
+En esta tesis se implementó un reciente método de ensamble para clasificación de datos desbalanceados, y se comparó su desempeño con otras técnicas de calificación crediticia del estado del arte. Se tomó como base la hipótesis de que no se han explotado las características de los datos crediticios típicos, como el desbalanceo de las instancias.
 
 Se elegieron tres conjuntos de datos para realizar los experimentos, con diferentes características: El conjunto de datos Apurata, inédito de Perú; el conjunto de datos LendingClub, con casi 200 mil observaciones; y el conjunto de datos Alemán que ha sido ampliamente usado en varias investigaciones desde 1994.
 
@@ -19,7 +19,7 @@ Finalmente, al comparar los resultados con otras investigaciones referenciales, 
 
 El procesamiento de la información es costoso en términos de tiempo del investigador. Hay que entender las variables para poder transformarlas o eliminarlas de forma efectiva.
 
-Hay demasiadas combinaciones de modelos y parámetros, y esto se puede complicar aún más si agregamos métodos de \textit{bagging}, por lo que se requiere muchas ejecuciones de los modelos para encontrar los parámetros mas adecuados. Esto, al igual que el punto anterior es costoso en términos de tiempo del investigador.
+Hay demasiadas combinaciones de modelos y parámetros, y esto se puede complicar aún más si se agregan métodos de \textit{bagging}, por lo que se requiere muchas ejecuciones de los modelos para encontrar los parámetros mas adecuados. Esto, al igual que el punto anterior es costoso en términos de tiempo del investigador.
 
 Los resultados de una sóla ejecución pueden no ser confiables, esto es fácilmente detectable si al ejectuar varias veces las pruebas los resultados no son estables. Esto es especialmente relevante con pocas instancias, como sucedió en esta investigación.
 
@@ -31,7 +31,7 @@ A pesar de que el mejor método para comparar algoritmos sea el AUC; ya que no d
 
 Si la limpieza de los datos no es parte de la investigación, hay que procurar tomar conjuntos de datos ya pre-procesados.
 
-Si se tienen pocas instancias y los resultados cambian con cada ejecución de las pruebas, hay que utilizar cross validation con repetición. El número de repeticiones se puede escoger a mano hasta que los resultados sean estables. Basta probar que los resultados sean estables con un modelo simple como \ac{LR} y podemos asumir que van a seguir siendo estables con modelos más complejos.
+Si se tienen pocas instancias y los resultados cambian con cada ejecución de las pruebas, hay que utilizar cross validation con repetición. El número de repeticiones se puede escoger a mano hasta que los resultados sean estables. Basta probar que los resultados sean estables con un modelo simple como \ac{LR} y se puede asumir que van a seguir siendo estables con modelos más complejos.
 
 Usar conjuntos de datos heterogéneos permite obtener conclusiones más generalizables, y hacer una mejor comparación que no esté tan sesgada por características particulares de ciertos datos.
 

@@ -153,20 +153,20 @@ Se vió que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en práctica
 
 La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad disminuyó.
 
-Vemos claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
+Se ve claramente que el árbol de decisión fue el algoritmo base que mejora más su \ac{AUC} promedio con el método \ac{ECDD}. Esto se debe a que individualmente el árbol de decisión es muy sensible al ruido y fácilmente hace overfitting. Sin embargo al ponerlo dentro de un ensamble, su capacidad de generalizar mejora. De hecho es la misma razón por la que los algoritmos de ensamble del estado del arte actualmente usan árboles de decisión como su clasificador base.
 
 
 
 
 \section{Experimento 2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-En este experimento compararemos los \ac{ECDD} con dos algoritmos de \textit{bagging} usados ampliamente en la actualidad: \ac{RF} y \ac{XGBoost}. El objectivo de este experimento es verificar que el método de \ac{ECDD} es competitivo con otros métodos de ensamble del estado del arte, sin el sesgo de haber usado una metodología diferente para el entrenamiento y la evaluación de los modelos.
+En este experimento se comparará los \ac{ECDD} con dos algoritmos de \textit{bagging} usados ampliamente en la actualidad: \ac{RF} y \ac{XGBoost}. El objectivo de este experimento es verificar que el método de \ac{ECDD} es competitivo con otros métodos de ensamble del estado del arte, sin el sesgo de haber usado una metodología diferente para el entrenamiento y la evaluación de los modelos.
 
 Los resultados del experimento 2 se pueden ver en las Tablas \ref{tab:apurata-proc2}, \ref{tab:lc-proc2} y \ref{tab:german-proc2}.
 
 \subsection{Conjunto de datos Apurata}
 
-De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-LR, y el que tiene un \ac{AUC} promedio más bajo es ECDD-AD. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-LR, y el que tiene un \ac{AUC} promedio más bajo es ECDD-AD. A continuación se compararán ambos modelos con \ac{RF} y \ac{XGBoost}.
 
 El modelo ECDD-LR \textit{(M=$72.56$, SD=$3.48$)} comparado al modelo \ac{RF} \textit{(M=$69.23$, SD=$3.52$)} demostró un \ac{AUC} significativamente mejor, $t(198)=6.73, p=.0001$.
 
@@ -199,7 +199,7 @@ XGB				& 67.91		& 89.31		& 89.92			& 78.75		\\		% AUC std: 3.47
 
 \subsection{Conjunto de datos de LendingClub}
 
-De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-SVM. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-SVM. A continuación se compararán ambos modelos con \ac{RF} y \ac{XGBoost}.
 
 El modelo ECDD-AD \textit{(M=$71.82$, SD=$0.12$)} comparado al modelo \ac{RF} \textit{(M=$71.32$, SD=$0.14$)} demostró un \ac{AUC} significativamente mejor, $t(198)=27.12, p=.0001$.
 
@@ -232,7 +232,7 @@ XGB				& 70.68		& 81.89		& 98.56			& 78.81		\\		% AUC std: 0.12
 
 \subsection{Conjunto de datos Alemán}
 
-De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-LR. A continuación compararemos ambos modelos con \ac{RF} y \ac{XGBoost}.
+De entre los modelos propuestos, el que tiene un \ac{AUC} promedio más elevado es ECDD-AD, y el que tiene un \ac{AUC} promedio más bajo es ECDD-LR. A continuación se compararán ambos modelos con \ac{RF} y \ac{XGBoost}.
 
 El modelo ECDD-AD \textit{(M=$80.34$, SD=$2.09$)} comparado al modelo \ac{RF} \textit{(M=$79.82$, SD=$2.14$)} demostró una diferencia en \ac{AUC} que no es estadísticamente significativa, $t(198)=1.74, p=.0837$.
 
@@ -277,10 +277,9 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 
 \section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+En este experimento se compararon los resultados obtenidos por los modelos \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.
 
-Finalmente en el experimento 3 compararemos los resultados obtenidos por nuestros \ac{ECDD} con los resultados obtenidos en otros estudios del estado del arte que usan los mismos conjuntos de datos. El objetivo de este experimento es ratificar que los resultados son válidos para el estado del arte usando dos conjuntos de datos referenciales.
-
-Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
+Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo se tienen resultados para Lending Club y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
 
 
 \begin{table}[htbp]

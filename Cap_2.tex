@@ -4,7 +4,7 @@ La calificación crediticia se obtiene mediante un conjunto de modelos de decisi
 
 Con los avances en minería de datos y Big Data, ahora hay calificaciones crediticias siendo desarrolladas usando fuentes alternativas de datos. Estas pueden ser psicométricas, datos ``sociales'' en línea, o datos del teléfono móvil. Sin embargo, a parte de la consideración de por qué esta información debería ser predictiva del comportamiento crediticio, hay una mayor incertidumbre respecto al hecho de quiénes realmente poseen este tipo de información \citep[18]{thomas2017credit}.
 
-Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de los datos, su exactitud y su confiabilidad \citep[18--19]{thomas2017credit}. Sin embargo no trataremos estos temas porque están fuera del ámbito de esta investigación.
+Algunos desafíos claramente identificados en la creación de calificaciones crediticias están relacionados con la disponibilidad de los datos, su exactitud y su confiabilidad \citep[18--19]{thomas2017credit}. Sin embargo, no se trataron estos temas porque están fuera del ámbito de esta investigación.
 
 Cuando los puntajes de crédito se desarrollaron por primera vez en los años 1950s y 1960s, los únicos métodos utilizados fueron de discriminación estadística. Aún hoy, con el advenimiento de muchos nuevos enfoques de clasificación basados en minería de datos, los métodos estadísticos, especialmente la regresión logística son por mucho los métodos más utilizados para construir calificaciones crediticias \citep[25]{thomas2017credit}. Tienen la ventaja de permitir el uso de herramientas como los intervalos de confianza y prueba de hipótesis en el contexto de calificación crediticia. Así, uno es capaz de entender intuitivamente el funcionamiento del modelo construido y la importancia relativa de la diferentes características (variables) que constituyen el modelo. De esta forma, uno es capaz de usar esta información para proponer cambios en las preguntas hechas a los prestatarios.
 
@@ -28,7 +28,7 @@ Un análisis de le literatura de modelamiento de morosidad confirma que los estu
 	\item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
 \end{itemize}
 
-A continuación se dará un breve repaso de los algoritmos que se utilizarán en esta investigación, tanto para la clasificación como para la evaluación de los modelos.
+A continuación se dará un breve repaso de los algoritmos que se utilizaron en esta investigación, tanto para la clasificación como para la evaluación de los modelos.
 
 \section{Algoritmos de clasificación base}
 %En random forest hay que poner la diferencia con decision tree. %https://towardsdatascience.com/the-random-forest-algorithm-d457d499ffcd
@@ -170,9 +170,9 @@ Un árbol de decisión es un modelo simple de clasificación, se puede ver un ej
 	\label{fig:dt-eg}
 \end{figure}
 
-Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo en cada paso la variable que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos tenemos la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
+Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo en cada paso la variable que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos se encuentran la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
 
-Entre las ventajas de los árboles de decisión tenemos que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
+Entre las ventajas de los árboles de decisión se tiene que son fáciles de interpretar y requieren poca preparación de los datos. Sin embargo también tiene desventajas, como la tendencia al sobreajuste y la dificultad para aprender relaciones tipo XOR.
 
 \section{Métodos de ensamble}
 
@@ -274,9 +274,9 @@ Para utilizar los diferentes modelos, hay que definir una etiqueta positiva y un
 
 En otras palabras, el balance entre precisión y exhaustividad se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
 
-Pongamos un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 no paga su crédito. Un modelo que simplemente trate de maximizar la exactitud puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así una exactitud de 0.999.
+Imagínese un ejemplo extremo de desbalance, donde sólo una persona de cada 1000 no paga su crédito. Un modelo que simplemente trate de maximizar la exactitud puede aprender erróneamente a clasificar a todos como si pertenecieran a la clase mayoritaria, obteniendo así una exactitud de 0.999.
 
-En estos casos de desbalance tan extremo también la precision y la exhaustividad se ven afectadas, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 moroso en 1000 personas, la precisión sería de 0 y la exhaustividad también, indicando que nuestro modelo no tiene poder predictivo.
+En estos casos de desbalance tan extremo también la precision y la exhaustividad se ven afectadas, cosa que se soluciona invirtiendo las clases, i.e. haciendo que 0 sean las personas que pagan y 1 las personas que no pagan adecuadamente. Con esta disposición, y con el mismo ejemplo de tener 1 moroso en 1000 personas, la precisión sería de 0 y la exhaustividad también, indicando que el modelo en cuestión no tiene poder predictivo.
 
 \subsection{Curva ROC y Area bajo la curva (AUC)}
 
@@ -337,4 +337,4 @@ En conclusión, hasta la fecha se ha venido realizando un trabajo muy diverso. E
 
 \section{Consideraciones Finales}
 
-Ahora que tenemos una idea clara de cómo funcionan los clasificadores base, los ensambles y los métodos de evaluación; podemos pasar a explicar los conjuntos de datos utilizados, la metodología y los experimentos realizados.
+Ahora que se tiene una idea clara de cómo funcionan los clasificadores base, los ensambles y los métodos de evaluación; se puede pasar a explicar los conjuntos de datos utilizados, la metodología y los experimentos realizados.

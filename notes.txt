@@ -10,8 +10,6 @@ To-Do:
 ======
 
 // Redacción
-* No hablar en futuro, todo en pasado.
-* hablar todo en 3ra persona. Buscar verbos que acaban en *mos e.g. hacemos, acabamos, mostramos
 * Cambiar palabras en inglés:
 	* boosting
 	* grid-search

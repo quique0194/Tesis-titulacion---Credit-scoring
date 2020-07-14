@@ -290,13 +290,13 @@ Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos 
 
 \section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemás puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en este trabajo.
-
-Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios tienen una variación más alta que si se hubieran hecho las comparaciones usando los mismo procesos. Es por esto que las conclusiones del experimento 2 son tan importantes.
+Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo tenemos resultados para Lending Club y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
 
 Los modelos utilizados en los estudios referenciales son bastante diversos, abarcando modelos lineales y no lineales, de árboles y redes neuronales, llegando incluso a incluir redes neuronales profundas.
 
-Si vemos los resultados a grandes rasgos, se observa que los \ac{ECDD} son efectivamente competitivos con el estado del arte. Con lo cuál podemos concluir que aplicar este método de ensamble para conjuntos de datos desbalanceados al dominio de los puntajes de crédito puede tener resultados bastante interesantes e incluso tener un poder predictivo ligeramente mayor a otros algoritmos más extendidos en la comunidad científica.
+Es importante notar que al haber seguido procesos diferentes, los resultados de diferentes estudios son más difíciles de comparar. Es por esto que las conclusiones del experimento 2 son tan importantes.
+
+Muchos estudios no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
 
 
 \begin{table}[]
@@ -324,8 +324,6 @@ CRSA			& 69.30			& -				& Tan, F. et al (2018)					\\		% AUC std: 0.44
 				\hline
 \end{tabularx}
 \par
-\small
-Las investigaciones utilizadas para la comparación son en orden: \citep{malekipirbazari2015risk, zhang2016research, zang2014credit, tan2018deep}
 \end{table}
 
 
@@ -357,7 +355,5 @@ Bagging-RS AD			& -			& 78.52		& Wang, G. et al. (2012)				\\		% No std data
 						\hline
 \end{tabularx}
 \par
-\small
-Las investigaciones utilizadas para la comparación son en orden: \citep{harris2015credit, nanni2009experimental, brown2012experimental, wang2012two}
 \end{table}
 

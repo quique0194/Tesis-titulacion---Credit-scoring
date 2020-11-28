@@ -13,13 +13,13 @@ Muchos algoritmos de clasificación han demostrado un desempeño no óptimo en p
 
 El ensamble es un método de aprendizaje de ensamble que podría resolver este problema si los clasificadores base fueran certeros y diversos \citep{breiman1996bagging}. Sin embargo, cada clasificador base dentro del ensamble aún sufre del mismo problema, puesto que las instancias se muestrean proporcionalmente del conjunto original. Incluso si se balancean los datos antes de ejecutar los algoritmos de aprendizaje, se altera la distribución original y se hace \textit{overfitting}.
 
-El método de ensamble propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La figura \ref{fig:bagging-imbalanced} muestra los detalles.
+El método de ensamble propuesto \citep{sun2015novel} ataca un problema desbalanceado convirtiéndolo en varios problemas balanceados, lo cual incluye tres componentes: \textit{Balanceo del conjunto de datos, Modelamiento y Clasificación}. La Figura \ref{fig:bagging-imbalanced} muestra los detalles.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
-	\caption{Método de \textit{bagging} propuesto \citep{sun2015novel}}
-	\label{fig:bagging-imbalanced}
+    \centering
+    \includegraphics[width=\linewidth]{graficos/bagging_imbalanced.png}
+    \caption{Método de \textit{bagging} propuesto \citep{sun2015novel}}
+    \label{fig:bagging-imbalanced}
 \end{figure}
 
 En este método, la clase mayoritaria genera varios subconjuntos mediante muestreo sin repetición. Cada subconjunto tiene un número de instancias igual a la clase minoritaria, y luego se combinan con esta. Así, se obtienen varios conjuntos de datos balanceados (Balanceo de los datos). Luego, cada subconjunto se usa para crear un clasificador binario con un algoritmo específico (Modelamiento). Finalmente estos clasificadores binarios se combinan en un ensamble para clasificar nuevas instancias (Clasificación).
@@ -34,28 +34,28 @@ Para cumplir los objetivos de este trabajo, se implementó el algoritmo en pytho
 Los conjuntos de datos que serán utilizados como casos de prueba son los siguientes:
 
 \begin{description}
-	\item[Apurata] Conjunto de datos privado de la \textit{fintech} peruana con el mismo nombre.
-	\item[Lending Club] Conjunto de datos público de la mayor \textit{fintech} de préstamos \ac{P2P} en EE.UU \citep{dataset:lending-club}.
-	\item[Crédito Alemán] Conjunto de datos público de entidades bancarias Alemanas \citep{dataset:german-credit}.
+    \item[Apurata] Conjunto de datos privado de la \textit{fintech} peruana con el mismo nombre.
+    \item[Lending Club] Conjunto de datos público de la mayor \textit{fintech} de préstamos \ac{P2P} en EE.UU \citep{dataset:lending-club}.
+    \item[Crédito Alemán] Conjunto de datos público de entidades bancarias Alemanas \citep{dataset:german-credit}.
 \end{description}
 
-Una mejor comparación entre estos conjuntos se puede encontrar en la tabla \ref{tab:dataset-comparison}
+Una mejor comparación entre estos conjuntos se puede encontrar en la Tabla \ref{tab:dataset-comparison}
 
 \begin{table}
-	\centering
-	\caption{Conjunto de datos utilizados}
-	\label{tab:dataset-comparison}
-	\begin{tabular}{@{}lll@{}}
-	\toprule
-	\textbf{Apurata}	& \textbf{Lending Club}		& \textbf{Crédito Alemán}	\\
-	\midrule
-	Perú (2016-2018)	& E.E.U.U (2007-2015)		& Alemania (1994)			\\
-	100 - 1,000 PEN		& 1000 - 35,000 USD			& 1,000 - 20,000 EUR		\\
-	1 - 9 semanas		& 36 - 60 meses				& 6 - 60 meses				\\
-	626 observaciones	& 194,208 observaciones		& 1000 observaciones		\\
-	33 atributos		& 46 atributos				& 24 atributos				\\
-	\bottomrule
-	\end{tabular}
+    \centering
+    \caption{Conjunto de datos utilizados}
+    \label{tab:dataset-comparison}
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Apurata}    & \textbf{Lending Club}     & \textbf{Crédito Alemán}   \\
+    \midrule
+    Perú (2016-2018)    & E.E.U.U (2007-2015)       & Alemania (1994)           \\
+    100 - 1,000 PEN     & 1000 - 35,000 USD         & 1,000 - 20,000 EUR        \\
+    1 - 9 semanas       & 36 - 60 meses             & 6 - 60 meses              \\
+    626 observaciones   & 194,208 observaciones     & 1000 observaciones        \\
+    33 atributos        & 46 atributos              & 24 atributos              \\
+    \bottomrule
+    \end{tabular}
 \end{table}
 
 Como se puede apreciar, todos los conjuntos se componen de pocas características, ninguno de ellos supera las 50. Los conjuntos de datos de Apurata y del Crédito Alemán además son pequeños respecto a la cantidad de instancias, con 1000 o menos.

@@ -15,17 +15,17 @@ Los últimos estudios comparativos en esta área son del año 2003 \citep{baesen
 A pesar de tener mucha investigación, la literatura sobre calificación crediticia no refleja varios recientes avances en aprendizaje predictivo \citep{lessmann2015benchmarking}. Estos avances conciernen 3 dimensiones:
 
 \begin{itemize}
-	\item Nuevos algoritmos de clasificación
-	\item Nuevas medidas de desempeño para \textit{evaluar} modelos
-	\item Pruebas de hipótesis estadísticas para \textit{comparar} modelos
+    \item Nuevos algoritmos de clasificación
+    \item Nuevas medidas de desempeño para \textit{evaluar} modelos
+    \item Pruebas de hipótesis estadísticas para \textit{comparar} modelos
 \end{itemize}
 
 Un análisis de le literatura de modelamiento de morosidad confirma que los estudios en esta área tienen varias limitaciones \citep{lessmann2015benchmarking}:
 
 \begin{itemize}
-	\item Utilizan pocos o pequeños conjuntos de datos
-	\item No comparan diferentes clasificadores de estado del arte entre ellos
-	\item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
+    \item Utilizan pocos o pequeños conjuntos de datos
+    \item No comparan diferentes clasificadores de estado del arte entre ellos
+    \item Usan un pequeño conjunto de indicadores de exactitud conceptualmente similares
 \end{itemize}
 
 A continuación se dará un breve repaso de los algoritmos que se utilizaron en esta investigación, tanto para la clasificación como para la evaluación de los modelos.
@@ -41,28 +41,28 @@ Dado que $y\in \{0, 1\}$ es la clase real y $\vec{x}$ es el vector de caracterí
 se define en la fórmula \ref{eq:lr}.
 
 \begin{equation}
-	\label{eq:lr}
+    \label{eq:lr}
 \begin{split}
-	g(z) &= \frac{1}{1 + \exp(-z) } \\
-	h &= P(y=1|\vec{x};\vec{w}) = g(\vec{w}\cdot\vec{x})
+    g(z) &= \frac{1}{1 + \exp(-z) } \\
+    h &= P(y=1|\vec{x};\vec{w}) = g(\vec{w}\cdot\vec{x})
 \end{split}
 \end{equation}
 
 A esta probabilidad se le conoce como hipótesis. En base a esta hipótesis, se define una función de costo en la fórmula \ref{eq:lr-loss} que penaliza cuando $y \ne h$.
 
 \begin{equation}
-	\label{eq:lr-loss}
+    \label{eq:lr-loss}
 \begin{split}
-	C(h, y) &= -y \cdot \log{h} - (1-y) \log{h}
+    C(h, y) &= -y \cdot \log{h} - (1-y) \log{h}
 \end{split}
 \end{equation}
 
 Luego la función de costo del modelo de la fórmula \ref{eq:lr-loss-model}, es el promedio de la función de costo de todas las $m$ instancias del conjunto de entrenamiento.
 
 \begin{equation}
-	\label{eq:lr-loss-model}
+    \label{eq:lr-loss-model}
 \begin{split}
-	J &= \frac{1}{m} \cdot \sum_{i=1}^{m} {C(h_i, y_i)}
+    J &= \frac{1}{m} \cdot \sum_{i=1}^{m} {C(h_i, y_i)}
 \end{split}
 \end{equation}
 
@@ -70,13 +70,13 @@ Esta última función de costo es usada en el algoritmo de la gradiente descende
 
 \subsection{Multi Layer Perceptron}
 
-El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa. Esta estructura se ilustra en la figura \ref{fig:mlp-eg}.
+El modelo de Multi Layer Perceptron es la red neuronal más utilizada. Está inspirada por el funcionamiento del cerebro humano. Típicamente, se compone de tres capas, una capa de entrada, una capa de neuronas ocultas y una capa de salida. Cada neurona procesa su entrada y genera una salida que es transmitida a las neuronas en la siguiente capa. Esta estructura se ilustra en la Figura \ref{fig:mlp-eg}.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.6\linewidth]{graficos/propios/mlp.png}
-	\caption{Arquitectura de una MLP típica \citep{bouzgou2012advanced}}
-	\label{fig:mlp-eg}
+    \centering
+    \includegraphics[width=0.6\linewidth]{graficos/propios/mlp.png}
+    \caption{Arquitectura de una MLP típica \citep{bouzgou2012advanced}}
+    \label{fig:mlp-eg}
 \end{figure}
 
 En esta red neuronal hay 2 tipos de propagación: la propagación hacia adelante y la propagación hacia atrás. En la propagación hacia adelante se calcula la salida $y$ a partir del vector de entrada $\vec{x}$. Y en la propagación hacia atrás, se propaga el error empezando por la última capa para ajustar los pesos de la red.
@@ -86,34 +86,34 @@ Formalmente, se definen los siguiente componentes para una red de $n$ neuronas e
 El cálculo de la clase predicha por el modelo se ilustra en la fórmula \ref{eq:mlp-pred}. Mientras que para la función de costo se utiliza la función de error cuadrático, descrita en la fórmula \ref{eq:mlp-cost}. A esta función de costo se le puede agregar un parámetro de regularización, tal como se muestra en la fórmula \ref{eq:mlp-cost-reg}.
 
 \begin{equation}
-	\label{eq:mlp-pred}
-	y = g(\vec{v} \cdot f(\vec{x} \cdot W + \vec{b_h}) + b)
+    \label{eq:mlp-pred}
+    y = g(\vec{v} \cdot f(\vec{x} \cdot W + \vec{b_h}) + b)
 \end{equation}
 
 \begin{equation}
-	\label{eq:mlp-cost}
-	Loss(\hat{y}, y) = (\hat{y} - y)^2
+    \label{eq:mlp-cost}
+    Loss(\hat{y}, y) = (\hat{y} - y)^2
 \end{equation}
 
 \begin{equation}
-	\label{eq:mlp-cost-reg}
-	Loss(\hat{y}, y, W) = (\hat{y} - y)^2 + \alpha W^2
+    \label{eq:mlp-cost-reg}
+    Loss(\hat{y}, y, W) = (\hat{y} - y)^2 + \alpha W^2
 \end{equation}
 
-La función de activación utilizada suele elegirse de entre las siguientes opciones: la función logística, la tangente hiperbólica o la función \ac{ReLU}. La figura \ref{fig:mlp-activation} hace una comparación entre ellas.
+La función de activación utilizada suele elegirse de entre las siguientes opciones: la función logística, la tangente hiperbólica o la función \ac{ReLU}. La Figura \ref{fig:mlp-activation} hace una comparación entre ellas.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.8\linewidth]{graficos/propios/funciones_de_activacion.png}
-	\caption{Funciones de activación \citep{sze2017efficient}}
-	\label{fig:mlp-activation}
+    \centering
+    \includegraphics[width=0.8\linewidth]{graficos/propios/funciones_de_activacion.png}
+    \caption{Funciones de activación \citep{sze2017efficient}}
+    \label{fig:mlp-activation}
 \end{figure}
 
 Iniciando con unos pesos iniciales aleatorios, este modelo minimiza la función de costo mediante la actualización repetitiva de los pesos. Luego de calcular el costo, éste se propaga hacia atrás desde la última capa hacia las capas anteriores, actualizando cada peso de acuerdo a la gradiente descendente de la función de costo; esto se expresa formalmente en la fórmula \ref{eq:mlp-gd}, donde $i$ es el número de la iteración y $\epsilon$ es la tasa de aprendizaje con un valor mayor a $0$.
 
 \begin{equation}
-	\label{eq:mlp-gd}
-	W^{i+1} = W^i - \epsilon \nabla Loss_W^i
+    \label{eq:mlp-gd}
+    W^{i+1} = W^i - \epsilon \nabla Loss_W^i
 \end{equation}
 
 El algoritmo se detiene cuando alcanza un máximo número de iteraciones pre-establecidas; o cuando la mejora en la función de costo cae debajo de un cierto umbral.
@@ -124,13 +124,13 @@ Es un tipo de red neuronal profunda, compuesta por múltiples capas de variables
 
 El entrenamiento de esta red consiste en una etapa no supervisada seguida de otra supervisada. En la etapa no supervisada \ac{DBN} aprende a reconstruir probabilísticamente sus entradas. Luego, se mejora la clasificación mediante la siguiente etapa de entrenamiento supervisado, que utiliza la misma propagación hacia atrás de \ac{MLP}.
 
-\ac{DBN} puede ser vista como la composición de redes simples no supervisadas tales como \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa, tal como se ilustra en la figura \ref{fig:dbn-train}.
+\ac{DBN} puede ser vista como la composición de redes simples no supervisadas tales como \ac{RBM} o los autoencoders, donde la capa oculta de cada sub-red se convierte en la capa visible de la siguiente sub-red. Esta composición permite un proceso de entrenamiento no supervisado rápido capa por capa, tal como se ilustra en la Figura \ref{fig:dbn-train}.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.9\linewidth]{graficos/propios/entrenamiento_dbn.png}
-	\caption{Entrenamiento no supervisado de una DBN \citep{beysolow2017autoencoders}}
-	\label{fig:dbn-train}
+    \centering
+    \includegraphics[width=0.9\linewidth]{graficos/propios/entrenamiento_dbn.png}
+    \caption{Entrenamiento no supervisado de una DBN \citep{beysolow2017autoencoders}}
+    \label{fig:dbn-train}
 \end{figure}
 
 Finalmente, para producir una predicción se hace una propagación hacia adelante igual a \ac{MLP}.
@@ -139,17 +139,7 @@ Finalmente, para producir una predicción se hace una propagación hacia adelant
 
 \textit{Support Vector Machine} es una familia de algoritmos de aprendizaje supervisado que pueden hacer clasificación y regresión \citep{cortes1995support}.
 
-Funcionan encontrando el hiperplano o conjunto de hiperplanos óptimos para separar las clases maximizando el margen entre ellas. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. Esta separación es ilustrada en la figura \ref{fig:svm-hiperplanos}. Sim embargo, al igual que las redes neuronales, esta técnica es criticada por ser una caja negra.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\linewidth]{graficos/svm_hiperplanos.png}
-	\caption{Hiperplanos creados por una SVM \citep{wiki:svm_figure}}
-	\label{fig:svm-hiperplanos}
-	\par
-	\small
-	$H_1$ no separa las clases. $H_2$ las separa, pero solo con un margen pequeño. $H_3$ las separa con el margen máximo.
-\end{figure}
+Funcionan encontrando el hiperplano o conjunto de hiperplanos óptimos para separar las clases maximizando el margen entre ellas. Cada uno de estos hiperplanos está definido por el vector entre los dos puntos más cercanos de 2 clases diferentes, al que se llama vector de soporte. Sin embargo, al igual que las redes neuronales, esta técnica es criticada por ser una caja negra.
 
 Dado que el hiperplano tiene que separar perfectamente las observaciones, es muy sensible a variaciones en los datos. Incluir una nueva observación puede suponer cambios muy grandes en el hiperplano de separación (poca robustez). En otras palabras, conlleva problemas de \textit{overfitting}. Para evitar esto, existe un parámetro de regularización que permite crear hiperplanos que no separan perfectamente las clases, pero que son más robustos y tienen mayor capacidad predictiva al aplicarlo a nuevas observaciones.
 
@@ -161,13 +151,13 @@ Además, existe una versión de \ac{SVM} llamada \ac{LS-SVM}, que encuentra la s
 
 \subsection{Árbol de decisión}
 
-Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
+Un árbol de decisión es un modelo simple de clasificación, se puede ver un ejemplo en la Figura \ref{fig:dt-eg}. Cada nodo interno corresponde a una de las variables de entrada, y según el valor de esta se puede bajar a alguno de los nodos hijos. Cada hoja representa la predicción dada por los valores de la entrada representados por el camino desde la raíz hasta la hoja.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\linewidth]{graficos/propios/arbol_decision.png}
-	\caption{Ejemplo de árbol de decisión}
-	\label{fig:dt-eg}
+    \centering
+    \includegraphics[width=0.4\linewidth]{graficos/propios/arbol_decision.png}
+    \caption{Ejemplo de árbol de decisión}
+    \label{fig:dt-eg}
 \end{figure}
 
 Los algoritmos para la construcción de árboles suelen trabajar de arriba hacia abajo, escogiendo en cada paso la variable que separa mejor los datos. Diferentes algoritmos usan diferentes métricas para definir una ``mejor separación de los datos''. Estos típicamente miden la homogeneidad de la variable objetivo en los subsets resultantes. Entre estos algoritmos se encuentran la Impureza de Gini, la Ganancia de Información y la Reducción de la Varianza.
@@ -186,13 +176,13 @@ Evaluar la predicción de un ensamble requiere más computaciones de las que req
 
 Con \ac{RF} se obtienen importantes mejoras de exactitud y se reduce el \textit{overfitting} respecto a un árbol de decisión entrenado con el conjunto de datos completo. Además, mientras que un bosque crece en complejidad (medida como el número de árboles) su exactitud en el conjunto de prueba no disminuye.
 
-La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Forest} de manera gráfica.
+La Figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Forest} de manera gráfica.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\linewidth]{graficos/propios/rf.png}
-	\caption{Funcionamiento de \textit{Random Forest} \citep{mql5:rf}}
-	\label{fig:rf}
+    \centering
+    \includegraphics[width=\linewidth]{graficos/propios/rf.png}
+    \caption{Funcionamiento de \textit{Random Forest} \citep{mql5:rf}}
+    \label{fig:rf}
 \end{figure}
 
 
@@ -201,10 +191,10 @@ La figura \ref{fig:rf} ilustra muy bien el funcionamiento de \textit{Random Fore
 \textit{Boosting} es un método similar a \textit{bagging} que agrupa varios modelos débiles en un modelo fuerte. La diferencia con \textit{bagging} es que no se crean muestras aleatorias con repetición, sino que se incrementa la exactitud del modelo de forma progresiva, haciendo que los módelos débiles se enfoquen más en las instancias mal clasificadas de los clasificadores anteriores. AdaBoost es un ejemplo simple de \textit{boosting} que se puede resumir en el los siguientes pasos:
 
 \begin{enumerate}
-	\item Se escoge una muestra aleatoria del conjunto de entrenamiento
-	\item Se entrena un clasificador débil con esta muestra y se clasifica todo el conjunto de entrenamiento
-	\item A las instancias mal clasificadas se les da más peso para que tengan más probabilidad de aparecer en la siguiente muestra
-	\item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
+    \item Se escoge una muestra aleatoria del conjunto de entrenamiento
+    \item Se entrena un clasificador débil con esta muestra y se clasifica todo el conjunto de entrenamiento
+    \item A las instancias mal clasificadas se les da más peso para que tengan más probabilidad de aparecer en la siguiente muestra
+    \item Se repite este proceso de manera que las instancias mal clasificadas reciben un mayor enfoque de los clasificadores subsiguientes
 \end{enumerate}
 
 \textit{Gradient Boosting} por otro lado, modela el problema de clasificación como una función de pérdida que debe ser minimizada. Cada nuevo clasificador débil es un paso más en la dirección negativa de la gradiente, con lo que se minimiza el error. Está tecnica es susceptible de sufrir \textit{overfitting}, por esta razón existen varias técnicas de regularización.
@@ -220,7 +210,7 @@ Finalmente, XGBoost es una implementación de \textit{Gradient Boosting} en árb
 % \item Ir de lo genérico a lo específico. Siempre hay qeu considerar que el lector podría ser alguien no muy familiar con el tema
 % y la lectura debe serle atractiva.
 % \item No poner frases muy largas. Si las frases son de mas de 2 líneas continuas es probable que la lectura sea dificultosa.
-% \item Las figuras, ecuaciones, tablas deben ser citados y explicados {\bf antes} de que aparezcan en el documento.
+% \item Las Figuras, ecuaciones, tablas deben ser citados y explicados {\bf antes} de que aparezcan en el documento.
 % \item Encadenar las ideas. Ninguna frase debe estar suelta. Siempre que terminas un párrafo y hay otro a continuación,
 % el primero debe dejar abierta la idea que se explicará a continuación. Todo debe tener secuencia.
 % \end{itemize}
@@ -234,42 +224,42 @@ Finalmente, XGBoost es una implementación de \textit{Gradient Boosting} en árb
 De forma intuitiva se pueden definir de la siguiente manera:
 
 \begin{description}
-	\item [Exactitud] Porcentaje de clasificaciones correctas. En inglés: \textit{accuracy}.
-	\item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos. En inglés: \textit{precision}.
-	\item [Exhaustividad] De los realmente positivos, cuántos fueron clasificados como tal. En inglés: \textit{recall}.
+    \item [Exactitud] Porcentaje de clasificaciones correctas. En inglés: \textit{accuracy}.
+    \item [Precisión] De aquellos clasificados como positivos, cuántos son realmente positivos. En inglés: \textit{precision}.
+    \item [Exhaustividad] De los realmente positivos, cuántos fueron clasificados como tal. En inglés: \textit{recall}.
 \end{description}
 
 Por otro lado, para definir estos térmios rigurosamente, es necesario explicar la matriz de confusión, también conocida como tabla de contingencia. Esta es una herramienta que permite visualizar el desempeño de un algoritmo de clasificación. Contrasta las clasificaciones hechas con la clase verdadera. Los números en la diagonal representan el error o confusión entre las clases \citep{fawcett2006introduction}.
 
-En la figura \ref{fig:confussion2} se muestra una matriz de confusión con 2 clases.
+En la Figura \ref{fig:confussion2} se muestra una matriz de confusión con 2 clases.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.6\linewidth]{graficos/propios/matriz_confusion.png}
-	\caption{Matriz de confusión de dos clases}
-	\label{fig:confussion2}
+    \centering
+    \includegraphics[width=0.6\linewidth]{graficos/propios/matriz_confusion.png}
+    \caption{Matriz de confusión de dos clases}
+    \label{fig:confussion2}
 \end{figure}
 
 A partir de esta matriz se pueden definir formalmente la exactitud, precisión y exhaustividad. Esta definición es presentada en la fórmula \ref{eq:accuracy-prec-rec}.
 
 \begin{equation}
-	\label{eq:accuracy-prec-rec}
+    \label{eq:accuracy-prec-rec}
 \begin{split}
-	VP &= \text{Verdaderos Positivos} \\
-	VN &= \text{Verdaderos Negativos} \\
-	FP &= \text{Falsos Positivos} \\
-	FN &= \text{Falsos Negativos} \\\\
-	\text{Exactitud} &= \frac{VP + VN}{VP + FP + VN + FN} \\\\
-	\text{Precisión} &= \frac{VP}{VP + FP} \\\\
-	\text{Exhaustividad} &= \frac{VP}{VP + FN}
+    VP &= \text{Verdaderos Positivos} \\
+    VN &= \text{Verdaderos Negativos} \\
+    FP &= \text{Falsos Positivos} \\
+    FN &= \text{Falsos Negativos} \\\\
+    \text{Exactitud} &= \frac{VP + VN}{VP + FP + VN + FN} \\\\
+    \text{Precisión} &= \frac{VP}{VP + FP} \\\\
+    \text{Exhaustividad} &= \frac{VP}{VP + FN}
 \end{split}
 \end{equation}
 
 Para utilizar los diferentes modelos, hay que definir una etiqueta positiva y una etiqueta negativa. Normalmente, la etiqueta positiva se destina a las créditos morosos. Sin embargo, si se invierte esta etiqueta y se hace que los créditos morosos tengan la etiqueta negativa, entonces la precisión y la exhaustividad se pueden asociar con conceptos mucho más intuitivos:
 
 \begin{description}
-	\item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
-	\item [Exhaustividad] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
+    \item [Precisión] De las personas que el modelo clasificó como buenos pagadores, cuántos realmente pagan sus préstamos. En otras palabras esta métrica se convierte en $1 - \text{\% de morosidad}$. Y representa muy bien el riesgo crediticio del modelo.
+    \item [Exhaustividad] Del universo de buenos pagadores, cuántos pueden ser capturados con este modelo. Está métrica tiene una incidencia directa en el costo de adquisión de los clientes.
 \end{description}
 
 En otras palabras, el balance entre precisión y exhaustividad se convierte en el balance entre el riesgo que se quiere asumir y el costo de adquisición de los clientes y el tamaño del mercado. En cambio el concepto de Exactitud no tiene una incidencia directa en algún aspecto del problema, además de que no es una buena métrica a utilizar en conjuntos desbalanceados.
@@ -284,13 +274,13 @@ Las métricas vistas en la sección anterior tienen un inconveniente: es necesar
 
 La curva ROC grafica la relación entre la razón de verdaderos positivos y la razón de falsos positivos según se varía el umbral de discriminación. Mientras esta curva se acerque más a la esquina superior izquiera, mejor será la clasificación.
 
-El \ac{AUC} es una medida que nos permite comparar diferentes curvas fácilmente. Funciona calculando el área debajo de la curva ROC, tal como su nombre lo indica. Ver figura \ref{fig:eg-roc}.
+El \ac{AUC} es una medida que nos permite comparar diferentes curvas fácilmente. Funciona calculando el área debajo de la curva ROC, tal como su nombre lo indica. Ver Figura \ref{fig:eg-roc}.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.8\linewidth]{graficos/eg_roc.png}
-	\caption{Ejemplo de curvas ROC \citep{wiki:roc_figure}}
-	\label{fig:eg-roc}
+    \centering
+    \includegraphics[width=0.7\linewidth]{graficos/propios/roc.PNG}
+    \caption{Ejemplo de curvas ROC}
+    \label{fig:eg-roc}
 \end{figure}
 
 Finalmente cabe mencionar que pueden existir dos curvas ROC diferentes que tengan la misma área bajo la curva. Por eso no se puede descartar el uso de las curvas ROC totalmente, ya que dependiendo de a qué se le quiera dar más importancia, se escogerá una curva y otra. Tarea que es imposible solamente observando el \ac{AUC}.

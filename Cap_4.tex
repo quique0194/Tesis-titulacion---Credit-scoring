@@ -149,7 +149,9 @@ En conclusión, este clasificador no es adecuado para este problema, y al ser ba
 
 \subsection{Conclusiones del Experimento 1}
 
-Se vió que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en prácticamente todos los clasificadores base, excepto las \ac{LR} en dos conjuntos de datos.
+Debido a la densidad de los resultados, se creó la Tabla \ref{tab:summary1_2} con un resumen cualitativo de los experimentos 1 y 2. De forma que se facilite la lectura de las conclusiones.
+
+Se vio que aplicando la propuesta de ensamble, el \ac{AUC} mejoró en prácticamente todos los clasificadores base, excepto las \ac{LR} en dos conjuntos de datos.
 
 La exhaustividad promedio disminuye en la mayoría de modelos, ya que existe un balance entre la precisión y la exhaustividad. Y ya que se trató de optimizar la exactitud, indirectamente se optimizó la precisión, de forma que la exhaustividad disminuyó.
 
@@ -265,15 +267,22 @@ XGB				& 80.28		& 81.43		& 91.66			& 78.93		\\		% AUC std: 2.08
 
 \subsection{Conclusiones del Experimento 2}
 
-Se observó que en los conjuntos de datos de Apurata y \textit{Lending Club}, se consiguió superar el desempeño de \ac{RF} y \ac{XGBoost}. Y en el conjunto de datos Alemán se obtuvo un desempeño similar. En consecuencia, se puede afirmar que el método propuesto mejora o al menos mantiene un desempeño similar a modelos del estado del arte. Los resultados varían según el clasificador base utilizado y el conjunto de datos.
+Nuevamente se puede consultar la Tabla \ref{tab:summary1_2} para facilitar la lectura de las conclusiones.
 
-Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de features y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que \textit{Random Forest} y \textit{XGBoost}.
+Se observó que en los conjuntos de datos de Apurata y \textit{Lending Club}, se consiguió superar el desempeño de \ac{RF} y \ac{XGBoost}. En cambio, en el conjunto de datos Alemán se obtuvo un desempeño similar con los árboles de decisión y peor con \ac{LR}. En consecuencia, se puede afirmar que el método propuesto mejora o al menos mantiene un desempeño similar a modelos del estado del arte. Los resultados varían según el clasificador base utilizado y el conjunto de datos.
+
+Lamentablemente no es posible extrapolar estas conclusiones a otros dominios donde también hayan conjuntos de datos desbalanceados, ya que los conjuntos de datos crediticios además del desbalance poseen otras características que podrían no cumplirse en otros dominios, como la estacionalidad de los datos, la baja cantidad de variables y la información parcialmente oculta. De modo que no se puede afirmar que estos \ac{ECDD} son universalmente mejores que \textit{Random Forest} y \textit{XGBoost}.
 
 Otra observación interesante es el buen desempeño que obtiene la Regresión Logística en el conjunto de Apurata. Esto podría indicar que la información es linealmente separable y los otros modelos sufren de \textit{overfitting}, razón por la cuál su desempeño no es óptimo.
 
 Finalmente, el \ac{ECDD} de árboles de decisión obtiene resultados muy buenos consistentemente en \textit{Lending Club} y el Crédito Alemán, lo que sugiere que si los datos no son linealmente separables, entonces este modelo tiene un gran desempeño. Probando una vez más que usar los árboles de decisión como base para algoritmos de ensamble tiene muy buenos resultados.
 
-
+\begin{table}[htbp]
+    \centering
+    \caption{Resumen de los experimentos 1 y 2}
+    \includegraphics[width=\linewidth]{graficos/propios/resumen_experimentos1_2.PNG}
+    \label{tab:summary1_2}
+\end{table}
 
 \section{Experimento 3} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -281,6 +290,7 @@ En este experimento se compararon los resultados obtenidos por los modelos \ac{E
 
 Los resultados del experimento 3 se pueden ver en las Tablas \ref{tab:lc-proc3} y \ref{tab:german-proc3}. Sólo se tienen resultados para \textit{Lending Club} y el Cŕedito Alemán puesto que Apurata es un conjunto de datos privado que es usado de forma inédita en esta tesis.
 
+Para una comprensión rápida de los resultados se creó la Tabla \ref{tab:summary3}, de forma análoga a los experimentos anteriores.
 
 \begin{table}[htbp]
 \centering
@@ -347,4 +357,9 @@ Es importante notar que al haber seguido procesos diferentes, los resultados de 
 
 Cinco de los siete estudios referenciales no incluyen la desviación estándar en sus resultados, así que resulta imposible realizar una prueba de significancia estadística. Pero revisando el \ac{AUC} promedio, se puede notar que los resultados son efectivamente competitivos con el estado del arte en calificación crediticia.
 
-
+\begin{table}[htbp]
+    \centering
+    \caption{Resumen del experimento 3}
+    \includegraphics[width=\linewidth]{graficos/propios/resumen_experimento3.PNG}
+    \label{tab:summary3}
+\end{table}
